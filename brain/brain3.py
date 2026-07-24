@@ -235,7 +235,7 @@ def _parse_retry_after(headers: requests.structures.CaseInsensitiveDict) -> Opti
 def _is_done(status_code: int, body: Dict[str, Any]) -> bool:
     """[Run] Decide whether the simulation is completed."""
     status = str(body.get("status") or body.get("state") or "").upper()
-    if status in {"DONE", "COMPLETED", "FINISHED"}:
+    if status in {"DONE", "COMPLETED", "FINISHED", "ERROR", "FAIL", "FAILED"}:
         return True
     if status_code == 200 and ("alpha" in body or "result" in body):
         return True

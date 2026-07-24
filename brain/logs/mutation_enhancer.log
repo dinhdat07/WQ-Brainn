@@ -1,0 +1,62 @@
+2026-07-24 23:40:26,825 - INFO - Starting Mutation Enhancer...
+2026-07-24 23:40:28,377 - INFO - Total mutations to process: 8
+2026-07-24 23:40:28,377 - INFO - [1/8] Submitting EV_CF_1A_Percent_Return: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * (-ts_delta(close, 5)/close), 3), 30), 5) (Neut: NONE)
+2026-07-24 23:40:28,377 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * (-ts_delta(close, 5)/close), 3), 30), 5)
+2026-07-24 23:40:28,802 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1cil5M9YL4ygbvUK3DWEaP1
+2026-07-24 23:41:54,387 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * (-ts_delta(close, 5)/close), 3), 30), 5)
+2026-07-24 23:41:58,155 - ERROR - [1/8] EXCEPTION: HTTPSConnectionPool(host='api.api.worldquantbrain.com', port=443): Max retries exceeded with url: /alphas/N1RR0www (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.api.worldquantbrain.com'. (_ssl.c:1006)")))
+2026-07-24 23:41:58,155 - INFO - [2/8] Submitting EV_CF_1B_Medium_Return: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-returns, 10), 3), 30), 5) (Neut: NONE)
+2026-07-24 23:41:58,155 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-returns, 10), 3), 30), 5)
+2026-07-24 23:41:58,484 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2EK00VgD84OiaZY19uK6OzYR
+2026-07-24 23:44:03,267 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-returns, 10), 3), 30), 5)
+2026-07-24 23:44:07,017 - ERROR - [2/8] EXCEPTION: HTTPSConnectionPool(host='api.api.worldquantbrain.com', port=443): Max retries exceeded with url: /alphas/88eebrYo (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.api.worldquantbrain.com'. (_ssl.c:1006)")))
+2026-07-24 23:44:07,017 - INFO - [3/8] Submitting EV_CF_2_Pure_Fundamental: ts_decay_exp_window(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10) (Neut: NONE)
+2026-07-24 23:44:07,017 - INFO - [Run] Submit: ts_decay_exp_window(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10)
+2026-07-24 23:44:07,347 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1F6L6GavS4Oxc6jWUsWayqe
+2026-07-24 23:46:04,512 - INFO - Starting Mutation Enhancer...
+2026-07-24 23:46:05,890 - INFO - Total mutations to process: 8
+2026-07-24 23:46:05,890 - INFO - [1/8] Submitting EV_CF_1A_Percent_Return: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * (-ts_delta(close, 5)/close), 3), 30), 5) (Neut: NONE)
+2026-07-24 23:46:05,890 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * (-ts_delta(close, 5)/close), 3), 30), 5)
+2026-07-24 23:46:06,237 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2zk25vIF4lsb4TrYKEkOAt
+2026-07-24 23:47:24,555 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * (-ts_delta(close, 5)/close), 3), 30), 5)
+2026-07-24 23:47:27,905 - INFO - [1/8] SUCCESS (Rejected) ID: N1RR0www | Sharpe: 0.35 | Fit: 0.19
+2026-07-24 23:47:27,905 - INFO - [2/8] Submitting EV_CF_1B_Medium_Return: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-returns, 10), 3), 30), 5) (Neut: NONE)
+2026-07-24 23:47:27,906 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-returns, 10), 3), 30), 5)
+2026-07-24 23:47:28,428 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1MaT3Odia4yWcpSvR7Nq5gB
+2026-07-24 23:48:54,075 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-returns, 10), 3), 30), 5)
+2026-07-24 23:48:57,463 - INFO - [2/8] \U0001f680 SUBMITTABLE! ID: 88eebrYo | Sharpe: 1.31 | Fit: 1.07
+2026-07-24 23:48:57,463 - INFO - [3/8] Submitting EV_CF_2_Pure_Fundamental: ts_decay_exp_window(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10) (Neut: NONE)
+2026-07-24 23:48:57,463 - INFO - [Run] Submit: ts_decay_exp_window(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10)
+2026-07-24 23:48:57,774 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3mQpuF2EW4udbLutGeOwEBV
+2026-07-25 00:13:30,670 - INFO - Starting Mutation Enhancer...
+2026-07-25 00:13:32,002 - INFO - Total mutations to process: 8
+2026-07-25 00:13:32,002 - INFO - [1/6] Submitting EV_CF_2_Pure_Fundamental: ts_decay_linear(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10) (Neut: NONE)
+2026-07-25 00:13:32,002 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10)
+2026-07-25 00:13:32,316 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1lIA14bRS4x58PDDnmNnvDi
+2026-07-25 00:15:11,869 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_mean(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry), 5), 20), 10)
+2026-07-25 00:15:15,205 - INFO - [1/6] SUCCESS (Rejected) ID: e7xxoOmd | Sharpe: 0.59 | Fit: 0.21
+2026-07-25 00:15:15,205 - INFO - [2/6] Submitting EV_CF_3_Brain_Neutralization: ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-ts_delta(close, 5), 10), 6) (Neut: INDUSTRY)
+2026-07-25 00:15:15,205 - INFO - [Run] Submit: ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-ts_delta(close, 5), 10), 6)
+2026-07-25 00:15:15,519 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/13pK2a9mJ5hda3FxzQo0NHb
+2026-07-25 00:16:29,696 - INFO - [Run] Done: ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 120), subindustry) * ts_rank(-ts_delta(close, 5), 10), 6)
+2026-07-25 00:16:33,010 - INFO - [2/6] SUCCESS (Rejected) ID: 58kkoQLM | Sharpe: 1.45 | Fit: 0.75
+2026-07-25 00:16:33,010 - INFO - [3/6] Submitting Volatility_1A_Percent_Return: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * (-ts_delta(close, 5)/close), 3), 30), 5) (Neut: NONE)
+2026-07-25 00:16:33,010 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * (-ts_delta(close, 5)/close), 3), 30), 5)
+2026-07-25 00:16:33,372 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/127ZwNcTT4TV9zS165mxdFzQ
+2026-07-25 00:17:53,104 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * (-ts_delta(close, 5)/close), 3), 30), 5)
+2026-07-25 00:17:56,401 - INFO - [3/6] SUCCESS (Rejected) ID: N1RRvKgo | Sharpe: 0.23 | Fit: 0.11
+2026-07-25 00:17:56,401 - INFO - [4/6] Submitting Volatility_1B_Medium_Return: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * ts_rank(-returns, 10), 3), 30), 5) (Neut: NONE)
+2026-07-25 00:17:56,401 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * ts_rank(-returns, 10), 3), 30), 5)
+2026-07-25 00:17:59,960 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/36nk5T82k51k9MS1dNMWi2Kz
+2026-07-25 00:19:22,066 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * ts_rank(-returns, 10), 3), 30), 5)
+2026-07-25 00:19:25,368 - INFO - [4/6] SUCCESS (Rejected) ID: 78nnE2Yv | Sharpe: 1.02 | Fit: 0.71
+2026-07-25 00:19:25,369 - INFO - [5/6] Submitting Volatility_2_Pure_Fundamental: ts_decay_linear(ts_zscore(ts_mean(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)), 5), 20), 10) (Neut: NONE)
+2026-07-25 00:19:25,369 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_mean(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)), 5), 20), 10)
+2026-07-25 00:19:25,684 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3f8Nie8FH4XWa6o7LWrdg7x
+2026-07-25 00:20:45,156 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_mean(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)), 5), 20), 10)
+2026-07-25 00:20:48,545 - INFO - [5/6] SUCCESS (Rejected) ID: pwKKA9dg | Sharpe: -0.46 | Fit: -0.17
+2026-07-25 00:20:48,545 - INFO - [6/6] Submitting Volatility_3_Brain_Neutralization: ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * ts_rank(-ts_delta(close, 5), 10), 6) (Neut: INDUSTRY)
+2026-07-25 00:20:48,545 - INFO - [Run] Submit: ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * ts_rank(-ts_delta(close, 5), 10), 6)
+2026-07-25 00:20:48,857 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3BQoiN6Nr5b5b8HmnY1YRtx
+2026-07-25 00:22:24,540 - INFO - [Run] Done: ts_decay_linear(rank(ts_backfill(implied_volatility_call_10, 5) / ts_backfill(parkinson_volatility_10, 5)) * ts_rank(-ts_delta(close, 5), 10), 6)
+2026-07-25 00:22:27,864 - INFO - [6/6] SUCCESS (Rejected) ID: 3qeeLZJ0 | Sharpe: 1.27 | Fit: 0.59
