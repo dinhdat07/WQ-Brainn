@@ -1,0 +1,91 @@
+2026-07-24 00:46:12,441 - INFO - [1/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:46:12,442 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:46:12,963 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2eLFtcda65cH9hmqneEaKnl
+2026-07-24 00:47:27,694 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:47:28,030 - INFO - [1/13] SUCCESS (Rejected) ID: RR1rJOm0 | Sharpe: 0.99 | Fit: 0.31
+2026-07-24 00:47:28,032 - INFO - [2/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 2)
+2026-07-24 00:47:28,032 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 2)
+2026-07-24 00:47:28,551 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3uJxx11t958v9T9kVskvHni
+2026-07-24 00:49:19,492 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 2)
+2026-07-24 00:49:19,946 - INFO - [2/13] SUCCESS (Rejected) ID: 6XeEXVm7 | Sharpe: 0.9 | Fit: 0.28
+2026-07-24 00:49:19,947 - INFO - [3/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 00:49:19,947 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 00:49:20,427 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/bgsXHciM4olcbSdRJ5JOVr
+2026-07-24 00:51:08,467 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 00:51:08,791 - INFO - [3/13] SUCCESS (Rejected) ID: Vk38kwWG | Sharpe: 0.79 | Fit: 0.23
+2026-07-24 00:51:08,792 - INFO - [4/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 5)
+2026-07-24 00:51:08,792 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 5)
+2026-07-24 00:51:09,383 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1TLiGWflZ4R4bK9fbYMpmay
+2026-07-24 00:52:43,574 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 5)
+2026-07-24 00:52:44,032 - INFO - [4/13] SUCCESS (Rejected) ID: zqRWqO38 | Sharpe: 0.61 | Fit: 0.17
+2026-07-24 00:52:44,032 - INFO - [5/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20)
+2026-07-24 00:52:44,032 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20)
+2026-07-24 00:52:44,510 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2b64VlaF04VYcjq16xa4hOrB
+2026-07-24 00:54:17,629 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20)
+2026-07-24 00:54:20,554 - INFO - [5/13] SUCCESS (Rejected) ID: le30e8qO | Sharpe: 0.8 | Fit: 0.24
+2026-07-24 00:54:20,554 - INFO - [6/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 10), 20)
+2026-07-24 00:54:20,554 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 10), 20)
+2026-07-24 00:54:21,056 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1B9xE84f4qb8PuY2BV1ijr
+2026-07-24 00:55:50,347 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 10), 20)
+2026-07-24 00:55:50,717 - INFO - [6/13] SUCCESS (Rejected) ID: QP9QPWvK | Sharpe: 0.74 | Fit: 0.21
+2026-07-24 00:55:50,718 - INFO - [7/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20), 3)
+2026-07-24 00:55:50,718 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20), 3)
+2026-07-24 00:55:51,230 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2w7gWQeJ44OcaZhWKvr8RBZ
+2026-07-24 00:57:33,785 - INFO - [1/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:57:33,785 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:57:34,286 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4fGRdrcPe4q1cK7fXuyRPM
+2026-07-24 00:59:03,917 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:59:04,251 - INFO - [1/13] SUCCESS (Rejected) ID: O0xo32jv | Sharpe: 1.22 | Fit: 0.98
+2026-07-24 00:59:04,251 - INFO - [2/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 2)
+2026-07-24 00:59:04,251 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 2)
+2026-07-24 00:59:04,736 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3BNFzA2uy4UF8Q93eKPtWtM
+2026-07-24 01:00:29,824 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 2)
+2026-07-24 01:00:30,263 - INFO - [2/13] SUCCESS (Rejected) ID: zqRWK16d | Sharpe: 1.19 | Fit: 0.98
+2026-07-24 01:00:30,263 - INFO - [3/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 01:00:30,264 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 01:00:30,738 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3BwsVnbDK4TMca87sPUMZa0
+2026-07-24 01:03:22,567 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 01:03:22,906 - INFO - [3/13] SUCCESS (Rejected) ID: le30prOA | Sharpe: 1.1 | Fit: 0.89
+2026-07-24 01:03:22,906 - INFO - [4/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 5)
+2026-07-24 01:03:22,907 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 5)
+2026-07-24 01:03:23,429 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/6xG0e2kx56VauQhJ6637Qc
+2026-07-24 01:04:43,367 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 5)
+2026-07-24 01:04:43,698 - INFO - [4/13] SUCCESS (Rejected) ID: 78nd7zav | Sharpe: 0.89 | Fit: 0.67
+2026-07-24 01:04:43,698 - INFO - [5/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20)
+2026-07-24 01:04:43,699 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20)
+2026-07-24 01:04:44,200 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3TII6zaP54owbU61dLv4fDeZ
+2026-07-24 01:06:05,006 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20)
+2026-07-24 01:06:05,393 - INFO - [5/13] SUCCESS (Rejected) ID: Vk381dMw | Sharpe: 1.1 | Fit: 0.88
+2026-07-24 01:06:05,393 - INFO - [6/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 10), 20)
+2026-07-24 01:06:05,393 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 10), 20)
+2026-07-24 01:06:05,885 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3hEWX050A4uMb8JIWksnIbl
+2026-07-24 01:07:15,025 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 10), 20)
+2026-07-24 01:07:15,473 - INFO - [6/13] SUCCESS (Rejected) ID: zqRWK2PO | Sharpe: 1.03 | Fit: 0.8
+2026-07-24 01:07:15,473 - INFO - [7/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20), 3)
+2026-07-24 01:07:15,473 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20), 3)
+2026-07-24 01:07:15,797 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3UoWzqn04o59OOJEV5GiyU
+2026-07-24 01:08:53,494 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 8), 20), 3)
+2026-07-24 01:08:53,921 - INFO - [7/13] SUCCESS (Rejected) ID: j2rgzKO9 | Sharpe: 0.89 | Fit: 0.68
+2026-07-24 01:08:53,921 - INFO - [8/13] Submitting: ts_zscore(ts_decay_linear(rank(ts_rank(fnd6_cptmfmq_oibdpq, 60)) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 01:08:53,921 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(rank(ts_rank(fnd6_cptmfmq_oibdpq, 60)) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 01:08:54,388 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 01:09:09,856 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 01:09:25,721 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 01:09:41,404 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 01:09:56,877 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 01:10:12,372 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/jEqUm8Zq4D79vlEZdiLNWp
+2026-07-24 01:11:28,362 - INFO - [Run] Done: ts_zscore(ts_decay_linear(rank(ts_rank(fnd6_cptmfmq_oibdpq, 60)) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 01:11:28,693 - INFO - [8/13] SUCCESS (Rejected) ID: MPLxORzz | Sharpe: 1.25 | Fit: 1.02
+2026-07-24 01:11:28,693 - INFO - [9/13] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_rank(fnd6_cptmfmq_oibdpq, 60)) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 01:11:28,693 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_rank(fnd6_cptmfmq_oibdpq, 60)) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 01:11:29,189 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/UyVg79KJ57YaG8dN4pcG01
+2026-07-24 01:13:01,269 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(rank(ts_rank(fnd6_cptmfmq_oibdpq, 60)) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 01:13:01,588 - INFO - [9/13] SUCCESS (Rejected) ID: rKPWYEv1 | Sharpe: 1.13 | Fit: 0.93
+2026-07-24 01:13:01,588 - INFO - [10/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), industry) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 01:13:01,588 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), industry) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 01:13:02,939 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/XdEqf1yO546ajIzbiJlIbQ
+2026-07-24 01:14:45,203 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), industry) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 01:14:45,529 - INFO - [10/13] SUCCESS (Rejected) ID: e7xrmLYg | Sharpe: 1.22 | Fit: 0.98
+2026-07-24 01:14:45,530 - INFO - [11/13] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 40)
+2026-07-24 01:14:45,530 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 40)
+2026-07-24 01:14:46,474 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2ZsnZknr4PWcDJKiK25hAj

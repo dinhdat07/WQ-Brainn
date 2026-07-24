@@ -1,0 +1,151 @@
+2026-07-23 11:30:17,679 - INFO - Starting batch test of 20 Alphas...
+2026-07-23 11:30:19,698 - INFO - [Auth] OK.
+2026-07-23 11:30:19,698 - INFO - [1/20] Submitting: group_rank(ts_rank(assets, 20), sector)
+2026-07-23 11:30:19,699 - INFO - [Run] Submit: group_rank(ts_rank(assets, 20), sector)
+2026-07-23 11:30:20,401 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4doW1X6j24suafqACvabaGx
+2026-07-23 11:32:23,749 - INFO - [Run] Done: group_rank(ts_rank(assets, 20), sector)
+2026-07-23 11:32:23,749 - INFO - [1/20] => SUCCESS! Alpha ID: akEAaM6w
+2026-07-23 11:32:23,749 - INFO - [2/20] Submitting: group_rank(ts_rank(assets, 20), subindustry)
+2026-07-23 11:32:23,749 - INFO - [Run] Submit: group_rank(ts_rank(assets, 20), subindustry)
+2026-07-23 11:32:24,340 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/39h6Mp3m85eAcqm12FHYmt9G
+2026-07-23 11:34:32,238 - INFO - [Run] Done: group_rank(ts_rank(assets, 20), subindustry)
+2026-07-23 11:34:32,238 - INFO - [2/20] => SUCCESS! Alpha ID: Jjvg87gn
+2026-07-23 11:34:32,238 - INFO - [3/20] Submitting: group_rank(ts_rank(assets, 60), sector)
+2026-07-23 11:34:32,238 - INFO - [Run] Submit: group_rank(ts_rank(assets, 60), sector)
+2026-07-23 11:34:32,705 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/nQjcm9lE4uRbAxvvgKG984
+2026-07-23 11:37:13,790 - INFO - [Run] Done: group_rank(ts_rank(assets, 60), sector)
+2026-07-23 11:37:13,790 - INFO - [3/20] => SUCCESS! Alpha ID: LLdgKw7M
+2026-07-23 11:37:13,790 - INFO - [4/20] Submitting: group_rank(ts_rank(assets, 60), subindustry)
+2026-07-23 11:37:13,790 - INFO - [Run] Submit: group_rank(ts_rank(assets, 60), subindustry)
+2026-07-23 11:37:14,284 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3nys5P9bJ56YbrL1dXHgFvTc
+2026-07-23 11:40:32,044 - INFO - [Run] Done: group_rank(ts_rank(assets, 60), subindustry)
+2026-07-23 11:40:32,045 - INFO - [4/20] => SUCCESS! Alpha ID: RR125qWg
+2026-07-23 11:40:32,045 - INFO - [5/20] Submitting: group_rank(ts_rank(liabilities, 20), sector)
+2026-07-23 11:40:32,045 - INFO - [Run] Submit: group_rank(ts_rank(liabilities, 20), sector)
+2026-07-23 11:40:32,561 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/cmkG8c4a4tIcsC14lfJEPDH
+2026-07-23 11:42:15,983 - INFO - [Run] Done: group_rank(ts_rank(liabilities, 20), sector)
+2026-07-23 11:42:15,984 - INFO - [5/20] => SUCCESS! Alpha ID: qM6P569V
+2026-07-23 11:42:15,984 - INFO - [6/20] Submitting: group_rank(ts_rank(liabilities, 20), subindustry)
+2026-07-23 11:42:15,984 - INFO - [Run] Submit: group_rank(ts_rank(liabilities, 20), subindustry)
+2026-07-23 11:42:16,499 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/yiKy347X4Y29NXkJNDC9D0
+2026-07-23 11:43:47,893 - INFO - [Run] Done: group_rank(ts_rank(liabilities, 20), subindustry)
+2026-07-23 11:43:47,893 - INFO - [6/20] => SUCCESS! Alpha ID: bldoxazK
+2026-07-23 11:43:47,893 - INFO - [7/20] Submitting: group_rank(ts_rank(liabilities, 60), sector)
+2026-07-23 11:43:47,893 - INFO - [Run] Submit: group_rank(ts_rank(liabilities, 60), sector)
+2026-07-23 11:43:48,416 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/mePi74Te5ddbAg17k11R9cQ
+2026-07-23 11:45:48,244 - INFO - [Run] Done: group_rank(ts_rank(liabilities, 60), sector)
+2026-07-23 11:45:48,244 - INFO - [7/20] => SUCCESS! Alpha ID: pwKVWL5g
+2026-07-23 11:45:48,244 - INFO - [8/20] Submitting: group_rank(ts_rank(liabilities, 60), subindustry)
+2026-07-23 11:45:48,244 - INFO - [Run] Submit: group_rank(ts_rank(liabilities, 60), subindustry)
+2026-07-23 11:45:48,728 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/SRewGequ4DXccoDG8PlpLf
+2026-07-23 11:47:29,873 - INFO - [Run] Done: group_rank(ts_rank(liabilities, 60), subindustry)
+2026-07-23 11:47:29,873 - INFO - [8/20] => SUCCESS! Alpha ID: 1YzaOvmQ
+2026-07-23 11:47:29,873 - INFO - [9/20] Submitting: group_rank(ts_rank(cash_flow, 20), sector)
+2026-07-23 11:47:29,874 - INFO - [Run] Submit: group_rank(ts_rank(cash_flow, 20), sector)
+2026-07-23 11:47:30,412 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4053iC4B95eE8Yi5RI1DCTy
+2026-07-23 12:41:45,316 - ERROR - [9/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations/4053iC4B95eE8Yi5RI1DCTy (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C561D0>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,316 - INFO - [10/20] Submitting: group_rank(ts_rank(cash_flow, 20), subindustry)
+2026-07-23 12:41:45,317 - INFO - [Run] Submit: group_rank(ts_rank(cash_flow, 20), subindustry)
+2026-07-23 12:41:45,335 - ERROR - [10/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C73CD0>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,335 - INFO - [11/20] Submitting: group_rank(ts_rank(cash_flow, 60), sector)
+2026-07-23 12:41:45,335 - INFO - [Run] Submit: group_rank(ts_rank(cash_flow, 60), sector)
+2026-07-23 12:41:45,347 - ERROR - [11/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7D0D0>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,347 - INFO - [12/20] Submitting: group_rank(ts_rank(cash_flow, 60), subindustry)
+2026-07-23 12:41:45,347 - INFO - [Run] Submit: group_rank(ts_rank(cash_flow, 60), subindustry)
+2026-07-23 12:41:45,371 - ERROR - [12/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7E650>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,372 - INFO - [13/20] Submitting: group_rank(ts_rank(operating_income, 20), sector)
+2026-07-23 12:41:45,372 - INFO - [Run] Submit: group_rank(ts_rank(operating_income, 20), sector)
+2026-07-23 12:41:45,384 - ERROR - [13/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7FB90>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,384 - INFO - [14/20] Submitting: group_rank(ts_rank(operating_income, 20), subindustry)
+2026-07-23 12:41:45,384 - INFO - [Run] Submit: group_rank(ts_rank(operating_income, 20), subindustry)
+2026-07-23 12:41:45,393 - ERROR - [14/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C91110>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,393 - INFO - [15/20] Submitting: group_rank(ts_rank(operating_income, 60), sector)
+2026-07-23 12:41:45,393 - INFO - [Run] Submit: group_rank(ts_rank(operating_income, 60), sector)
+2026-07-23 12:41:45,414 - ERROR - [15/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C92650>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,414 - INFO - [16/20] Submitting: group_rank(ts_rank(operating_income, 60), subindustry)
+2026-07-23 12:41:45,414 - INFO - [Run] Submit: group_rank(ts_rank(operating_income, 60), subindustry)
+2026-07-23 12:41:45,423 - ERROR - [16/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C93B90>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,423 - INFO - [17/20] Submitting: group_rank(ts_rank(sales, 20), sector)
+2026-07-23 12:41:45,424 - INFO - [Run] Submit: group_rank(ts_rank(sales, 20), sector)
+2026-07-23 12:41:45,450 - ERROR - [17/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7FD90>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,469 - INFO - [18/20] Submitting: group_rank(ts_rank(sales, 20), subindustry)
+2026-07-23 12:41:45,469 - INFO - [Run] Submit: group_rank(ts_rank(sales, 20), subindustry)
+2026-07-23 12:41:45,472 - ERROR - [18/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7D510>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,473 - INFO - [19/20] Submitting: group_rank(ts_rank(sales, 60), sector)
+2026-07-23 12:41:45,473 - INFO - [Run] Submit: group_rank(ts_rank(sales, 60), sector)
+2026-07-23 12:41:45,488 - ERROR - [19/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7C3D0>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:41:45,489 - INFO - [20/20] Submitting: group_rank(ts_rank(sales, 60), subindustry)
+2026-07-23 12:41:45,489 - INFO - [Run] Submit: group_rank(ts_rank(sales, 60), subindustry)
+2026-07-23 12:41:45,495 - ERROR - [20/20] => ERROR: HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Max retries exceeded with url: /simulations (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001C9D5C7C7D0>: Failed to resolve 'api.worldquantbrain.com' ([Errno 11001] getaddrinfo failed)"))
+2026-07-23 12:43:10,655 - INFO - Starting batch test of 20 Alphas...
+2026-07-23 12:43:12,085 - INFO - [Auth] OK.
+2026-07-23 12:43:12,086 - INFO - [1/20] Submitting: group_rank(ts_rank(cash_flow, 20), sector)
+2026-07-23 12:43:12,086 - INFO - [Run] Submit: group_rank(ts_rank(cash_flow, 20), sector)
+2026-07-23 12:43:12,707 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2WHPibgQD4NC9aeioZ5NCf2
+2026-07-23 13:20:21,777 - ERROR - [Run][Error] Polling timed out after 1801s. Last: 200 {"id":"2WHPibgQD4NC9aeioZ5NCf2","type":"REGULAR","status":"ERROR","message":"Attempted to use unknown variable \"cash_flow\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>","location":{"line":1,"start":19,"end":28,"property":"regular"},"links":{"linkToCommonErrorMessages":"https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"}}
+2026-07-23 13:20:21,777 - ERROR - [1/20] => ERROR: [Run][Error] Polling timed out after 1801s. Last: 200 {"id":"2WHPibgQD4NC9aeioZ5NCf2","type":"REGULAR","status":"ERROR","message":"Attempted to use unknown variable \"cash_flow\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>","location":{"line":1,"start":19,"end":28,"property":"regular"},"links":{"linkToCommonErrorMessages":"https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"}}
+2026-07-23 13:20:21,777 - INFO - [2/20] Submitting: group_rank(ts_rank(cash_flow, 20), subindustry)
+2026-07-23 13:20:21,777 - INFO - [Run] Submit: group_rank(ts_rank(cash_flow, 20), subindustry)
+2026-07-23 13:20:22,307 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3PteBwgMq52hbG6tfYRJeOs
+2026-07-23 21:00:17,843 - INFO - Starting batch test of 20 Alphas...
+2026-07-23 21:00:19,473 - INFO - [Auth] OK.
+2026-07-23 21:00:19,473 - INFO - [1/20] Submitting: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 20), sector)
+2026-07-23 21:00:19,473 - INFO - [Run] Submit: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 20), sector)
+2026-07-23 21:00:19,847 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1YdglaNu53w8Y27kywZNAJ
+2026-07-23 21:03:55,136 - INFO - [Run] Done: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 20), sector)
+2026-07-23 21:03:55,137 - INFO - [1/20] => SUCCESS! Alpha ID: 9q7J7Y3K
+2026-07-23 21:03:55,137 - INFO - [2/20] Submitting: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 20), subindustry)
+2026-07-23 21:03:55,137 - INFO - [Run] Submit: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 20), subindustry)
+2026-07-23 21:03:55,670 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4bhzTXgkw4rvcjm16jV5V9mw
+2026-07-23 21:05:53,142 - INFO - [Run] Done: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 20), subindustry)
+2026-07-23 21:05:53,143 - INFO - [2/20] => SUCCESS! Alpha ID: 6Xeze1z5
+2026-07-23 21:05:53,143 - INFO - [3/20] Submitting: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 60), sector)
+2026-07-23 21:05:53,143 - INFO - [Run] Submit: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 60), sector)
+2026-07-23 21:05:53,545 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4wL7tOdff4L9a4Y16nkGqSPy
+2026-07-23 21:08:00,707 - INFO - [Run] Done: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 60), sector)
+2026-07-23 21:08:00,707 - INFO - [3/20] => SUCCESS! Alpha ID: Vk3O37VV
+2026-07-23 21:08:00,707 - INFO - [4/20] Submitting: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 60), subindustry)
+2026-07-23 21:08:00,707 - INFO - [Run] Submit: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 60), subindustry)
+2026-07-23 21:08:01,049 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/n1TTM7U04Uo9gNW0rWqQ7x
+2026-07-23 21:09:58,929 - INFO - [Run] Done: group_rank(ts_rank(actual_cashflow_per_share_value_quarterly, 60), subindustry)
+2026-07-23 21:09:58,929 - INFO - [4/20] => SUCCESS! Alpha ID: MPLkLed8
+2026-07-23 21:09:58,929 - INFO - [5/20] Submitting: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 20), sector)
+2026-07-23 21:09:58,929 - INFO - [Run] Submit: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 20), sector)
+2026-07-23 21:09:59,299 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/Utm7bcPA4GQaH015MssyBPb
+2026-07-23 21:11:13,369 - INFO - [Run] Done: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 20), sector)
+2026-07-23 21:11:13,369 - INFO - [5/20] => SUCCESS! Alpha ID: A17k7XYg
+2026-07-23 21:11:13,369 - INFO - [6/20] Submitting: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 20), subindustry)
+2026-07-23 21:11:13,369 - INFO - [Run] Submit: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 20), subindustry)
+2026-07-23 21:11:13,806 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/wr5Eebp4EPbcL1hvysJfi1
+2026-07-23 21:12:44,583 - INFO - [Run] Done: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 20), subindustry)
+2026-07-23 21:12:44,583 - INFO - [6/20] => SUCCESS! Alpha ID: xAdRN6zq
+2026-07-23 21:12:44,583 - INFO - [7/20] Submitting: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector)
+2026-07-23 21:12:44,583 - INFO - [Run] Submit: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector)
+2026-07-23 21:12:44,913 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1ieLvz4RT4BWbYV3PimKdmt
+2026-07-23 21:14:14,931 - INFO - [Run] Done: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), sector)
+2026-07-23 21:14:14,931 - INFO - [7/20] => SUCCESS! Alpha ID: 1YzJp1qz
+2026-07-23 21:14:14,931 - INFO - [8/20] Submitting: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), subindustry)
+2026-07-23 21:14:14,931 - INFO - [Run] Submit: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), subindustry)
+2026-07-23 21:14:15,508 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2PzzED9fD4nxb3z134lCKTP4
+2026-07-23 21:15:35,946 - INFO - [Run] Done: group_rank(ts_rank(fnd6_cptmfmq_oibdpq, 60), subindustry)
+2026-07-23 21:15:35,947 - INFO - [8/20] => SUCCESS! Alpha ID: 9q7JpJ9K
+2026-07-23 21:15:35,947 - INFO - [9/20] Submitting: group_rank(ts_rank(actual_sales_value_quarterly, 20), sector)
+2026-07-23 21:15:35,947 - INFO - [Run] Submit: group_rank(ts_rank(actual_sales_value_quarterly, 20), sector)
+2026-07-23 21:15:36,446 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3OltYjfRQ4NRaxfr9y4vDYI
+2026-07-23 21:17:12,513 - INFO - [Run] Done: group_rank(ts_rank(actual_sales_value_quarterly, 20), sector)
+2026-07-23 21:17:12,513 - INFO - [9/20] => SUCCESS! Alpha ID: YPgQvbVR
+2026-07-23 21:17:12,514 - INFO - [10/20] Submitting: group_rank(ts_rank(actual_sales_value_quarterly, 20), subindustry)
+2026-07-23 21:17:12,514 - INFO - [Run] Submit: group_rank(ts_rank(actual_sales_value_quarterly, 20), subindustry)
+2026-07-23 21:17:13,062 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4yc7tnfxt4LecvxdaPlLowQ
+2026-07-23 21:18:49,447 - INFO - [Run] Done: group_rank(ts_rank(actual_sales_value_quarterly, 20), subindustry)
+2026-07-23 21:18:49,447 - INFO - [10/20] => SUCCESS! Alpha ID: P0OvG8Kx
+2026-07-23 21:18:49,447 - INFO - [11/20] Submitting: group_rank(ts_rank(actual_sales_value_quarterly, 60), sector)
+2026-07-23 21:18:49,447 - INFO - [Run] Submit: group_rank(ts_rank(actual_sales_value_quarterly, 60), sector)
+2026-07-23 21:18:49,948 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1vKVNG5O34lZbvDfJFooIE2
+2026-07-23 21:20:24,130 - INFO - [Run] Done: group_rank(ts_rank(actual_sales_value_quarterly, 60), sector)
+2026-07-23 21:20:24,131 - INFO - [11/20] => SUCCESS! Alpha ID: 2rNJp3eb
+2026-07-23 21:20:24,131 - INFO - [12/20] Submitting: group_rank(ts_rank(actual_sales_value_quarterly, 60), subindustry)
+2026-07-23 21:20:24,131 - INFO - [Run] Submit: group_rank(ts_rank(actual_sales_value_quarterly, 60), subindustry)
+2026-07-23 21:20:24,646 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1Jr3OUg2E4y1aNZVORr7njD
+2026-07-23 21:22:12,335 - INFO - [Run] Done: group_rank(ts_rank(actual_sales_value_quarterly, 60), subindustry)
+2026-07-23 21:22:12,335 - INFO - [12/20] => SUCCESS! Alpha ID: Vk3O7nq5

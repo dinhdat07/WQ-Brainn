@@ -1,0 +1,247 @@
+2026-07-24 00:29:05,935 - INFO - Generated 48 ULTIMATE combinations.
+2026-07-24 00:29:05,935 - INFO - [1/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:29:05,935 - ERROR - [1/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,935 - INFO - [2/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:29:05,935 - ERROR - [2/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,936 - INFO - [3/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:29:05,936 - ERROR - [3/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,936 - INFO - [4/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:29:05,936 - ERROR - [4/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [5/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:29:05,937 - ERROR - [5/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [6/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:29:05,937 - ERROR - [6/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [7/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:29:05,937 - ERROR - [7/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [8/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:29:05,937 - ERROR - [8/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [9/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:29:05,937 - ERROR - [9/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [10/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:29:05,937 - ERROR - [10/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [11/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:29:05,937 - ERROR - [11/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [12/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:29:05,937 - ERROR - [12/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [13/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:29:05,937 - ERROR - [13/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [14/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:29:05,937 - ERROR - [14/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [15/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:29:05,937 - ERROR - [15/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [16/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:29:05,937 - ERROR - [16/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [17/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20)
+2026-07-24 00:29:05,937 - ERROR - [17/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [18/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20), 3)
+2026-07-24 00:29:05,937 - ERROR - [18/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [19/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 30)
+2026-07-24 00:29:05,937 - ERROR - [19/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [20/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 30), 3)
+2026-07-24 00:29:05,937 - ERROR - [20/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [21/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 3), 20)
+2026-07-24 00:29:05,937 - ERROR - [21/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [22/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 3), 20), 3)
+2026-07-24 00:29:05,937 - ERROR - [22/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [23/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 3), 30)
+2026-07-24 00:29:05,937 - ERROR - [23/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [24/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 3), 30), 3)
+2026-07-24 00:29:05,937 - ERROR - [24/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [25/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:29:05,937 - ERROR - [25/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,937 - INFO - [26/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 00:29:05,938 - ERROR - [26/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [27/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 5), 30)
+2026-07-24 00:29:05,938 - ERROR - [27/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [28/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 5), 30), 3)
+2026-07-24 00:29:05,938 - ERROR - [28/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [29/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20)
+2026-07-24 00:29:05,938 - ERROR - [29/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [30/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 20), 3)
+2026-07-24 00:29:05,938 - ERROR - [30/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [31/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 30)
+2026-07-24 00:29:05,938 - ERROR - [31/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [32/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 5), 5), 30), 3)
+2026-07-24 00:29:05,938 - ERROR - [32/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [33/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 3), 20)
+2026-07-24 00:29:05,938 - ERROR - [33/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [34/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 3), 20), 3)
+2026-07-24 00:29:05,938 - ERROR - [34/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [35/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 3), 30)
+2026-07-24 00:29:05,938 - ERROR - [35/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [36/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 3), 30), 3)
+2026-07-24 00:29:05,938 - ERROR - [36/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [37/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 3), 20)
+2026-07-24 00:29:05,938 - ERROR - [37/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [38/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 3), 20), 3)
+2026-07-24 00:29:05,938 - ERROR - [38/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [39/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 3), 30)
+2026-07-24 00:29:05,938 - ERROR - [39/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [40/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 3), 30), 3)
+2026-07-24 00:29:05,938 - ERROR - [40/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [41/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 5), 20)
+2026-07-24 00:29:05,938 - ERROR - [41/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [42/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 5), 20), 3)
+2026-07-24 00:29:05,938 - ERROR - [42/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [43/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 5), 30)
+2026-07-24 00:29:05,938 - ERROR - [43/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [44/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 10), 5), 30), 3)
+2026-07-24 00:29:05,938 - ERROR - [44/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [45/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 5), 20)
+2026-07-24 00:29:05,938 - ERROR - [45/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [46/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 5), 20), 3)
+2026-07-24 00:29:05,938 - ERROR - [46/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [47/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 5), 30)
+2026-07-24 00:29:05,938 - ERROR - [47/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,938 - INFO - [48/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 5), 10), 5), 30), 3)
+2026-07-24 00:29:05,939 - ERROR - [48/48] => EXCEPTION: 'str' object has no attribute 'get'
+2026-07-24 00:29:05,939 - INFO - === BATCH COMPLETE ===
+2026-07-24 00:29:05,939 - INFO - \U0001f525 TOP SUBMITTABLE ULTIMATE ALPHAS (Sharpe > 1.25 & Fitness > 1.0) \U0001f525
+2026-07-24 00:29:05,939 - INFO - No alphas passed the strict submittable filter. Try different parameters or logic.
+2026-07-24 00:29:05,939 - INFO - Next best alphas (by Sharpe):
+2026-07-24 00:29:48,503 - INFO - Generated 48 ULTIMATE combinations.
+2026-07-24 00:29:48,505 - INFO - [1/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:29:48,505 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:29:48,827 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4DEnMq4Lv4UYb6YlNeITGFq
+2026-07-24 00:31:14,279 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:31:14,774 - INFO - [1/48] => SUCCESS (Rejected by Filter) ID: Jjvb6bX2 | Sharpe: 0.54 | Fit: 0.11
+2026-07-24 00:31:14,774 - INFO - [2/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:31:14,774 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:31:15,331 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/45J93M4TI4hHb8gppFHgLzM
+2026-07-24 00:32:56,585 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:32:56,939 - INFO - [2/48] => SUCCESS (Rejected by Filter) ID: 6Xez5rwY | Sharpe: 0.74 | Fit: 0.19
+2026-07-24 00:32:56,940 - INFO - [3/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:32:56,940 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:32:57,446 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/TlR679vE4vtbAtfVqSZ1Zz
+2026-07-24 00:34:22,782 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:34:23,142 - INFO - [3/48] => SUCCESS (Rejected by Filter) ID: 88enMGeq | Sharpe: 0.67 | Fit: 0.15
+2026-07-24 00:34:23,142 - INFO - [4/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:34:23,142 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:34:23,689 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3feYQP8584wf9sRu8Yaozx3
+2026-07-24 00:35:49,182 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:35:49,520 - INFO - [4/48] => SUCCESS (Rejected by Filter) ID: vRvdWoww | Sharpe: 0.83 | Fit: 0.23
+2026-07-24 00:35:49,520 - INFO - [5/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:35:49,520 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:35:50,034 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/49m5ea9xZ58l9kjMIV1C9U4
+2026-07-24 00:37:30,113 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:37:30,479 - INFO - [5/48] => SUCCESS (Rejected by Filter) ID: 2rNK11r5 | Sharpe: 0.49 | Fit: 0.09
+2026-07-24 00:37:30,479 - INFO - [6/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:37:30,479 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:37:30,983 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3jZ0UT5Be4wicqHvG4oIgN1
+2026-07-24 00:39:07,130 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:39:07,472 - INFO - [6/48] => SUCCESS (Rejected by Filter) ID: le30Lb1l | Sharpe: 0.74 | Fit: 0.19
+2026-07-24 00:39:07,473 - INFO - [7/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:39:07,473 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:39:08,232 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4ezlnx4F14NwaFyQNOlI6As
+2026-07-24 00:40:33,983 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 00:40:34,343 - INFO - [7/48] => SUCCESS (Rejected by Filter) ID: qM6XKv22 | Sharpe: 0.67 | Fit: 0.15
+2026-07-24 00:40:34,343 - INFO - [8/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:40:34,344 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:40:34,866 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/48QOjD80650zaL9pge09Ffg
+2026-07-24 00:41:44,358 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 00:41:44,716 - INFO - [8/48] => SUCCESS (Rejected by Filter) ID: JjvdVb5l | Sharpe: 0.93 | Fit: 0.28
+2026-07-24 00:41:44,717 - INFO - [9/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:41:44,717 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:41:45,314 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3tcXCe32P4V59RoInPT2eAz
+2026-07-24 00:43:37,314 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:43:37,662 - INFO - [9/48] => SUCCESS (Rejected by Filter) ID: RR1rJVxb | Sharpe: 0.77 | Fit: 0.2
+2026-07-24 00:43:37,662 - INFO - [10/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:43:37,664 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:43:38,201 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2xIW2Nab34Td9xDfFl5DGLl
+2026-07-24 00:45:21,416 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:45:21,768 - INFO - [10/48] => SUCCESS (Rejected by Filter) ID: LLdRPE2a | Sharpe: 0.75 | Fit: 0.21
+2026-07-24 00:45:21,768 - INFO - [11/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:45:21,768 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:45:22,296 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2OGWMRgxz5ji9X018Kiu1rfw
+2026-07-24 00:46:54,176 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:46:54,742 - INFO - [11/48] => SUCCESS (Rejected by Filter) ID: zqRWvnOE | Sharpe: 0.88 | Fit: 0.25
+2026-07-24 00:46:54,743 - INFO - [12/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:46:54,743 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:46:55,294 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2tzqvT8tW4Q7cCYlVwQKdaW
+2026-07-24 00:48:28,138 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:48:28,480 - INFO - [12/48] => SUCCESS (Rejected by Filter) ID: xAdnAAjN | Sharpe: 0.85 | Fit: 0.26
+2026-07-24 00:48:28,480 - INFO - [13/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:48:28,480 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:48:28,982 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2QGof4bYu5fCcsA1g5KvpVyH
+2026-07-24 00:50:13,779 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 00:50:14,106 - INFO - [13/48] => SUCCESS (Rejected by Filter) ID: N1RO1ob8 | Sharpe: 0.71 | Fit: 0.18
+2026-07-24 00:50:14,106 - INFO - [14/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:50:14,106 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:50:14,609 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3QEacEbgI4lbcwCK6Xdyb3a
+2026-07-24 00:51:34,709 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 00:51:35,156 - INFO - [14/48] => SUCCESS (Rejected by Filter) ID: 88eL868z | Sharpe: 0.78 | Fit: 0.22
+2026-07-24 00:51:35,156 - INFO - [15/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:51:35,156 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:51:35,647 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/41meRrgU14JZb9MtTn1LEgU
+2026-07-24 00:52:51,525 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 00:52:51,868 - INFO - [15/48] => SUCCESS (Rejected by Filter) ID: 2rNKrKQ6 | Sharpe: 0.9 | Fit: 0.26
+2026-07-24 00:52:51,868 - INFO - [16/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:52:51,868 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:52:52,357 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/6rcR4cQX5aU96MHtuHEcYw
+2026-07-24 00:54:47,792 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 5), 30), 3)
+2026-07-24 00:54:48,136 - INFO - [16/48] => SUCCESS (Rejected by Filter) ID: A1731vke | Sharpe: 0.97 | Fit: 0.31
+2026-07-24 00:54:48,136 - INFO - [17/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20)
+2026-07-24 00:54:48,136 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20)
+2026-07-24 00:54:48,676 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/AxK9BdTF51ncCOb74itj9m
+2026-07-24 00:56:09,235 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20)
+2026-07-24 00:56:09,564 - INFO - [17/48] => SUCCESS (Rejected by Filter) ID: 3qeAq1Ne | Sharpe: 1.25 | Fit: 0.4
+2026-07-24 00:56:09,564 - INFO - [18/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20), 3)
+2026-07-24 00:56:09,564 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 3), 20), 3)
+2026-07-24 00:56:10,054 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2AkeHubBg5d393aY5SBXSJ0
+2026-07-24 00:57:38,490 - INFO - Generated 48 ULTIMATE combinations.
+2026-07-24 00:57:38,490 - INFO - [1/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:57:38,490 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:57:38,946 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 00:57:54,597 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 00:58:09,893 - WARNING - [Run] Hit concurrency limit 429. Sleeping 15s...
+2026-07-24 00:58:25,287 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2myias1fJ5cUc9IDg88LK7S
+2026-07-24 00:59:41,120 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 00:59:41,436 - INFO - [1/48] => SUCCESS (Rejected by Filter) ID: Greo112O | Sharpe: 0.78 | Fit: 0.42
+2026-07-24 00:59:41,436 - INFO - [2/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:59:41,436 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 00:59:41,917 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4euoZx5Zu4AVcH5kTbDwWOO
+2026-07-24 01:01:01,138 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 01:01:01,455 - INFO - [2/48] => SUCCESS (Rejected by Filter) ID: np8WxbYE | Sharpe: 1.2 | Fit: 0.85
+2026-07-24 01:01:01,455 - INFO - [3/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 01:01:01,455 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 01:01:01,927 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/9K5JPgGh4sfa8Q1e6D5NJbd
+2026-07-24 01:03:09,599 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 01:03:09,976 - INFO - [3/48] => SUCCESS (Rejected by Filter) ID: QP9QZ28r | Sharpe: 0.76 | Fit: 0.4
+2026-07-24 01:03:09,976 - INFO - [4/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 01:03:09,977 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 01:03:10,489 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4mn1yO3xq4mpcmR148thV8Ed
+2026-07-24 01:04:30,861 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 01:04:31,289 - INFO - [4/48] => SUCCESS (Rejected by Filter) ID: gJ93k9Xl | Sharpe: 1.23 | Fit: 0.89
+2026-07-24 01:04:31,289 - INFO - [5/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 01:04:31,289 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 01:04:31,780 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2bhuTA1h64De9kEMGb8ipY3
+2026-07-24 01:06:27,525 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20)
+2026-07-24 01:06:27,864 - INFO - [5/48] => SUCCESS (Rejected by Filter) ID: P0O1Q5dJ | Sharpe: 0.66 | Fit: 0.33
+2026-07-24 01:06:27,864 - INFO - [6/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 01:06:27,864 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 01:06:28,345 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/41vnzW1Ra4MdbaAzhaJt2XB
+2026-07-24 01:08:16,596 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 20), 3)
+2026-07-24 01:08:16,992 - INFO - [6/48] => SUCCESS (Rejected by Filter) ID: omgY8kMn | Sharpe: 1.08 | Fit: 0.74
+2026-07-24 01:08:16,992 - INFO - [7/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 01:08:16,992 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 01:08:17,511 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/1oB5U2cMM4qUcyq19rnOzwhl
+2026-07-24 01:09:32,618 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30)
+2026-07-24 01:09:33,156 - INFO - [7/48] => SUCCESS (Rejected by Filter) ID: KPELl1w8 | Sharpe: 0.7 | Fit: 0.36
+2026-07-24 01:09:33,157 - INFO - [8/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 01:09:33,157 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 01:09:33,470 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/vUyZlaVs4V0aBbkys4vMYA
+2026-07-24 01:10:52,734 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), sector) * ts_rank(-ts_delta(close, 3), 5), 3), 30), 3)
+2026-07-24 01:10:53,438 - INFO - [8/48] => SUCCESS (Rejected by Filter) ID: gJ9366og | Sharpe: 1.18 | Fit: 0.85
+2026-07-24 01:10:53,438 - INFO - [9/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 01:10:53,438 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 01:10:53,921 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/4nRFUN7pU4wX8J065voU4Ub
+2026-07-24 01:12:09,997 - INFO - [Run] Done: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20)
+2026-07-24 01:12:10,414 - INFO - [9/48] => SUCCESS (Rejected by Filter) ID: GreoPvm0 | Sharpe: 1.14 | Fit: 0.78
+2026-07-24 01:12:10,414 - INFO - [10/48] Submitting: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 01:12:10,414 - INFO - [Run] Submit: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 01:12:15,461 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/2xgaDdZo4KraiMsJdR4mcw
+2026-07-24 01:13:42,093 - INFO - [Run] Done: ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 20), 3)
+2026-07-24 01:13:42,427 - INFO - [10/48] => \U0001f680 SUBMITTABLE! ID: 6XeE7qGJ | Sharpe: 1.39 | Fit: 1.14
+2026-07-24 01:13:42,428 - INFO - [11/48] Submitting: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 01:13:42,428 - INFO - [Run] Submit: ts_zscore(ts_decay_linear(group_rank(ts_rank(ts_delta(actual_cashflow_per_share_value_quarterly, 60), 60), subindustry) * ts_rank(-ts_delta(close, 3), 5), 5), 30)
+2026-07-24 01:13:42,905 - INFO - [Submit] Accepted. Progress URL: https://api.worldquantbrain.com/simulations/3yeIhKgfL4JBaUbkS3NARgF
