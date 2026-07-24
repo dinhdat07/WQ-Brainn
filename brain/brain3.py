@@ -250,11 +250,17 @@ def run_simulation(sess: requests.Session, payload: Dict[str, Any]) -> Dict[str,
     expr = payload.get("regular", "<unknown>")
     logging.info(f"[Run] Submit: {expr}")
 
-    resp = sess.post(SIMULATE_URL, json=payload, timeout=REQUEST_TIMEOUT)
-    if resp.status_code >= 400:
-        msg = f"[Run][Error] Submit failed: {resp.status_code} {resp.text}"
-        logging.error(msg)
-        raise RuntimeError(msg)
+    while True:
+        resp = sess.post(SIMULATE_URL, json=payload, timeout=REQUEST_TIMEOUT)
+        if resp.status_code == 429:
+            logging.warning("[Run] Hit concurrency limit 429. Sleeping 15s...")
+            time.sleep(15)
+            continue
+        if resp.status_code >= 400:
+            msg = f"[Run][Error] Submit failed: {resp.status_code} {resp.text}"
+            logging.error(msg)
+            raise RuntimeError(msg)
+        break
 
     progress_url = resp.headers.get("Location")
     if not progress_url:
