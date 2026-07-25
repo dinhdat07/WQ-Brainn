@@ -101,3 +101,27 @@ However, Sharpe ratios hovered around 0.80 - 0.90. The most promising base signa
 ### Next Action:
 In Batch 15, we will take the best concepts (`est_ptp / close` and Options Volatility Arbitrage) and apply advanced statistical scaling (e.g., `ts_zscore`, `group_rank` with different neutralization), aiming to push Sharpe from ~0.90 to >1.25.
 
+## Batch 15 - 10: Matrix Signal Optimization (Phase 3) - Iteration 5
+
+**Goal:** Push the Sharpe ratio of our two best Alternative Data matrix signals (`est_ptp / close` and `implied_volatility_call_120 / parkinson_volatility_120`) above 1.25 using combinations of `ts_zscore`, `group_rank`, `group_zscore`, and various lookback windows (63, 126, 252).
+
+| Model | Core Signal | Result (Sharpe / Fitness) | Insight / Next Step |
+| :--- | :--- | :--- | :--- |
+| **1_Target_Price_ZScore_63_Sector** | `ts_decay_linear(group_rank(ts_zscore(est_ptp / close, 63), sector), 5)` | **0.85 / 1.53** | LOW_SHARPE. |
+| **2_Target_Price_ZScore_126_Ind** | `ts_decay_linear(group_rank(ts_zscore(est_ptp / close, 126), industry), 5)` | **0.83 / 1.48** | LOW_SHARPE. |
+| **3_Target_Price_ZScore_252_SubInd**| `ts_decay_linear(group_zscore(ts_zscore(est_ptp / close, 252), subindustry), 5)` | **1.58 / 1.18** | (ID: `e7x3P7gO`) **🔥 MASSIVE SUCCESS!** Passed all thresholds. |
+| **4_Target_Price_ZScore_63_NeutInd**| `ts_decay_linear(rank(ts_zscore(est_ptp / close, 63)), 5)` (Neut: Industry) | **ERROR** | Neutralization `Industry` is invalid in FASTEXPR. Use `INDUSTRY`. |
+| **5_Target_Price_ZScore_126_NeutMkt**| `ts_decay_linear(rank(ts_zscore(est_ptp / close, 126)), 5)` (Neut: Market) | **ERROR** | Neutralization `Market` is invalid. Use `MARKET`. |
+| **6_OptVol_ZScore_63_Sector** | `ts_decay_linear(group_rank(ts_zscore(implied_volatility_call_120 / parkinson_volatility_120, 63), sector), 5)` | **0.79 / 1.37** | LOW_SHARPE. |
+| **7_OptVol_ZScore_126_Industry** | `ts_decay_linear(group_rank(ts_zscore(implied_volatility_call_120 / parkinson_volatility_120, 126), industry), 5)` | **0.77 / 1.33** | LOW_SHARPE. |
+| **8_OptVol_ZScore_63_SubInd** | `ts_decay_linear(group_zscore(ts_zscore(implied_volatility_call_120 / parkinson_volatility_120, 63), subindustry), 5)` | **1.19 / 0.52** | ALMOST PASSED. `group_zscore` + `subindustry` is a very strong operator. |
+| **9 & 10 (OptVol Neut)** | rank + Neutralization | **ERROR** | Invalid Neutralization string casing. |
+
+### Result: 1 Massive Success (ID: `e7x3P7gO`).
+We successfully pushed the `est_ptp / close` concept to a Sharpe of 1.58 and Fitness 1.18 by applying a double z-score (`group_zscore(..., subindustry)` on top of `ts_zscore(..., 252)`). This strongly normalizes the analyst target price premium against peers in the same subindustry over a 1-year window.
+
+### Next Action:
+Since `e7x3P7gO` is built entirely on Alternative Data (Analyst estimates) and normalized differently, it is extremely likely to have `< 0.7` self-correlation with our previous Volatility/Fundamentals base models (like `ZYKo6R78`). 
+We need to run a correlation check and submit `e7x3P7gO`.
+
+
