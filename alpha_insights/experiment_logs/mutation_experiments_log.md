@@ -76,3 +76,28 @@ All 10 models did not pass (either ERROR due to event-input constraints or LOW_S
 
 ### Next Action:
 The `anl4`, `composite_sentiment_score`, and `best_position_indicator` datasets are event-based. We cannot apply standard math or time-series operators directly on them unless we cast them to vectors (e.g., using `vec_avg`) or use specialized event operators. We need to revise the formulas to either use matrix datasets or handle event data properly.
+
+## Batch 14 - 10: Matrix Alternative Data (Phase 3) - Iteration 4
+
+**Goal:** Test 10 new models using Matrix versions of Alternative Data (e.g., `mean_composite_sentiment_score`, `anl4_afv4_eps_mean`, `est_ptp`) to avoid the event-data errors from Batch 13, and assess their baseline predictive power.
+
+| Model | Core Signal | Result (Sharpe / Fitness) | Insight / Next Step |
+| :--- | :--- | :--- | :--- |
+| **1_Options_Vol_Arb_Pure** | `group_rank(implied_volatility_call_120 / parkinson_volatility_120, sector)` | **0.84 / 1.15** | (ID: `N1RbNOVe`) LOW_SHARPE. |
+| **2_Options_Vol_Spread** | `ts_decay_linear(rank(implied_volatility_call_120 - implied_volatility_put_120), 5)` | **0.79 / 1.28** | (ID: `kqZPNJZg`) LOW_SHARPE. |
+| **3_Sentiment_Momentum** | `ts_decay_linear(rank(ts_delta(mean_composite_sentiment_score, 10)), 5)` | **0.81 / 0.77** | (ID: `mLV5oWa1`) LOW_SHARPE. |
+| **4_Sentiment_Reversal** | `ts_decay_linear(rank(-ts_corr(open, mean_composite_sentiment_score, 10)), 5)` | **0.78 / 1.30** | (ID: `2rNp5knN`) LOW_SHARPE. |
+| **5_Target_Price_Premium** | `ts_decay_linear(rank(est_ptp / close), 5)` | **0.90 / 1.62** | (ID: `JjvG8paW`) **HIGHEST IN BATCH**. Target price vs current price divergence shows promise. |
+| **6_Target_Price_Revision** | `ts_decay_linear(rank(ts_delta(est_ptp, 20)), 5)` | **0.80 / 1.38** | (ID: `2rNp59kN`) LOW_SHARPE. |
+| **7_EPS_Revision** | `ts_decay_linear(rank(ts_delta(anl4_afv4_eps_mean, 20)), 5)` | **0.80 / 1.37** | (ID: `np8Najxx`) LOW_SHARPE. |
+| **8_Normalized_EPS_Revision** | `ts_decay_linear(rank(ts_delta(anl4_afv4_eps_mean / close, 10)), 5)` | **0.79 / 1.38** | (ID: `88epGA77`) LOW_SHARPE. |
+| **9_Options_PutCall_Volume** | `ts_decay_linear(rank(pcr_vol_10), 5)` | **0.78 / 1.05** | (ID: `qM6N5g5O`) LOW_SHARPE. |
+| **10_EPS_vs_Price_Divergence**| `ts_decay_linear(rank(-ts_corr(close, anl4_afv4_eps_mean, 20)), 5)` | **0.80 / 1.30** | (ID: `O0xG66X7`) LOW_SHARPE. |
+
+### Result: Matrix Conversion Successful. Base signals need more smoothing/normalization.
+All 10 models simulated successfully (no syntax errors). The shift to `Matrix` alternative data (like `mean_composite_sentiment_score` and `anl4_afv4_eps_mean`) bypassed the Event limitations. 
+However, Sharpe ratios hovered around 0.80 - 0.90. The most promising base signal is **Target Price Premium** (`est_ptp / close`), which scored 0.90. 
+
+### Next Action:
+In Batch 15, we will take the best concepts (`est_ptp / close` and Options Volatility Arbitrage) and apply advanced statistical scaling (e.g., `ts_zscore`, `group_rank` with different neutralization), aiming to push Sharpe from ~0.90 to >1.25.
+
