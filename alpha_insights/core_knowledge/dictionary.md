@@ -25,6 +25,9 @@ These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and repre
 *   **le3WZmdl**: Analyst Overpriced Stocks (Short Lookback) (`ts_decay_linear(rank(-ts_corr(est_ptp, est_fcf, 20)), 5)`). **Sharpe 1.71 | Fit 1.41**. **🎉 SUBMITTED SUCCESSFULLY! (Self-Correlation 0.0)**
 *   **GreGv8oQ**: Volatility Arbitrage + Backfill (`ts_decay_linear(group_rank(ts_backfill(implied_volatility_call_120, 60) / parkinson_volatility_120, sector), 5)`). Sharpe 1.32 | Fit 1.64.
 
+### 🔥 Batch 15 - 10 (Matrix Signal Optimization - Phase 3)
+*   **e7x3P7gO**: Target Price Premium Double Z-Score (`ts_decay_linear(group_zscore(ts_zscore(est_ptp / close, 252), subindustry), 5)`). **Sharpe 1.58 | Fit 1.18**. Very strong candidate for submission due to alternative data orthogonal to price/volume momentum.
+
 ### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
 These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
 *   **ZYKo6R78**: Submitted alpha with high fitness/Sharpe but high self-correlation.
