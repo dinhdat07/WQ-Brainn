@@ -34,41 +34,37 @@ def main():
         "visualization": False,
     }
 
-    # Testing mutated price triggers to break correlation with ZYKo6R78 (-ts_delta(close, 3))
+    # Batch 4: Structural Mutations to Break ZYKo6R78 Correlation
+    # We completely abandon the `ts_decay(ts_zscore(ts_decay(A*B, 3), 30), 8)` framework.
     tasks = [
-        # Nhánh 1: HighLow Reversion (đã từng đạt Sharpe 1.33 nhưng Fit 0.94) -> Cải tiến decay cuối cùng lên 8 hoặc 10
+        # 1. Additive Model (Assets + Intraday Reversion)
         {
-            "name": "1_Assets_HighLow_Decay8",
-            "expr": "ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(assets, 60), subindustry) * ts_rank((high+low)/2 - close, 5), 4), 30), 8)",
+            "name": "1_Additive_Assets",
+            "expr": "ts_decay_linear(group_rank(ts_rank(assets, 60), subindustry) + ts_rank(-(close/open - 1), 5), 8)",
             "neut": "NONE"
         },
+        # 2. Conditional Regime (Valuation EV/CF)
         {
-            "name": "2_Assets_HighLow_Decay10",
-            "expr": "ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(assets, 60), subindustry) * ts_rank((high+low)/2 - close, 5), 4), 30), 10)",
+            "name": "2_Conditional_EV_CF",
+            "expr": "ts_decay_linear(group_rank(-ts_zscore(enterprise_value/cashflow, 63), subindustry) > 0.5 ? ts_rank(-(close/open - 1), 5) : 0, 8)",
             "neut": "NONE"
         },
-        # Nhánh 2: Intraday Reversion (-(close/open - 1))
+        # 3. Simple Multiplication without Inner Zscore/Decay (Sales)
         {
-            "name": "3_Assets_Intraday_Reversion",
-            "expr": "ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(assets, 60), subindustry) * ts_rank(-(close/open - 1), 5), 3), 30), 8)",
+            "name": "3_Simple_Mult_Sales",
+            "expr": "ts_decay_linear(group_rank(ts_rank(sales, 60), subindustry) * ts_rank(-(close/open - 1), 5), 10)",
             "neut": "NONE"
         },
-        # Nhánh 3: Sales + Intraday Reversion
+        # 4. Volatility-Adjusted Reversion (Amihud)
         {
-            "name": "4_Sales_Intraday_Reversion",
-            "expr": "ts_decay_linear(ts_zscore(ts_decay_linear(group_rank(ts_rank(sales, 60), subindustry) * ts_rank(-(close/open - 1), 5), 3), 30), 8)",
+            "name": "4_VolAdjusted_Amihud",
+            "expr": "ts_decay_linear(group_rank(ts_rank(abs(returns) / volume, 60), subindustry) / (1 + ts_std_dev(returns, 20)), 8)",
             "neut": "NONE"
         },
-        # Nhánh 4: Alternative Data (Sentiment) không dùng Z-score, nhưng dùng High Decay
+        # 5. Analyst Estimate + Momentum (Additive)
         {
-            "name": "5_Sentiment_Alternative",
-            "expr": "ts_decay_linear(group_rank(ts_rank(mean_composite_sentiment_score, 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 15)",
-            "neut": "NONE"
-        },
-        # Nhánh 5: Analyst EBIT Reversion không dùng Z-score
-        {
-            "name": "6_Analyst_Alternative",
-            "expr": "ts_decay_linear(group_rank(ts_rank(anl4_fs_detail_estimate_1qf_v4_nd_ebit_mean, 60), subindustry) * ts_rank(-ts_delta(close, 5), 5), 15)",
+            "name": "5_Additive_Analyst_Corr",
+            "expr": "ts_decay_linear(group_rank(-ts_corr(est_ptp, est_fcf, 252), subindustry) + ts_rank(-returns, 10), 8)",
             "neut": "NONE"
         }
     ]
