@@ -1,4 +1,4 @@
-# Walkthrough: Phá vỡ bẫy Self-Correlation với Analyst Estimates (Alpha `le3WZmdl`)
+# Walkthrough: Phá vỡ bẫy Self-Correlation với Analyst Estimates (Alpha `le3WZmdl` - Batch 7 - 10)
 
 ## 1. Vấn đề cốt lõi (Bẫy Self-Correlation > 0.9)
 Ban đầu, các Alpha đạt chuẩn (như `ZYKo6R78`) mang lại Sharpe và Fitness rất tốt nhưng lại dựa trên lõi **Price Momentum** (sử dụng giá `close`, `returns`, `vwap` kết hợp với các hàm `ts_decay_linear` lồng nhau). Hệ quả là khi đột biến (mutate) các mô hình này, chúng ta liên tục tạo ra các phiên bản "nhái", dẫn đến **Self-Correlation > 0.9** và không thể nộp thêm lên hệ thống.
@@ -13,16 +13,16 @@ Công thức gốc từ tài liệu: `-ts_corr(est_ptp, est_fcf, 252)`
 
 ## 3. Hành trình tinh chỉnh (Walkthrough)
 
-### Bước 1: Kiểm định ý tưởng gốc (Batch 7)
+### Bước 1: Kiểm định ý tưởng gốc (Batch 4 - 7)
 Chúng ta đưa công thức `-ts_corr(est_ptp, est_fcf, 252)` vào chạy thử nghiệm. 
 - **Kết quả:** Sharpe **1.23**, Fitness **0.78**. 
 - **Đánh giá:** Mô hình có tiềm năng lớn (tương quan giá rất thấp), nhưng không vượt qua được bài test vì `Sharpe < 1.25` và `Fitness < 1.0`.
 
-### Bước 2: Bơm Fitness và cải thiện tín hiệu (Batch 8 & 9)
+### Bước 2: Bơm Fitness và cải thiện tín hiệu (Batch 5 - 8 & Batch 6 - 9)
 Để nâng Fitness lên mức tiêu chuẩn (> 1.0), chúng ta cần giảm độ nhiễu và kiểm soát Turnover (tần suất giao dịch) của mô hình. 
 - **Giải pháp:** Sử dụng hàm `ts_decay_linear(..., 5)` bọc bên ngoài. Việc này giúp làm "mượt" các tín hiệu mua/bán, không bắt mô hình phải nhảy vọt liên tục, giúp tiết kiệm chi phí giao dịch.
 
-### Bước 3: Rút ngắn chu kỳ và Chống tập trung vốn (Batch 10 - Thành công)
+### Bước 3: Rút ngắn chu kỳ và Chống tập trung vốn (Batch 7 - 10 - Thành công)
 - **Rút ngắn chu kỳ (Lookback):** Chu kỳ 252 ngày (1 năm) là quá chậm chạp để phản ứng với những đợt điều chỉnh giá cổ phiếu. Chúng ta đã rút ngắn mạnh tay xuống **20 ngày** (1 tháng) để chớp được những tín hiệu nhạy bén nhất của thị trường.
 - **Tránh lỗi Concentrated Weight:** Thay vì phân nhóm cổ phiếu theo ngành (`group_rank(..., sector)`), chúng ta dùng hàm `rank(...)` trên toàn bộ tập thị trường `TOP3000`. Cấu trúc này ép phân bổ trọng số danh mục (weights) đều cho tất cả các mã, giải quyết dứt điểm rủi ro một mã chiếm quá 10% danh mục.
 

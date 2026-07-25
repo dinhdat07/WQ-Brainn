@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Alpha ID:** `le3WZmdl`
-- **Batch:** Batch 10
+- **Batch:** Batch 7 - 10
 - **Submission Status:** SUCCESS (Self-Correlation 0.0)
 - **Concept:** Analyst Estimates / Overpriced Stocks
 

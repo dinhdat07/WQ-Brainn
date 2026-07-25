@@ -5,31 +5,31 @@ This dictionary tracks successful alphas, failed experiments, core structures, a
 ## 🌟 1. Hall of Fame (Successful Alphas)
 These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and represent strong concepts.
 
-### 🏆 Batch 20 (Strong Fundamentals)
+### 🏆 Batch 1 - 20 (Strong Fundamentals)
 *   **RR125qWg**: (Concept: TBD)
 *   **LLdgKw7M**: (Concept: TBD)
 
-### 🏆 Batch 8 (Volume/Price Dynamics)
+### 🏆 Batch 2 - 8 (Volume/Price Dynamics)
 *   **Vk3OaKmJ**
 *   **pwK8RXJg**
 *   **88en30Qo**
 *   **P0OvZxeW**
 
-### 🏆 Batch 24 (New Alternative Data)
+### 🏆 Batch 3 - 24 (New Alternative Data)
 *   **A17kVk5w**
 *   **xAdRrqZq**
 *   **JjvbPPeO**
 *   **le3rM69A**
 
-### 🌱 Batch 10 (Research-Driven Alternative Concepts)
+### 🌱 Batch 7 - 10 (Research-Driven Alternative Concepts)
 *   **le3WZmdl**: Analyst Overpriced Stocks (Short Lookback) (`ts_decay_linear(rank(-ts_corr(est_ptp, est_fcf, 20)), 5)`). **Sharpe 1.71 | Fit 1.41**. **🎉 SUBMITTED SUCCESSFULLY! (Self-Correlation 0.0)**
 *   **GreGv8oQ**: Volatility Arbitrage + Backfill (`ts_decay_linear(group_rank(ts_backfill(implied_volatility_call_120, 60) / parkinson_volatility_120, sector), 5)`). Sharpe 1.32 | Fit 1.64.
 
 ### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
 These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
 *   **ZYKo6R78**: Submitted alpha with high fitness/Sharpe but high self-correlation.
-*   **le33nmK5** (Batch 3)
-*   **zqRRVZOO** (Batch 3)
+*   **le33nmK5** (Batch 0 - 3)
+*   **zqRRVZOO** (Batch 0 - 3)
 
 ---
 
@@ -57,7 +57,7 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 | :--- | :--- | :--- |
 | **`ts_min`** | API Error | `ts_min` is not supported on the Brain API in FASTEXPR. Use `ts_rank` or other normalizations instead. |
 | **Nested Z-Scores on Everything** | Self-Correlation > 0.90 | Non-linear transformations smooth out the signal so much that distinct inputs converge to the same output distribution. |
-| **Additive & Conditional Models** (`rank(A) + rank(B)`) | Low Sharpe (< 1.0) | Tried in Batch 4. The raw signal without z-score/decay smoothing isn't robust enough to generate strong return predictability. |
+| **Additive & Conditional Models** (`rank(A) + rank(B)`) | Low Sharpe (< 1.0) | Tried in Batch 0 - 4. The raw signal without z-score/decay smoothing isn't robust enough to generate strong return predictability. |
 | **Z-score on Non-Price Fields** | API Error / NaNs | `ts_zscore` on certain sparse fundamental data can lead to NaNs or errors due to zero variance over the window. |
 
 ---

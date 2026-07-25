@@ -2,7 +2,7 @@
 
 This document tracks all experimental mutations applied to successful Alpha cores to break the Self-Correlation (>0.9) barrier with `ZYKo6R78` or other overlapping alphas.
 
-## Batch 1: Testing Outer Shell Variations
+## Batch 8 - 4: Testing Outer Shell Variations
 
 **Goal:** Modify the outer operators (the "trigger" or smoothing functions) of high-Sharpe base signals to force the new Alpha to trade on slightly different days, thereby lowering self-correlation without destroying predictive power.
 
