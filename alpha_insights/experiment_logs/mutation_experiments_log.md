@@ -24,6 +24,55 @@ This document tracks all experimental mutations applied to successful Alpha core
 3. **Internal Brain Neutralization (3) destroys Fitness:** Switching to `Neutralization: INDUSTRY` keeps predictive power (Sharpe 1.45!) but drastically drops Fitness (Fit 0.75). This is likely because the internal engine's neutralization mechanism increases portfolio turnover or drops too many stocks, hurting the turnover/margin penalty of Fitness. Explicit `group_rank` is far superior.
 4. **Pure Fundamental needs complex scaling:** Simply smoothing fundamental ratios (`ts_zscore` -> `ts_mean`) performs terribly (Sharpe < 0.6). Without a short-term price mean-reversion trigger, the alpha holds stale positions for too long.
 
+---
+
+## Batch 11 - 3: Alternative Data Exploration (Phase 3)
+
+**Goal:** Apply 101-Alpha structures (Alpha#42, Alpha#6) to Alternative Data (Analyst, Sentiment) and fix `GreGv8oQ` (Vol Arb) concentrated weight.
+
+| Model | Core Signal | Wrapper/Modifiers | Result (Sharpe / Fitness / Turnover) | Insight / Next Step |
+| :--- | :--- | :--- | :--- | :--- |
+| **1_Analyst_vs_Price** | `rank(est_ptp - close) / rank(est_ptp + close)` | `ts_decay_linear(..., 5)` on TOP3000 | **0.62 / 1.02** | LOW_SHARPE. The static spread between price target and close lacks predictive power. Needs a dynamic element (e.g., `ts_delta(est_ptp)`). |
+| **2_Sentiment_Corr** | `-ts_corr(open, ts_backfill(composite_sentiment_score_2, 10), 10)` | `ts_decay_linear(rank(...), 5)` | **ERROR** | API Error: `ts_backfill` does not support event inputs. Must use `ts_sum` or `ts_mean` to convert event to matrix. |
+| **3_Flat_Vol_Arb** | `ts_backfill(implied_volatility_call_120, 60) / parkinson_volatility_120` | `ts_decay_linear(rank(...), 5)` on TOP3000 | **0.83 / 1.47** | LOW_SHARPE. Flattening the rank to TOP3000 destroyed the Sharpe from the original `group_rank(..., sector)` (which had 1.32). Sector-neutrality is strictly required for this signal. We must return to `group_rank` but use `truncation: 0.05` to fix CONCENTRATED_WEIGHT. |
+
+### Result: Fail. All 3 models did not pass. Proceeding to Batch 12 to iterate on the findings.
+
 ### Next Action
 - **Submit/Test `88eebrYo`:** Check self-correlation of `88eebrYo` against `ZYKo6R78` on the Brain platform.
 - **Explore Alternative Triggers:** Next time, test `ts_zscore(-returns, 5)` or `ts_rank(volume, 5)` as orthogonal triggers.
+
+## Batch 12 - 3: Alternative Data Exploration (Phase 3) - Iteration 2
+
+**Goal:** Fix the issues encountered in Batch 11. Specifically, add dynamic element to Analyst Delta, use truncation + sector neutrality for Vol Arb, and use `ts_mean` for Sentiment.
+
+| Model | Core Signal | Wrapper/Modifiers | Result (Sharpe / Fitness / Turnover) | Insight / Next Step |
+| :--- | :--- | :--- | :--- | :--- |
+| **1_Analyst_Delta** | `rank(ts_delta(est_ptp, 5))` | `ts_decay_linear(..., 5)` on TOP3000 | **0.77 / 1.31** | LOW_SHARPE. Better than `est_ptp - close` (0.62), but still lacks predictive power. |
+| **2_Options_Vol_Truncated** | `group_rank(ts_backfill(implied_volatility_call_120, 60) / parkinson_volatility_120, sector)` | `ts_decay_linear(..., 5)` with Truncation 0.05 on TOP3000 | **0.83 / 1.47** | LOW_SHARPE. Surprisingly, this scored exactly the same as the flattened version (0.83). The `group_rank` did not restore the 1.32 Sharpe. This implies the base signal's efficacy has dropped or the specific settings (TOP3000 vs USA) changed. |
+| **3_Sentiment_Event** | `-ts_corr(open, ts_mean(composite_sentiment_score_2, 10), 10)` | `ts_decay_linear(rank(...), 5)` | **ERROR** | API Error: `ts_mean` does not support event inputs. We cannot use `ts_*` functions on event data directly. We must use event-specific functions or avoid time-series ops on them. |
+
+### Result: Fail. All 3 models did not pass. Proceeding to Batch 13.
+
+## Batch 13 - 10: Alternative Data Exploration (Phase 3) - Iteration 3
+
+**Goal:** Test 10 new formulas using Alternative Data (Analyst estimates, Options implied volatility, Sentiment, Fundamentals) to find a high-Sharpe signal without self-correlation. Apply dynamic elements (`ts_delta`, `ts_decay_linear`) to alternative metrics.
+
+| Model | Core Signal | Result (Sharpe / Fitness) | Insight / Next Step |
+| :--- | :--- | :--- | :--- |
+| **1_Analyst_Revisions** | `anl4_fs_basic_splt_v4_nd_eps_estimate - close` | **ERROR** | API Error: `subtract` does not support event inputs. Cannot subtract `close` (matrix) from `anl4` (event) directly. |
+| **2_Options_Volatility** | `ts_backfill(implied_volatility_call_120, 60) / parkinson_volatility_120` | **0.83 / 1.47** | LOW_SHARPE. |
+| **3_Sentiment_Divergence** | `-ts_corr(open, ts_backfill(composite_sentiment_score_2, 10), 10)` | **ERROR** | API Error: `ts_backfill` does not support event inputs. |
+| **4_EBITDA_Reversion** | `-ts_delta(anl4_ebitda_mean, 60)` | **0.75 / 1.29** | LOW_SHARPE. |
+| **5_RD_Intensity** | `fnd6_newa2v1300_rdip` | **0.78 / 1.34** | LOW_SHARPE. |
+| **6_Short_Indicators_vs_Price** | `-ts_corr(best_position_indicator, close, 20)` | **ERROR** | API Error: `ts_corr` does not support event inputs. |
+| **7_Earnings_Quality** | `anl4_fs_basic_splt_v4_nd_sales_estimate / close` | **ERROR** | API Error: `divide` does not support event inputs. |
+| **8_Cash_Accumulation** | `ts_delta(cash_st, 60)` | **0.79 / 1.36** | LOW_SHARPE. |
+| **9_Analyst_Holds_Ratio** | `-anl4_hold` | **ERROR** | API Error: `multiply` does not support event inputs (from negative sign). |
+| **10_Target_Price_Acceleration** | `ts_delta(est_ptp, 5)` | **0.77 / 1.31** | LOW_SHARPE. |
+
+### Result: Fail.
+All 10 models did not pass (either ERROR due to event-input constraints or LOW_SHARPE).
+
+### Next Action:
+The `anl4`, `composite_sentiment_score`, and `best_position_indicator` datasets are event-based. We cannot apply standard math or time-series operators directly on them unless we cast them to vectors (e.g., using `vec_avg`) or use specialized event operators. We need to revise the formulas to either use matrix datasets or handle event data properly.
