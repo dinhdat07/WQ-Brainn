@@ -28,6 +28,9 @@ These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and repre
 ### 🔥 Batch 15 - 10 (Matrix Signal Optimization - Phase 3)
 *   **e7x3P7gO**: Target Price Premium Double Z-Score (`ts_decay_linear(group_zscore(ts_zscore(est_ptp / close, 252), subindustry), 5)`). **Sharpe 1.58 | Fit 1.18**. Very strong candidate for submission due to alternative data orthogonal to price/volume momentum.
 
+### 🚀 Batch 17 - 10 (Fundamentals + Momentum Mutation - Phase 4)
+*   **RR1bxvea**: Asset Turnover + Fast Reversion (`ts_decay_linear(group_zscore((sales/assets) * rank(-(close/ts_mean(close, 5))), subindustry), 5)`). **Sharpe 1.88 | Fit 1.22 | Self-Corr: 0.312**. **🎉 SUBMITTED SUCCESSFULLY! (Massive Success)**. Mảnh ghép hoàn hảo giữa tín hiệu cơ bản (chậm) và tín hiệu động lượng (nhanh).
+
 ### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
 These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
 *   **ZYKo6R78**: Submitted alpha with high fitness/Sharpe but high self-correlation.

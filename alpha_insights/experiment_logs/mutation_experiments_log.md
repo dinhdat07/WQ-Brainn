@@ -124,4 +124,53 @@ We successfully pushed the `est_ptp / close` concept to a Sharpe of 1.58 and Fit
 Since `e7x3P7gO` is built entirely on Alternative Data (Analyst estimates) and normalized differently, it is extremely likely to have `< 0.7` self-correlation with our previous Volatility/Fundamentals base models (like `ZYKo6R78`). 
 We need to run a correlation check and submit `e7x3P7gO`.
 
+## Batch 16 - 10: Orthogonal Liquidity & Accruals (Phase 4) - Base Cores
+
+**Goal:** Find new uncorrelated Base Cores using Liquidity anomalies (Amihud, Volume Surprise) and Advanced Fundamentals (Accruals, Working Capital, PEG) to achieve Sharpe > 1.25.
+
+| Model | Core Signal | Result (Sharpe / Fitness) | Insight / Next Step |
+| :--- | :--- | :--- | :--- |
+| **16_1_Amihud_Illiquidity** | `ts_decay_linear(group_rank(ts_mean(abs(returns) / volume, 20), sector), 5)` | **0.66 / 1.06** | LOW_SHARPE. |
+| **16_2_Turnover_Value** | `ts_decay_linear(group_rank(1 / ts_mean(sharesout / volume, 20), industry), 5)` | **0.76 / 1.34** | LOW_SHARPE. High fitness due to low turnover (0.019). |
+| **16_3_Volume_Surprise** | `ts_decay_linear(rank(-ts_delta(volume, 5) * sign(returns)), 5)` | **0.77 / 1.11** | LOW_SHARPE. Turnover is higher (0.17). |
+| **16_4_Vol_Adj_Reversion** | `ts_decay_linear(rank(-(close / ts_mean(close, 20)) * rank(ts_delta(volume, 5))), 5)` | **0.75 / 1.06** | LOW_SHARPE. |
+| **16_5_Liquidity_Trend**| `ts_decay_linear(group_rank(ts_delta(volume / sharesout, 10), sector), 5)` | **0.75 / 1.13** | LOW_SHARPE. |
+| **16_6_Low_Accruals** | `ts_decay_linear(group_rank(-(assets - cash - liabilities), sector), 5)` | **0.66 / 1.10** | LOW_SHARPE. |
+| **16_7_Working_Capital_Ratio**| `ts_decay_linear(group_rank(-((assets - cash) / assets), industry), 5)` | **0.67 / 1.10** | LOW_SHARPE. |
+| **16_8_ROE_Quality_Rank** | `ts_decay_linear(group_zscore(ts_zscore(income / equity, 63), subindustry), 5)` | **0.58 / 0.20** | VERY LOW SHARPE & FIT. |
+| **16_9_PEG_Yield** | `ts_decay_linear(group_rank((income / close) * ts_delta(income, 252), sector), 5)` | **0.81 / 1.41** | LOW_SHARPE. Highest fitness of the batch (1.41). |
+| **16_10_Asset_Turnover** | `ts_decay_linear(group_rank(sales / assets, industry), 5)` | **0.83 / 1.44** | LOW_SHARPE. Highest Sharpe (0.83) and Fitness (1.44). |
+
+### Result: 0 Successes.
+None of the 10 base models achieved a Sharpe > 1.25. The Liquidity signals (16_1 - 16_5) maxed out at 0.77 Sharpe. The Advanced Fundamentals signals (16_6 - 16_10) performed slightly better in Fitness, with Asset Turnover (`16_10`) reaching Sharpe 0.83 and Fitness 1.44.
+
+### Next Action:
+According to the Decision Matrix (`wq-alpha-workflow`), LOW_SHARPE implies the signal reacts too slowly. However, for fundamental signals like Asset Turnover and PEG, the data updates infrequently (quarterly/annually). To boost Sharpe, we need to combine these slow-moving quality signals with a fast-moving price/volume signal (e.g., Short-term Mean Reversion or Volume Surprise), or heavily optimize the cross-sectional ranking (e.g. `group_zscore` with `subindustry` instead of `industry`).
+In Batch 17, we will take the top 3 concepts (`16_10`, `16_9`, `16_3`) and apply `group_zscore` and shorter lookbacks.
+
+## Batch 17 - 10: Fundamentals + Momentum Mutation (Phase 4)
+
+**Goal:** Mutate the base fundamentals/liquidity ideas from Batch 16 by combining them with fast-moving reversion components and applying strict `group_zscore` on the `subindustry` level to push Sharpe > 1.25.
+
+| Model | Core Signal | Result (Sharpe / Fitness) | Insight / Next Step |
+| :--- | :--- | :--- | :--- |
+| **17_1_Asset_Turnover_Fast_Reversion** | `ts_decay_linear(group_zscore((sales/assets) * rank(-(close/ts_mean(close, 5))), subindustry), 5)` | **1.88 / 1.22** | **MASSIVE SUCCESS!** Combined slow turnover with fast reversion. |
+| **17_2_PEG_Volume_Spike** | `...` | **0.06 / 0.01** | Failed. |
+| **17_3_Volume_Surprise_ZScore** | `...` | **1.06 / 0.31** | Good Sharpe but low Fitness due to high Turnover. |
+| **17_4_Liquidity_Trend_Accel** | `...` | **0.04 / 0.00** | Failed. |
+| **17_5_High_Accruals_Short** | `...` | **0.04 / 0.01** | Failed. |
+| **17_6_Operating_CF_Price_Mom** | `...` | **-0.76 / -0.57** | Failed (Inverse relation). |
+| **17_7_Asset_vs_Price_Growth** | `...` | **0.62 / 0.50** | LOW_SHARPE. |
+| **17_8_Cap_Weighted_Reversion** | `...` | **1.86 / 0.77** | Excellent Sharpe but Fit < 1.0 due to high Turnover (0.77). |
+| **17_9_Vol_Adj_Reversion_Sub** | `...` | **0.64 / 0.15** | LOW_SHARPE. |
+| **17_10_Amihud_Spike** | `...` | **0.45 / 0.07** | LOW_SHARPE. |
+
+### Result: 1 Massive Success (`RR1bxvea`)
+The strategy of multiplying a fundamental ratio (`sales/assets`) by a fast-momentum ranking (`rank(-(close/ts_mean(close, 5)))`) worked flawlessly. 
+The OS test was run on `RR1bxvea`, and it **PASSED** the Self-Correlation check with an incredibly low correlation of **0.312**. This proves it is entirely orthogonal to our previous Volatility/Analyst models!
+
+### Phase 4 Complete!
+We successfully found a low-correlation, high-performance model for Phase 4 using matrix data.
+Next phase will either explore deeper into Alternative Datasets or build more variations of the "Fundamental x Momentum" blueprint!
+
 
