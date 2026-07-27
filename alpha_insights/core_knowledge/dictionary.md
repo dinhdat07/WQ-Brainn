@@ -79,3 +79,6 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 3.  **Volatility-Adjusted Fundamentals**: `rank(capital_paidup) / ts_std_dev(returns, 20)`
 4.  **Regime-Timing**: Flip momentum signals based on market conditions (e.g., using broad market trend as a switch).
 5.  **Sentiment**: Utilize alternative data like news sentiment if available (`rank(ts_sum(news_sentiment, 60))`).
+
+### 🚀 Batch 20 - 12 (Volatility & Intraday Turnover Reduction - Phase 6)
+*   **d5RaEvVj**: Intraday Reversion (	s_decay_linear(group_zscore(-(close - open) / open, subindustry), 10)). **Sharpe 1.75 | Fit 1.04 | TO 0.54**. **🎉 SUBMITTED SUCCESSFULLY!**. Great success. By pushing decay from 5 to 10 on a strong intraday reversion signal, turnover dropped below 0.6 while keeping Sharpe very high.
