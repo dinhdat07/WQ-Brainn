@@ -174,3 +174,25 @@ We successfully found a low-correlation, high-performance model for Phase 4 usin
 Next phase will either explore deeper into Alternative Datasets or build more variations of the "Fundamental x Momentum" blueprint!
 
 
+
+## Batch 18 - 10: Quality Fundamentals x Fast Momentum (Phase 5)
+
+**Goal:** Double down on the `Fundamental x Momentum` blueprint using different accounting metrics and varying momentum windows to ensure low self-correlation.
+
+| Model | Core Signal | Result (Sharpe / Fitness) | Insight / Next Step |
+| :--- | :--- | :--- | :--- |
+| **18_1_ROE_Reversion** | `(income / equity) * rank(-(close/ts_mean(close, 5)))` | **0.44 / 0.18** | Failed. |
+| **18_2_Profit_Margin_Reversion** | `(income / sales) * rank(-returns)` | **0.24 / 0.08** | Failed. |
+| **18_3_Cash_Assets_Reversion** | `(cash / assets) * rank(-ts_delta(close, 3))` | **0.34 / 0.12** | Failed. |
+| **18_4_Leverage_Reversion** | `(equity / assets) * rank(-(close/open - 1))` | **0.52 / 0.15** | Failed. |
+| **18_5_Asset_Growth_Reversion** | `(1 / ts_delta(assets, 252)) * rank(-(close/ts_mean(close, 5)))` | **0.58 / 0.21** | Failed. |
+| **18_6_Operating_Accruals_Vol** | `((assets-cash-liabilities)/assets) * rank(-ts_delta(volume, 5)...)` | **-0.69 / -0.28** | Failed. |
+| **18_7_Operating_Margin_Reversion** | `(sales / assets) * rank(-returns)` | **1.95 / 1.13** | **SUCCESS!** Another Asset Turnover variant. |
+| **18_8_CF_Price_Intraday** | `(cash / close) * rank(-(close/open - 1))` | **0.82 / 0.46** | Failed. |
+| **18_9_Sales_Yield_Reversion** | `(sales / (close * sharesout)) * rank(-ts_delta(close, 3))` | **1.55 / 1.35** | **SUCCESS!** Price-to-Sales (inverse) reversion. |
+| **18_10_Book_Yield_Reversion** | `(equity / (close * sharesout)) * rank(-ts_delta(close, 10))` | **0.93 / 0.70** | Failed. |
+
+### Result: 2 Successes (`88ePoPd7` & `bldOZEjr`)
+The `Asset Turnover` signal continues to prove its immense power when combined with short-term mean reversion. `18_7` achieved 1.95 Sharpe. Additionally, the `Sales Yield` (Sales to Market Cap) also proved to be highly effective when combined with a 3-day reversion, achieving a robust 1.55 Sharpe and 1.35 Fitness.
+
+Both alphas have been submitted for out-of-sample testing.

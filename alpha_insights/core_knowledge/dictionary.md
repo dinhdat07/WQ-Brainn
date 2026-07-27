@@ -31,6 +31,10 @@ These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and repre
 ### 🚀 Batch 17 - 10 (Fundamentals + Momentum Mutation - Phase 4)
 *   **RR1bxvea**: Asset Turnover + Fast Reversion (`ts_decay_linear(group_zscore((sales/assets) * rank(-(close/ts_mean(close, 5))), subindustry), 5)`). **Sharpe 1.88 | Fit 1.22 | Self-Corr: 0.312**. **🎉 SUBMITTED SUCCESSFULLY! (Massive Success)**. Mảnh ghép hoàn hảo giữa tín hiệu cơ bản (chậm) và tín hiệu động lượng (nhanh).
 
+### 🚀 Batch 18 - 10 (Quality Fundamentals x Fast Momentum - Phase 5)
+*   **88ePoPd7**: Operating Margin Reversion (`ts_decay_linear(group_zscore((sales / assets) * rank(-returns), subindustry), 5)`). **Sharpe 1.95 | Fit 1.13**. Asset Turnover with 1-day mean reversion.
+*   **bldOZEjr**: Sales Yield Reversion (`ts_decay_linear(group_zscore((sales / (close * sharesout)) * rank(-ts_delta(close, 3)), subindustry), 5)`). **Sharpe 1.55 | Fit 1.35**. Price-to-Sales (inverse) with 3-day mean reversion.
+
 ### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
 These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
 *   **ZYKo6R78**: Submitted alpha with high fitness/Sharpe but high self-correlation.
