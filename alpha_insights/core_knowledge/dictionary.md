@@ -33,7 +33,7 @@ These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and repre
 
 ### 🚀 Batch 18 - 10 (Quality Fundamentals x Fast Momentum - Phase 5)
 *   **88ePoPd7**: Operating Margin Reversion (`ts_decay_linear(group_zscore((sales / assets) * rank(-returns), subindustry), 5)`). **Sharpe 1.95 | Fit 1.13**. Asset Turnover with 1-day mean reversion.
-*   **bldOZEjr**: Sales Yield Reversion (`ts_decay_linear(group_zscore((sales / (close * sharesout)) * rank(-ts_delta(close, 3)), subindustry), 5)`). **Sharpe 1.55 | Fit 1.35**. Price-to-Sales (inverse) with 3-day mean reversion.
+*   **bldOZEjr**: Sales Yield Reversion (`ts_decay_linear(group_zscore((sales / (close * sharesout)) * rank(-ts_delta(close, 3)), subindustry), 5)`). **Sharpe 1.55 | Fit 1.35**. Price-to-Sales (inverse) with 3-day mean reversion. **🎉 SUBMITTED SUCCESSFULLY!**
 
 ### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
 These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
@@ -81,4 +81,9 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 5.  **Sentiment**: Utilize alternative data like news sentiment if available (`rank(ts_sum(news_sentiment, 60))`).
 
 ### 🚀 Batch 20 - 12 (Volatility & Intraday Turnover Reduction - Phase 6)
-*   **d5RaEvVj**: Intraday Reversion (	s_decay_linear(group_zscore(-(close - open) / open, subindustry), 10)). **Sharpe 1.75 | Fit 1.04 | TO 0.54**. **🎉 SUBMITTED SUCCESSFULLY!**. Great success. By pushing decay from 5 to 10 on a strong intraday reversion signal, turnover dropped below 0.6 while keeping Sharpe very high.
+*   **d5RaEvVj**: Intraday Reversion (`ts_decay_linear(group_zscore(-(close - open) / open, subindustry), 10)`). **Sharpe 1.75 | Fit 1.04 | TO 0.54**. **🎉 SUBMITTED SUCCESSFULLY!**. Great success. By pushing decay from 5 to 10 on a strong intraday reversion signal, turnover dropped below 0.6 while keeping Sharpe very high.
+
+### 🚀 Batch 21 - Phase 7 (Silver Alphas)
+*   **Jjv1g3xO**: Implied Volatility Spread (`ts_decay_linear(trade_when(pcr_oi_270 < 1, (implied_volatility_call_270 - implied_volatility_put_270), -1), 10)`). **Sharpe 1.89 | Fit 1.97 | TO 0.18**. Excellent first run with Options Data.
+*   **pwKZnmX6**: IV Skew Decay (`ts_decay_linear(ts_backfill((implied_volatility_call_180 - implied_volatility_put_180) / implied_volatility_mean_180, 20), 10)`). **Sharpe 2.21 | Fit 1.87 | TO 0.1691**. **🎉 SUBMITTED SUCCESSFULLY!**. Incredible performance from 6-month volatility skew.
+*   **58keLvV6**: Invest Future Base (`ts_regression(ts_sum(ts_backfill(fnd6_newqv1300_ivltq, 60), 252), ts_step(1), 756, rettype = 2)`). **Sharpe 1.35 | Fit 1.06 | TO 0.0071**. **🎉 SUBMITTED SUCCESSFULLY!**. Extremely low turnover long term fundamental model.
