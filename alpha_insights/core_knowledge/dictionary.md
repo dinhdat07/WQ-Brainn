@@ -38,6 +38,7 @@ These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and repre
 ### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
 These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
 *   **ZYKo6R78**: Submitted alpha with high fitness/Sharpe but high self-correlation.
+*   **N1bXbxxe**: (Sharpe 1.71, Fit 1.42) Failed submission due to Self-Corr 0.8673 with `pwKZnmX6` (180d IV Skew).
 *   **le33nmK5** (Batch 0 - 3)
 *   **zqRRVZOO** (Batch 0 - 3)
 
@@ -87,3 +88,18 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 *   **Jjv1g3xO**: Implied Volatility Spread (`ts_decay_linear(trade_when(pcr_oi_270 < 1, (implied_volatility_call_270 - implied_volatility_put_270), -1), 10)`). **Sharpe 1.89 | Fit 1.97 | TO 0.18**. Excellent first run with Options Data.
 *   **pwKZnmX6**: IV Skew Decay (`ts_decay_linear(ts_backfill((implied_volatility_call_180 - implied_volatility_put_180) / implied_volatility_mean_180, 20), 10)`). **Sharpe 2.21 | Fit 1.87 | TO 0.1691**. **🎉 SUBMITTED SUCCESSFULLY!**. Incredible performance from 6-month volatility skew.
 *   **58keLvV6**: Invest Future Base (`ts_regression(ts_sum(ts_backfill(fnd6_newqv1300_ivltq, 60), 252), ts_step(1), 756, rettype = 2)`). **Sharpe 1.35 | Fit 1.06 | TO 0.0071**. **🎉 SUBMITTED SUCCESSFULLY!**. Extremely low turnover long term fundamental model.
+
+### 🚀 Batch 22 - Phase 8 (Fundamental Z-Score x Fast Reversion)
+*   **9q7mwNed**: Asset Turnover Intraday Reversion (`ts_decay_linear(group_zscore((sales / assets) * rank(-(close - open) / open), subindustry), 5)`). **Sharpe 2.0 | Fit 1.15 | TO 0.3543**. Extremely strong fundamental-momentum crossover!
+| 6Xpn9V2L | Asset Turnover + Backfilled VolArb | `ts_decay_linear(group_rank(sales / assets, subindustry) + rank(ts_backfill(implied_volatility_call_120, 60) / ts_backfill(parkinson_volatility_120, 60)), 5)` | Truncation: 0.05, nanHandling: ON, Neutralization: SUBINDUSTRY. Sharpe 1.56, Fit 1.37, TO 0.0946, Margin 20.3 bps. Solved 1/25/2022 data gap. |
+
+| wpa8lwr5 | Silver Volatility Skew 180d | `ts_decay_linear(rank((ts_backfill(implied_volatility_call_180, 60) - ts_backfill(implied_volatility_put_180, 60)) / ts_backfill(implied_volatility_mean_180, 60)), 10)` | Sharpe 1.90, Fit 1.28, TO 0.1831. Direct institutional Vol Skew. |
+| 78zknP68 | Silver Volatility Skew 270d D15 | `ts_decay_linear(rank((ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)) / ts_backfill(implied_volatility_mean_270, 60)), 15)` | Sharpe 1.79, Fit 1.38, TO 0.1385. Smooth long-horizon Vol Skew. |
+
+| LLGWQvYm | PCR Open Interest 180d Discrete Trigger | `ts_decay_linear(group_rank(trade_when(ts_backfill(pcr_oi_180, 60) < 1, (ts_backfill(implied_volatility_call_180, 60) - ts_backfill(implied_volatility_put_180, 60)), -1), subindustry), 10)` | Sharpe 2.04, Fit 1.57, TO 0.1284. Discrete positioning trigger. |
+| vRN8Q6av | PCR Open Interest 270d + Asset Turnover | `ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry), 10)` | Sharpe 1.83, Fit 1.55, TO 0.0890, Margin 20.3 bps. Multi-factor discrete positioning. |
+| 88pomANl | Institutional Triad (PCR 270d + Asset Turn + Intraday) | `ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry) + group_rank(-(close - open) / open, subindustry), 10)` | Sharpe 2.69, Fit 2.32, TO 0.1775, Margin 14.8 bps. Sub-universe Sharpe PASS (1.26 vs 1.16). Institutional Triad Champion. |
+| 1Yp9qNG6 | Institutional Triad (PCR 180d + Asset Turn + 3d Reversion) | `ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_180, 60) < 1, (ts_backfill(implied_volatility_call_180, 60) - ts_backfill(implied_volatility_put_180, 60)), -1), subindustry) + group_rank(-ts_delta(close, 3), subindustry), 10)` | Sharpe 2.56, Fit 2.27, TO 0.1661, Margin 15.7 bps. Sub-universe Sharpe PASS (1.29 vs 1.11). |
+
+### 🚀 Batch 33 - Phase 9 (Institutional Triad Breakthrough - Sub-Universe Master)
+*   **88pomANl**: Institutional Triad (`ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry) + group_rank(-(close - open) / open, subindustry), 10)`). **Sharpe 2.69 | Fit 2.32 | TO 0.1775 | Margin 14.8 bps | Sub-Universe Sharpe: PASS (1.26 vs 1.16)**. **🎉 READY FOR SUBMISSION / GRAND CHAMPION OF PHASE 9**.

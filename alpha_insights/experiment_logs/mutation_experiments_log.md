@@ -253,3 +253,94 @@ Both alphas have been submitted for out-of-sample testing.
 - **21_11_Bull_Trap**: N1R3Avow | Sharpe 1.16 | Fit 0.99 | TO 0.2278 -> REJECTED
 
 **Conclusion**: Options Data (IV Skew and IV Spread) and long term Fundamental Regressions (Invest Future) are highly effective and orthogonal to our price/volume models!
+
+### 🚀 Batch 22 - Phase 8 (Fundamental Z-Score x Reversion)
+*   **22_1_ROE_Rev5d**: 	s_decay_linear(group_zscore((income / equity) * rank(-(close / ts_mean(close, 5))), subindustry), 5) -> **FAILED** (Sharpe 0.44, Fit 0.18, TO 0.178)
+*   **22_2_ROA_RevIntra**: 	s_decay_linear(group_zscore((income / assets) * rank(-(close - open) / open), subindustry), 5) -> **FAILED** (Sharpe 0.33, Fit 0.13, TO 0.2173)
+*   **22_3_EBIT_Margin_Rev1d**: 	s_decay_linear(group_zscore((ebit / sales) * rank(-returns), subindustry), 5) -> **FAILED** (Sharpe 0.36, Fit 0.15, TO 0.2464)
+*   **22_4_InvDebtEq_Rev3d**: 	s_decay_linear(group_zscore((equity / debt) * rank(-ts_delta(close, 3)), subindustry), 5) -> **FAILED** (Sharpe -0.68, Fit -0.32, TO 0.1722)
+*   **22_5_BTM_Rev5d**: 	s_decay_linear(group_zscore((equity / (sharesout * close)) * rank(-(close / ts_mean(close, 5))), subindustry), 5) -> **FAILED** (Sharpe 1.32, Fit 0.89, TO 0.2371). Close, but fitness < 1.0
+*   **22_6_CashPrice_RevIntra**: 	s_decay_linear(group_zscore((cash / (sharesout * close)) * rank(-(close - open) / open), subindustry), 5) -> **FAILED** (Sharpe 0.98, Fit 0.6, TO 0.2645)
+*   **22_7_EBIT_Assets_Rev5d**: 	s_decay_linear(group_zscore((ebit / assets) * rank(-(close / ts_mean(close, 5))), subindustry), 5) -> **FAILED** (Sharpe 0.44, Fit 0.2, TO 0.2176)
+*   **22_8_AssetTurn_RevIntra**: `ts_decay_linear(group_zscore((sales / assets) * rank(-(close - open) / open), subindustry), 5)` -> **SUCCESS** (Sharpe 2.0, Fit 1.15, TO 0.3543). Fantastic model! Asset turnover times Intraday Reversion creates strong, high fitness alpha.
+*   **22_9_FCFPrice_Rev3d**: `ts_decay_linear(group_zscore(((income + depreciation - capex) / (sharesout * close)) * rank(-ts_delta(close, 3)), subindustry), 5)` -> **FAILED** (API Error: unknown variable "depreciation")
+*   **22_10_GrossMargin_RevIntra**: `ts_decay_linear(group_zscore(((sales - cogs) / sales) * rank(-(close - open) / open), subindustry), 5)` -> **FAILED** (Sharpe 1.39, Fit 0.64, TO 0.4046). Fitness too low.
+
+### Batch 23 - Phase 8.5: Decorrelation Attempts
+**Goal**: Fix the 0.8573 self-correlation of 9q7mwNed (Asset Turnover x Intraday Reversion) by changing how the fundamental and momentum parts interact.
+*   **23_1_RankAdd**: 	s_decay_linear(group_rank(...) + group_rank(...), 5) -> **FAILED** (Sharpe 0.83). Rank addition destroyed Sharpe.
+*   **23_2_CondFilter**: 	rade_when(group_rank > 0.7, group_zscore(...), -1) -> **FAILED** (Sharpe 1.16). Better, but not > 1.25.
+*   **23_3_BTM_Rev5d_Dec10**: 	s_decay_linear(..., 10) -> **FAILED** (Sharpe 0.95). Increased decay killed the momentum edge.
+*   **23_4_GrossMargin_RankAdd**: -> **FAILED** (Sharpe 0.84).
+*   **23_5_Trend_Multiplier**: 	s_delta(sales/assets, 252) * rank(...) -> **FAILED** (Sharpe -0.09). Trend multiplication broke the signal entirely.
+
+**Conclusion**: Decorrelating Fundamental x Momentum by changing the math operator ruins the alpha. To break correlation while maintaining high Sharpe, we must keep the multiplication (Fundamental * Reversion) but change the BASE variables (e.g., use VWAP reversion or longer-term momentum instead of Intraday Reversion).
+
+### Batch 24 - Phase 8: Decorrelation via Base Variable Change
+**Goal**: Fix self-correlation by maintaining (Fundamental * Reversion) but swapping Intraday Reversion for VWAP or 10-day reversion.
+*   **24_1_AssetTurn_VWAPClose**: 	s_decay_linear(group_zscore((sales/assets) * rank(-(close - vwap)/vwap), subindustry), 5) -> **FAILED** (Sharpe 1.62, Fit 0.82, TO 0.3587). Fitness too low.
+*   **24_2_AssetTurn_VWAPOpen**: 	s_decay_linear(group_zscore((sales/assets) * rank(-(vwap - open)/open), subindustry), 5) -> **SUCCESS** (ID: A17A2zPg | Sharpe 1.89, Fit 1.06, TO 0.3517). MASSIVE SUCCESS! Swapping Close for VWAP preserved the momentum edge and pushed Sharpe to 1.89!
+*   **24_3_GPA_VWAPClose**: GPA * rank(-(close - vwap)/vwap) -> **FAILED** (Sharpe 0.99, Fit 0.44, TO 0.3349)
+*   **24_4_GPA_Rev10d**: GPA * rank(-ts_delta(close, 10)) -> **FAILED** (Sharpe 1.12, Fit 0.66, TO 0.1685)
+*   **24_5_OpMargin_Rev20d**: OpMargin * rank(-(close / ts_mean(close, 20))) -> **FAILED** (Sharpe 0.28, Fit 0.13, TO 0.1063)
+
+**Conclusion**: VWAP-to-Open Reversion combined with Asset Turnover is incredibly powerful In-Sample, BUT fails OOS self-correlation because VWAP and Close are too fundamentally similar. Short-term reversion simply cannot escape the >0.7 self-correlation threshold when paired with the same Fundamental constants.
+
+### Batch 25 - Phase 8.7: Orthogonal Momentum & Volatility
+**Goal**: Fix self-correlation by replacing short-term Reversion entirely with Long-term Momentum and Volatility Arbitrage as the fundamental multiplier.
+*   **25_1_AssetTurn_Mom252**: (sales / assets) * rank(ts_delta(close, 252)) -> **FAILED** (Sharpe 0.13, Fit 0.04)
+*   **25_2_GPA_Mom252**: ((sales - cogs) / assets) * rank(ts_delta(close, 252)) -> **FAILED** (Sharpe 0.10, Fit 0.03)
+*   **25_3_AssetTurn_VolArb**: (sales / assets) * rank(implied_volatility_call_120 / parkinson_volatility_120) -> **SUCCESS** (ID: RvQXZ03 | Sharpe 1.56, Fit 1.23, TO 0.1521). MASSIVE SUCCESS! Replaces price reversion with options-implied volatility spread, making it perfectly orthogonal to Intraday models.
+*   **25_4_GPA_VolArb**: GPA * rank(VolArb) -> **FAILED** (Sharpe 1.02, Fit 0.70)
+*   **25_5_AssetTurn_VolSurprise**: (sales / assets) * rank(ts_delta(volume, 5) * sign(returns)) -> **FAILED** (Sharpe 0.42, Fit 0.11)
+
+**Conclusion**: Combining Fundamental Quality (Asset Turnover) with Alternative Data (Options Implied Volatility) is the ultimate decorrelation technique. It bypasses the crowded price-reversion space completely and produces robust Sharpe > 1.5.
+
+### Batch 26 - Phase 8.8: Fix Weight Concentration
+**Goal**: Fix the Weight concentration > 10% error of RvQXZ03 by adjusting Truncation settings or using Rank.
+*   **26_1_Trunc05**: 	runcation: 0.05 -> **SUCCESS** (ID: kqZApNbg | Sharpe 1.57, Fit 1.25). Kept performance perfectly intact while guaranteeing max weight < 5%.
+*   **26_2_Trunc03**: 	runcation: 0.03 -> **SUCCESS** (ID: 3qeNm2dg | Sharpe 1.57, Fit 1.25).
+*   **26_3_Rank**: group_rank(...) -> **FAILED** (Sharpe 0.86, Fit 1.53). Changing to rank killed the alpha because the magnitude of the options spread is important.
+*   **26_4_Decay10**: decay: 10, trunc: 0.05 -> **SUCCESS** (ID: e7xjYRwE | Sharpe 1.48, Fit 1.29).
+
+**Conclusion**: When group_zscore creates extreme outlier weights > 10% on Volatility formulas, simply lowering the API payload 	runcation from 0.08 to 0.05 completely solves the problem without harming Sharpe.
+
+### Batch 28 - Phase 8.10: Fixing Sparsity (too few instruments)
+**Goal**: Fix the "Too few instruments are assigned weight" error caused by the extreme sparsity of Options Volatility data in the TOP3000 universe.
+*   **28_1_VolArb_NanON**: group_zscore + nanHandling:ON -> **FAILED OOS Check**. Sharpe 1.57. Even with nanHandling, group_zscore forces the mean of missing stocks to 0, resulting in 0 weight, failing the instrument count check.
+*   **28_2_VolArb_Rank_NanON**: rank() + neutralization:SUBINDUSTRY + nanHandling:ON -> **SUCCESS** (ID: bldweXaR | Sharpe 1.33, Fit 1.18, TO 0.14). By using rank() instead of group_zscore, the NaN stocks are filled with the mean (0.5), which is then multiplied by sales/assets. Because sales/assets is unique per stock, the outer rank() assigns a unique non-zero weight to EVERY stock in the TOP3000, perfectly solving the sparsity issue!
+*   **28_3_AssetTurn_LongMom**: Price momentum -> **FAILED** (Sharpe -0.01). Price momentum is too slow.
+
+### Batch 29 - Phase 8.11: Bounded Fundamentals (Fix Outlier Concentration)
+**Goal**: Fix the 10.53% weight concentration outlier on 1/25/2022 by replacing unbounded raw ratios `sales/assets` with strictly bounded `group_rank(sales/assets, subindustry)` and using an additive blend with options volatility arbitrage.
+*   **29_1_RankFund_RankVol**: `rank(rank(sales/assets) * rank(vol_arb))` -> **SUCCESS** (ID: `E5GZq6G0` | Sharpe 1.46, Fit 1.24, TO 0.1593)
+*   **29_2_GroupRankFund_RankVol**: `rank(group_rank(sales/assets, subindustry) * rank(vol_arb))` -> **SUCCESS** (ID: `9qpz9ka9` | Sharpe 1.44, Fit 1.17, TO 0.1272)
+*   **29_3_Add_Bounded**: `group_rank(sales/assets, subindustry) + rank(vol_arb)` -> **EXTRAORDINARY SUCCESS** (ID: `LLGPnvP2` | Sharpe 1.59, Fit 1.37, TO 0.1339, Margin 0.001473). Adding two bounded rank distributions `[0,1] + [0,1]` completely eliminates heavy-tail outliers while boosting Sharpe to 1.59 and Fitness to 1.37!
+*   **29_6_RankFund_RankVol_D10**: Decay 10 version -> **SUCCESS** (ID: `gJ8Yxq0m` | Sharpe 1.37, Fit 1.10, TO 0.1015)
+
+**Conclusion**: The additive combination `group_rank(Fundamental) + rank(Alternative)` is mathematically immune to single-stock weight spikes, fully dense across TOP3000, and achieves superior Sharpe > 1.55 with ultra-low turnover.
+
+## Phase 9: Silver Institutional Alpha Research
+### Batch 1 (Batch 30 Overall) - Silver Exploration & Backfilled Architecture
+**Goal**: Systematically explore and adapt institutional architectures from `research-doc/silver_alpha_example.md` with `ts_backfill(..., 60)` to eliminate data gaps.
+*   **P9_1_VolSkew_180d_D10**: `rank(call_180 - put_180 / mean_180)` -> **SUCCESS** (ID: `wpa8lwr5` | Sharpe 1.90, Fit 1.28, TO 0.1831, Margin 0.000912)
+*   **P9_2_VolSkew_90d_D10**: `rank(call_90 - put_90 / mean_90)` -> **SUCCESS** (ID: `pwNqKGWx` | Sharpe 1.94, Fit 1.18, TO 0.2202, Margin 0.000736)
+*   **P9_3_VolSkew_270d_D15**: `rank(call_270 - put_270 / mean_270)` -> **SUCCESS** (ID: `78zknP68` | Sharpe 1.79, Fit 1.38, TO 0.1385, Margin 0.001186)
+*   **P9_4_VolSkew_Plus_AssetTurn**: `group_rank(sales/assets, subindustry) + rank(vol_skew_180d)` -> **REJECTED ON SUBMISSION** (ID: `N1bXbxxe` | Sharpe 1.71, Fit 1.42, TO 0.0942, Margin 0.001836). Simulation stats were excellent, but failed submission due to Self-correlation 0.8673 with `pwKZnmX6` (Sharpe 2.21). Led to Phase 9 Batch 2 & 3 discrete PCR trigger breakthrough.
+*   **P9_5_CapEx_LongTerm_Trend**: `ts_regression(sum(ivltq), 756)` -> **REJECTED** (ID: `omN1NewJ` | Sharpe 1.04, Fit 0.70, TO 0.0062, Margin 0.018034)
+*   **P9_6_Analyst_FCF_Quality**: `group_rank(scale(fcf_op) - scale(capex))` -> **REJECTED** (ID: `88pmpzQV` | Sharpe 1.29, Fit 0.80, TO 0.0228, Margin 0.004228)
+*   **P9_7_News_Bull_Trap**: `news_pct_1min * news_max_up_ret` -> **REJECTED** (ID: `zqNvNgb1` | Sharpe 1.41, Fit 0.88, TO 0.5266, Margin 0.000781)
+
+**Key Finding**: The Silver Volatility Skew family is an absolute powerhouse (Sharpe 1.79 - 1.94). When combined additively with Fundamental Asset Turnover, it achieves an institutional dream profile: Sharpe 1.71, Fitness 1.42, Turnover 9.42%, Margin 18.4 bps, and Zero Data Gap risk.
+
+### Batch 2 & 3 (Batch 31-32 Overall) - PCR Open Interest & Discrete Conditioning
+**Goal**: Break self-correlation with submitted continuous IV skew (`pwKZnmX6`) by using Put-Call Open Interest (`pcr_oi`) discrete condition triggers `trade_when(pcr_oi < 1, spread, -1)` on 180d and 270d horizons.
+*   **P9_2_PCR_OI_270_Trigger**: `trade_when(pcr_oi_270 < 1, call_270 - put_270, -1)` -> **SUCCESS** (ID: `mL5pvqoK` | Sharpe 1.90, Fit 1.41, TO 0.1286, Margin 0.001098)
+*   **P9_3_PCR_OI_180_Trigger**: `trade_when(pcr_oi_180 < 1, call_180 - put_180, -1)` -> **SPECTACULAR SUCCESS** (ID: `LLGWQvYm` | Sharpe 2.04, Fit 1.57, TO 0.1284, Margin 0.001189)
+*   **P9_3_PCR_OI_270_Plus_Fund**: `group_rank(sales/assets) + group_rank(trade_when(pcr_oi_270 < 1, spread, -1))` -> **MASTERPIECE** (ID: `vRN8Q6av` | Sharpe 1.83, Fit 1.55, TO 0.0890, Margin 0.002025). Ultra-low turnover 8.9%, Fitness 1.55, Margin > 20 bps!
+*   **P9_3_News_Bull_Trap**: `news_pct_1min * news_max_up_ret` with decay 15 -> **REJECTED** (ID: `rK2YZXx3` | Sharpe 1.19, Fit 1.08, TO 0.1930)
+
+### Batch 4 (Batch 33 Overall) - Sub-Universe Sharpe Optimization & Institutional Triad
+**Goal**: Solve Sub-Universe Sharpe failure by creating a 3-pillar institutional triad combining Mega/Large cap options signals with all-cap fundamentals and small-cap intraday mean reversion.
+*   **SubUniv_3_Triad_Fund_PCR_Intraday**: `group_rank(Fund) + group_rank(PCR_OI_270) + group_rank(Intraday)` -> **HISTORIC TRIUMPH** (ID: `88pomANl` | Sharpe 2.69, Fit 2.32, TO 0.1775, Margin 14.8 bps). **Sub-Universe Sharpe: PASS (1.26 vs limit 1.16)**. All checks passed!
+*   **SubUniv_6_Triad_180_DeltaRev**: `group_rank(Fund) + group_rank(PCR_OI_180) + group_rank(3d Rev)` -> **SPECTACULAR SUCCESS** (ID: `1Yp9qNG6` | Sharpe 2.56, Fit 2.27, TO 0.1661, Margin 15.7 bps). **Sub-Universe Sharpe: PASS (1.29 vs limit 1.11)**. All checks passed!
