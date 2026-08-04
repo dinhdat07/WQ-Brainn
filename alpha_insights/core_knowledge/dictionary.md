@@ -1,44 +1,4 @@
-# 📚 WorldQuant Brain Alpha Dictionary & Insights
-
-This dictionary tracks successful alphas, failed experiments, core structures, and research insights to systematically build stronger models.
-
-## 🌟 1. Hall of Fame (Successful Alphas)
-These alphas achieved excellent metrics (Sharpe > 1.25, Fitness > 1.0) and represent strong concepts.
-
-### 🏆 Batch 1 - 20 (Strong Fundamentals)
-*   **RR125qWg**: (Concept: TBD)
-*   **LLdgKw7M**: (Concept: TBD)
-
-### 🏆 Batch 2 - 8 (Volume/Price Dynamics)
-*   **Vk3OaKmJ**
-*   **pwK8RXJg**
-*   **88en30Qo**
-*   **P0OvZxeW**
-
-### 🏆 Batch 3 - 24 (New Alternative Data)
-*   **A17kVk5w**
-*   **xAdRrqZq**
-*   **JjvbPPeO**
-*   **le3rM69A**
-
-### 🌱 Batch 7 - 10 (Research-Driven Alternative Concepts)
-*   **le3WZmdl**: Analyst Overpriced Stocks (Short Lookback) (`ts_decay_linear(rank(-ts_corr(est_ptp, est_fcf, 20)), 5)`). **Sharpe 1.71 | Fit 1.41**. **🎉 SUBMITTED SUCCESSFULLY! (Self-Correlation 0.0)**
-*   **GreGv8oQ**: Volatility Arbitrage + Backfill (`ts_decay_linear(group_rank(ts_backfill(implied_volatility_call_120, 60) / parkinson_volatility_120, sector), 5)`). Sharpe 1.32 | Fit 1.64.
-
-### 🔥 Batch 15 - 10 (Matrix Signal Optimization - Phase 3)
-*   **e7x3P7gO**: Target Price Premium Double Z-Score (`ts_decay_linear(group_zscore(ts_zscore(est_ptp / close, 252), subindustry), 5)`). **Sharpe 1.58 | Fit 1.18**. Very strong candidate for submission due to alternative data orthogonal to price/volume momentum.
-
-### 🚀 Batch 17 - 10 (Fundamentals + Momentum Mutation - Phase 4)
-*   **RR1bxvea**: Asset Turnover + Fast Reversion (`ts_decay_linear(group_zscore((sales/assets) * rank(-(close/ts_mean(close, 5))), subindustry), 5)`). **Sharpe 1.88 | Fit 1.22 | Self-Corr: 0.312**. **🎉 SUBMITTED SUCCESSFULLY! (Massive Success)**. Mảnh ghép hoàn hảo giữa tín hiệu cơ bản (chậm) và tín hiệu động lượng (nhanh).
-
-### 🚀 Batch 18 - 10 (Quality Fundamentals x Fast Momentum - Phase 5)
-*   **88ePoPd7**: Operating Margin Reversion (`ts_decay_linear(group_zscore((sales / assets) * rank(-returns), subindustry), 5)`). **Sharpe 1.95 | Fit 1.13**. Asset Turnover with 1-day mean reversion.
-*   **bldOZEjr**: Sales Yield Reversion (`ts_decay_linear(group_zscore((sales / (close * sharesout)) * rank(-ts_delta(close, 3)), subindustry), 5)`). **Sharpe 1.55 | Fit 1.35**. Price-to-Sales (inverse) with 3-day mean reversion. **🎉 SUBMITTED SUCCESSFULLY!**
-
-### ⚠️ The Self-Correlation Trap (High Correlation Alphas)
-These alphas have excellent individual stats but fail due to `> 0.9` correlation with each other.
-*   **ZYKo6R78**: Submitted alpha with high fitness/Sharpe but high self-correlation.
-*   **N1bXbxxe**: (Sharpe 1.71, Fit 1.42) Failed submission due to Self-Corr 0.8673 with `pwKZnmX6` (180d IV Skew).
+<truncated 41 lines>
 *   **le33nmK5** (Batch 0 - 3)
 *   **zqRRVZOO** (Batch 0 - 3)
 
@@ -81,6 +41,17 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 4.  **Regime-Timing**: Flip momentum signals based on market conditions (e.g., using broad market trend as a switch).
 5.  **Sentiment**: Utilize alternative data like news sentiment if available (`rank(ts_sum(news_sentiment, 60))`).
 
+---
+
+## 🛑 5. The Principal Component Trap (Phase 10 Insights)
+
+*   **The Mathematical Wall**: In the USA TOP3000 universe, combining `Fundamental Value` (e.g., `sales/assets`, `fscore_bfl_momentum`), `Options Skew` (e.g., `implied_volatility_call - put`), and `Reversion` (`-(close-open)/open` or `-ts_delta(close, 3)`) yields the absolute peak of Sharpe ratio (usually > 2.50). 
+*   **The Trap**: Because this "Holy Trinity" captures the vast majority of predictive variance in the dataset, *any* variation of it (adding new F-Scores, shifting temporal decays via Mixed Decays, or swapping technical indicators) collapses back to the exact same trading positions, leading to a **PnL Self-Correlation > 0.90**.
+*   **Failed Bypasses**:
+    *   **Changing Neutralization**: Switching from `subindustry` to `MARKET` or `SECTOR` breaks the correlation successfully, but immediately drops the Sharpe ratio below 2.0. The `sales/assets` factor only possesses alpha when evaluated against tight subindustry peers.
+    *   **F-Score Substitution**: Replacing `sales/assets` with WorldQuant's proprietary `fscore_bfl_momentum` or `fscore_bfl_quality` creates strong models (Sharpe 2.08 to 2.59), but still fails the 0.70 correlation check due to collinearity.
+*   **Strategic Conclusion**: To find orthogonal "Spectacular" models, one must completely abandon the Fundamental + Options paradigm and explore entirely novel datasets (e.g., Alternative Data, Supply Chain, Sentiment, or deep Statistical Arbitrage).
+
 ### 🚀 Batch 20 - 12 (Volatility & Intraday Turnover Reduction - Phase 6)
 *   **d5RaEvVj**: Intraday Reversion (`ts_decay_linear(group_zscore(-(close - open) / open, subindustry), 10)`). **Sharpe 1.75 | Fit 1.04 | TO 0.54**. **🎉 SUBMITTED SUCCESSFULLY!**. Great success. By pushing decay from 5 to 10 on a strong intraday reversion signal, turnover dropped below 0.6 while keeping Sharpe very high.
 
@@ -91,15 +62,15 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 
 ### 🚀 Batch 22 - Phase 8 (Fundamental Z-Score x Fast Reversion)
 *   **9q7mwNed**: Asset Turnover Intraday Reversion (`ts_decay_linear(group_zscore((sales / assets) * rank(-(close - open) / open), subindustry), 5)`). **Sharpe 2.0 | Fit 1.15 | TO 0.3543**. Extremely strong fundamental-momentum crossover!
-| 6Xpn9V2L | Asset Turnover + Backfilled VolArb | `ts_decay_linear(group_rank(sales / assets, subindustry) + rank(ts_backfill(implied_volatility_call_120, 60) / ts_backfill(parkinson_volatility_120, 60)), 5)` | Truncation: 0.05, nanHandling: ON, Neutralization: SUBINDUSTRY. Sharpe 1.56, Fit 1.37, TO 0.0946, Margin 20.3 bps. Solved 1/25/2022 data gap. |
-
-| wpa8lwr5 | Silver Volatility Skew 180d | `ts_decay_linear(rank((ts_backfill(implied_volatility_call_180, 60) - ts_backfill(implied_volatility_put_180, 60)) / ts_backfill(implied_volatility_mean_180, 60)), 10)` | Sharpe 1.90, Fit 1.28, TO 0.1831. Direct institutional Vol Skew. |
-| 78zknP68 | Silver Volatility Skew 270d D15 | `ts_decay_linear(rank((ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)) / ts_backfill(implied_volatility_mean_270, 60)), 15)` | Sharpe 1.79, Fit 1.38, TO 0.1385. Smooth long-horizon Vol Skew. |
-
-| LLGWQvYm | PCR Open Interest 180d Discrete Trigger | `ts_decay_linear(group_rank(trade_when(ts_backfill(pcr_oi_180, 60) < 1, (ts_backfill(implied_volatility_call_180, 60) - ts_backfill(implied_volatility_put_180, 60)), -1), subindustry), 10)` | Sharpe 2.04, Fit 1.57, TO 0.1284. Discrete positioning trigger. |
-| vRN8Q6av | PCR Open Interest 270d + Asset Turnover | `ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry), 10)` | Sharpe 1.83, Fit 1.55, TO 0.0890, Margin 20.3 bps. Multi-factor discrete positioning. |
-| 88pomANl | Institutional Triad (PCR 270d + Asset Turn + Intraday) | `ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry) + group_rank(-(close - open) / open, subindustry), 10)` | Sharpe 2.69, Fit 2.32, TO 0.1775, Margin 14.8 bps. Sub-universe Sharpe PASS (1.26 vs 1.16). Institutional Triad Champion. |
-| 1Yp9qNG6 | Institutional Triad (PCR 180d + Asset Turn + 3d Reversion) | `ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_180, 60) < 1, (ts_backfill(implied_volatility_call_180, 60) - ts_backfill(implied_volatility_put_180, 60)), -1), subindustry) + group_rank(-ts_delta(close, 3), subindustry), 10)` | Sharpe 2.56, Fit 2.27, TO 0.1661, Margin 15.7 bps. Sub-universe Sharpe PASS (1.29 vs 1.11). |
 
 ### 🚀 Batch 33 - Phase 9 (Institutional Triad Breakthrough - Sub-Universe Master)
-*   **88pomANl**: Institutional Triad (`ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry) + group_rank(-(close - open) / open, subindustry), 10)`). **Sharpe 2.69 | Fit 2.32 | TO 0.1775 | Margin 14.8 bps | Sub-Universe Sharpe: PASS (1.26 vs 1.16)**. **🎉 READY FOR SUBMISSION / GRAND CHAMPION OF PHASE 9**.
+*   **88pomANl**: Institutional Triad (`ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry) + group_rank(-(close - open) / open, subindustry), 10)`). **Sharpe 2.69 | Fit 2.32 | TO 0.1775 | Margin 14.8 bps | Sub-Universe Sharpe: PASS (1.26 vs 1.16)**.
+
+### 👑 Batch 36 - Phase 10 (Quad-Factor Institutional Spectacular Tier)
+*   **RRm3ZdRg**: Quad-Factor Institutional Zenith (`ts_decay_linear(group_rank(sales / assets, subindustry) + group_rank(trade_when(ts_backfill(pcr_oi_270, 60) < 1, (ts_backfill(implied_volatility_call_270, 60) - ts_backfill(implied_volatility_put_270, 60)), -1), subindustry) + group_rank(est_cashflow_op / cap, subindustry) + group_rank(-(close - open) / open, subindustry), 15)`). **Sharpe 2.62 | Fit 2.62 | TO 0.1073 | Margin 20.4 bps | Max Drawdown 4.05% | Sub-Universe Sharpe: PASS (1.32 vs 1.13) | Max Self-Corr: 0.6141 (PASS) | Status: 100% SUBMITTABLE SPECTACULAR TIER**.
+*   **QPGJrOqM**: Quad-Factor D20 (`decay = 20`). **Sharpe 2.56 | Fit 2.68 | TO 0.0984 (Sub-10%) | Margin 24.7 bps | Sub-Universe Sharpe: PASS (1.17 vs 1.10) | Max Self-Corr: 0.5846 (PASS)**.
+*   **VkG9Ebk0**: Quad-Factor D24 (`decay = 24`). **Sharpe 2.52 | Fit 2.71 | TO 0.0847 | Margin 28.1 bps | Sub-Universe Sharpe: PASS (1.14 vs 1.09) | Max Self-Corr: 0.5657 (PASS)**.
+*   **XgorPoGl**: Quad-Factor PCR 180d D18 (`pcr_oi_180, decay = 18`). **Sharpe 2.61 | Fit 2.64 | TO 0.1086 | Margin 23.3 bps | Max Drawdown 3.88% | Sub-Universe Sharpe: PASS (1.16 vs 1.12) | Max Self-Corr: 0.6042 (PASS)**.
+
+### 🛡️ Batch 37 - Phase 10 (Correlation Breaker - Good Tier)
+*   **2rpzj59P**: Market Neutral Triad (	s_decay_linear(group_rank(sales/assets, market) + group_rank(implied_volatility_call_270 - implied_volatility_put_270, market) + group_rank(-ts_delta(close, 3), market), 25)). **Settings:** Neutralization = MARKET. **Sharpe 1.71 | Fit 1.90 | TO 0.0762 | Status: SUBMITTED SUCCESSFULLY**. Changing Neutralization to MARKET successfully decoupled the signals from the Subindustry-neutralized principal component, allowing this to pass self-correlation constraints at the cost of peak Sharpe.

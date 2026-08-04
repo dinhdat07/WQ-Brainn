@@ -44,3 +44,13 @@ Cuốn nhật ký này ghi lại những giả thuyết đã thử nghiệm như
   2. Khi chạy kiểm thử trên các phân khúc vốn hóa nhỏ (Sub-universes), hàm `trade_when(..., -1)` trả về giá trị `-1` cho hàng trăm cổ phiếu không có quyền chọn. Điều này làm tín hiệu bị san phẳng (tied rank 0.5), khiến Sharpe ở các phân khúc này bị tụt xuống dưới ngưỡng yêu cầu.
 - **Giải pháp khắc phục thành công (The Fix)**:
   - Xây dựng **Kiến trúc Tam Giác Thể Chế (3-Pillar Institutional Triad - `88pomANl`)**: Bổ sung trụ cột dòng tiền trong ngày `group_rank(-(close - open) / open, subindustry)`. Trụ cột này hoạt động mạnh mẽ nhất ở nhóm Mid/Small caps, bù đắp hoàn hảo khoảng trống dữ liệu quyền chọn và đẩy Sub-Universe Sharpe lên **1.26 (PASS)**!
+
+## 7. The Orthogonality Barrier (Phase 9 & 10)
+- **Vấn đề**: Trong Phase 9 và 10, chúng tôi đặt mục tiêu tìm kiếm các mô hình đạt mức "Spectacular" (Sharpe > 2.50) nhưng phải hoàn toàn trực giao (Self-Correlation < 0.70) với các mô hình siêu hạng đã nộp trước đó (đặc biệt là nhóm `88pomANl` - The Institutional Triad).
+- **Thực tế**: Các thử nghiệm bằng F-Scores (`fscore_bfl_momentum`), Neutralization Pivots (đổi sang `MARKET` hoặc `SECTOR`), và Mixed Decays (áp dụng decay độc lập) đã tạo ra hàng loạt mô hình siêu hạng (ví dụ: `wpax90oY` đạt Sharpe 2.59, `RRmQEx0j` đạt 2.17, `MPGR115L` đạt 2.08). 
+- **Lý do thất bại**: **TẤT CẢ** các mô hình đạt Sharpe > 2.0 đều có PnL Self-Correlation > 0.90 với mô hình cũ. Mọi nỗ lực ép độ tương quan (Correlation) xuống dưới 0.70 bằng cách loại bỏ 1 trong 3 trụ cột (Fundamental, Options Skew, Reversion) hoặc đổi Neutralization sang Market/Sector đều làm Sharpe rớt thẳng đứng (xuống mức 1.71, 1.30, hoặc 1.14).
+- **Bài học (Insight)**: Bất kỳ biến thể nào giữ lại lõi dự đoán của bộ dữ liệu sinh lời cực mạnh trong USA TOP3000 đều hội tụ về một danh mục vị thế (Positions) giống hệt nhau.
+
+## 8. The Principal Component Trap (Bẫy Thành Phần Chính)
+- **Vấn đề**: Alpha (tín hiệu dự báo) trong một tập vũ trụ cụ thể là hữu hạn. Bộ ba `sales/assets` + `Options Skew` + `Reversion` đã hấp thụ tối đa phương sai dự báo (predictive variance) tồn tại trong dữ liệu truyền thống.
+- **Bài học (Insight)**: Việc cố gắng "vắt" thêm Sharpe > 2.50 từ những tập dữ liệu này mà mong muốn nó không tương quan với mô hình cũ là bất khả thi về mặt toán học. Tín hiệu quá mạnh sẽ lấn át mọi sự tùy chỉnh (decays, truncation, f-scores) ở bước cuối, khiến thành phần chính (Principal Component) của lợi nhuận mô hình mới bị chi phối hoàn toàn bởi mô hình cũ.

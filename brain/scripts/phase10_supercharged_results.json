@@ -1,0 +1,274 @@
+[
+  {
+    "alpha_id": "d5ZXQ3Ej",
+    "sharpe": 1.5,
+    "fitness": 1.13,
+    "turnover": 0.0597,
+    "margin": 0.00239,
+    "returns": 0.0713,
+    "drawdown": 0.085,
+    "sub_univ_pass": true,
+    "sub_univ_val": 1.1,
+    "sub_univ_lim": 0.65,
+    "conc_pass": true,
+    "checks": [
+      {
+        "name": "LOW_SHARPE",
+        "result": "PASS",
+        "limit": 1.25,
+        "value": 1.5
+      },
+      {
+        "name": "LOW_FITNESS",
+        "result": "PASS",
+        "limit": 1.0,
+        "value": 1.13
+      },
+      {
+        "name": "LOW_TURNOVER",
+        "result": "PASS",
+        "limit": 0.01,
+        "value": 0.0597
+      },
+      {
+        "name": "HIGH_TURNOVER",
+        "result": "PASS",
+        "limit": 0.7,
+        "value": 0.0597
+      },
+      {
+        "name": "CONCENTRATED_WEIGHT",
+        "result": "PASS"
+      },
+      {
+        "name": "LOW_SUB_UNIVERSE_SHARPE",
+        "result": "PASS",
+        "limit": 0.65,
+        "value": 1.1
+      },
+      {
+        "name": "SELF_CORRELATION",
+        "result": "PENDING"
+      },
+      {
+        "name": "MATCHES_COMPETITION",
+        "result": "PASS",
+        "competitions": [
+          {
+            "id": "challenge",
+            "name": "Challenge"
+          }
+        ]
+      }
+    ],
+    "max_corr": 0.6072457481437742,
+    "worst_sub": "88pomANl",
+    "name": "Quad A4: Forward EBIT Yield + FCF Yield + Working Capital + 4d Reversion",
+    "expr": "ts_decay_linear(group_rank(est_ebit / cap, subindustry) + 0.8 * group_rank(free_cash_flow_reported_value / cap, subindustry) + group_rank(ts_delta(est_ebit, 30) / (abs(est_ebit) + 1), subindustry) + group_rank(working_capital / assets, subindustry) + 0.5 * group_rank(-ts_delta(close, 4) / close, subindustry), 10)",
+    "decay": 10
+  },
+  {
+    "alpha_id": "rK23WMOo",
+    "sharpe": 0.59,
+    "fitness": 0.27,
+    "turnover": 0.0644,
+    "margin": 0.000837,
+    "returns": 0.0269,
+    "drawdown": 0.0456,
+    "sub_univ_pass": true,
+    "sub_univ_val": 0.28,
+    "sub_univ_lim": 0.26,
+    "conc_pass": true,
+    "checks": [
+      {
+        "name": "LOW_SHARPE",
+        "result": "FAIL",
+        "limit": 1.25,
+        "value": 0.59
+      },
+      {
+        "name": "LOW_FITNESS",
+        "result": "FAIL",
+        "limit": 1.0,
+        "value": 0.27
+      },
+      {
+        "name": "LOW_TURNOVER",
+        "result": "PASS",
+        "limit": 0.01,
+        "value": 0.0644
+      },
+      {
+        "name": "HIGH_TURNOVER",
+        "result": "PASS",
+        "limit": 0.7,
+        "value": 0.0644
+      },
+      {
+        "name": "CONCENTRATED_WEIGHT",
+        "result": "PASS"
+      },
+      {
+        "name": "LOW_SUB_UNIVERSE_SHARPE",
+        "result": "PASS",
+        "limit": 0.26,
+        "value": 0.28
+      },
+      {
+        "name": "SELF_CORRELATION",
+        "result": "PENDING"
+      },
+      {
+        "name": "MATCHES_COMPETITION",
+        "result": "PASS",
+        "competitions": [
+          {
+            "id": "challenge",
+            "name": "Challenge"
+          }
+        ]
+      }
+    ],
+    "max_corr": 0.4716273531628685,
+    "worst_sub": "d5RaEvVj",
+    "name": "Pillar B1: Multiplicative Interaction (EBIT Yield * Revision Drift) + Quality",
+    "expr": "ts_decay_linear(group_rank(est_ebit / cap, subindustry) * group_rank(ts_delta(est_ebit, 20) / (abs(est_ebit) + 1), subindustry) + group_rank(working_capital / assets, subindustry) + 0.4 * group_rank(-ts_delta(close, 5) / close, subindustry), 10)",
+    "decay": 10
+  },
+  {
+    "alpha_id": "d5ZXxA2X",
+    "sharpe": 1.08,
+    "fitness": 0.87,
+    "turnover": 0.0683,
+    "margin": 0.002374,
+    "returns": 0.0811,
+    "drawdown": 0.1467,
+    "sub_univ_pass": true,
+    "sub_univ_val": 0.62,
+    "sub_univ_lim": 0.47,
+    "conc_pass": true,
+    "checks": [
+      {
+        "name": "LOW_SHARPE",
+        "result": "FAIL",
+        "limit": 1.25,
+        "value": 1.08
+      },
+      {
+        "name": "LOW_FITNESS",
+        "result": "FAIL",
+        "limit": 1.0,
+        "value": 0.87
+      },
+      {
+        "name": "LOW_TURNOVER",
+        "result": "PASS",
+        "limit": 0.01,
+        "value": 0.0683
+      },
+      {
+        "name": "HIGH_TURNOVER",
+        "result": "PASS",
+        "limit": 0.7,
+        "value": 0.0683
+      },
+      {
+        "name": "CONCENTRATED_WEIGHT",
+        "result": "PASS"
+      },
+      {
+        "name": "LOW_SUB_UNIVERSE_SHARPE",
+        "result": "PASS",
+        "limit": 0.47,
+        "value": 0.62
+      },
+      {
+        "name": "SELF_CORRELATION",
+        "result": "PENDING"
+      },
+      {
+        "name": "MATCHES_COMPETITION",
+        "result": "PASS",
+        "competitions": [
+          {
+            "id": "challenge",
+            "name": "Challenge"
+          }
+        ]
+      }
+    ],
+    "max_corr": 0.6680337400189933,
+    "worst_sub": "6Xpn9V2L",
+    "name": "Pillar B2: Forward Sales Yield + EBIT Drift + Retained Earnings Solvency",
+    "expr": "ts_decay_linear(group_rank(est_sales / cap, subindustry) + group_rank(ts_delta(est_ebit, 20) / (abs(est_ebit) + 1), subindustry) + group_rank(retained_earnings / assets, subindustry) + 0.5 * group_rank(-ts_delta(close, 5) / close, subindustry), 10)",
+    "decay": 10
+  },
+  {
+    "alpha_id": "leWqVzJ2",
+    "sharpe": 0.54,
+    "fitness": 0.27,
+    "turnover": 0.0649,
+    "margin": 0.000971,
+    "returns": 0.0315,
+    "drawdown": 0.2224,
+    "sub_univ_pass": true,
+    "sub_univ_val": 0.25,
+    "sub_univ_lim": 0.23,
+    "conc_pass": true,
+    "checks": [
+      {
+        "name": "LOW_SHARPE",
+        "result": "FAIL",
+        "limit": 1.25,
+        "value": 0.54
+      },
+      {
+        "name": "LOW_FITNESS",
+        "result": "FAIL",
+        "limit": 1.0,
+        "value": 0.27
+      },
+      {
+        "name": "LOW_TURNOVER",
+        "result": "PASS",
+        "limit": 0.01,
+        "value": 0.0649
+      },
+      {
+        "name": "HIGH_TURNOVER",
+        "result": "PASS",
+        "limit": 0.7,
+        "value": 0.0649
+      },
+      {
+        "name": "CONCENTRATED_WEIGHT",
+        "result": "PASS"
+      },
+      {
+        "name": "LOW_SUB_UNIVERSE_SHARPE",
+        "result": "PASS",
+        "limit": 0.23,
+        "value": 0.25
+      },
+      {
+        "name": "SELF_CORRELATION",
+        "result": "PENDING"
+      },
+      {
+        "name": "MATCHES_COMPETITION",
+        "result": "PASS",
+        "competitions": [
+          {
+            "id": "challenge",
+            "name": "Challenge"
+          }
+        ]
+      }
+    ],
+    "max_corr": 0.5616439794342948,
+    "worst_sub": "6Xpn9V2L",
+    "name": "Pillar B3: Operating Margin Quality + Consensus Revision + Working Capital + Vol Reversal",
+    "expr": "ts_decay_linear(group_rank(operating_income / sales, subindustry) + group_rank(ts_delta(est_ebit, 20) / (abs(est_ebit) + 1), subindustry) + group_rank(working_capital / assets, subindustry) + 0.5 * group_rank(-ts_rank(volume, 5) * ts_delta(close, 4) / close, subindustry), 10)",
+    "decay": 10
+  }
+]
