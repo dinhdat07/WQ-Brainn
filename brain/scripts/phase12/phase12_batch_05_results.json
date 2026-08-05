@@ -1,0 +1,26 @@
+{
+    "Phase12_Skew_Neg_MKT_D10": {
+        "id": "1I2SNG9P04krbvhRU5eZ7EW",
+        "status": "DONE",
+        "sharpe": 1.8,
+        "fitness": 0.92,
+        "turnover": 0.265,
+        "alpha_id": "RRmXo5Xe"
+    },
+    "Phase12_Skew_Neg_SEC_D10": {
+        "id": "Thvvl7Lt4T6ab2VkPZEIbp",
+        "status": "DONE",
+        "sharpe": 1.66,
+        "fitness": 0.94,
+        "turnover": 0.2488,
+        "alpha_id": "npN0laql"
+    },
+    "Phase12_Skew_Call_Neg_MKT_D10": {
+        "id": "3kutYMd27584bkRZ1co3RGy",
+        "status": "DONE",
+        "sharpe": -1.8,
+        "fitness": -0.92,
+        "turnover": 0.265,
+        "alpha_id": "omN2Xx1J"
+    }
+}

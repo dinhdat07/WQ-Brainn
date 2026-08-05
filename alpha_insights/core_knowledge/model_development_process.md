@@ -64,3 +64,16 @@ Káº¿ thá»«a thÃ nh cÃ´ng tá»« Phase 4, chÃºng ta nhÃ¢n báº£n Blueprint nÃ y sang
 Phase 7 chá»©ng minh sá»©c máº¡nh cá»§a Options Data. Thay vÃ¬ sá»­ dá»¥ng giÃ¡ cá»• phiáº¿u, chÃºng ta giao dá»‹ch sá»± máº¥t cÃ¢n Ä‘á»‘i giá»¯a quyá»n chá»n mua vÃ  bÃ¡n.
 - **MÃ´ hÃ¬nh Jjv1g3xO:** Äáº·t lá»‡nh Mua (1) khi Ä‘á»™ lá»‡ch hÃ m Ã½ (Implied Volatility Spread giá»¯a Call vÃ  Put) gia tÄƒng trong lÃºc Khá»‘i lÆ°á»£ng má»Ÿ (Open Interest) cá»§a Call tháº¥p hÆ¡n Put (pcr_oi_270 < 1).
 - Báº±ng cÃ¡ch sá»­ dá»¥ng 	s_decay_linear(..., 10), mÃ´ hÃ¬nh nÃ y dá»… dÃ ng cháº¡m Sharpe 1.89 vá»›i Turnover chá»‰ **0.18**, hoÃ n toÃ n Ä‘á»™c láº­p vá»›i thá»‹ trÆ°á»ng chá»©ng khoÃ¡n cÆ¡ sá»Ÿ.
+
+## 5. Orthogonal Composition (Phase 11)
+- Khi ğ?i m?t v?i rào c?n tıõng quan n?i b? (Self-Correlation > 0.70) c?a WQ Brain, vi?c ti?p t?c khai thác các bi?n th? c?a cùng m?t t?p d? li?u l?i (ví d?: Price Mean Reversion) thı?ng s? vô ích v? các thành ph?n chính (Principal Components) gi?ng h?t nhau.
+- Chi?n thu?t: T?m ki?m các ngu?n tín hi?u **tr?c giao** (Orthogonal) - nh?ng t?p d? li?u sinh ra l?i nhu?n nhıng hoàn toàn ğ?c l?p v?i mô h?nh hi?n t?i (Correlation ~ 0.00). Ví d?: Fundamental Momentum (Analyst Revisions) và Intraday Price Reversion. 
+- Sau ğó, g?p hai tín hi?u này theo t? tr?ng nghiêng v? tín hi?u ğ?c b?n (Ví d?: 3 Fundamental + 1 Reversion) ğ? vı?t qua ngı?ng ki?m duy?t tıõng quan nhıng v?n ğ?t Sharpe siêu h?ng.
+
+## 6. Core Component Mutation (Phase 12)
+- Thay v? s? d?ng 'Golden Wrapper' - b?c bên ngoài các l?p ank hay zscore nhi?u t?ng - ğ? ép mô h?nh ch?y (ği?u này thı?ng phá v? phân ph?i c?a d? li?u g?c), h?y ğ?t bi?n tr?c ti?p thành ph?n c?t l?i.
+- **Bi?n th? hóa**:
+  1. Thay th? bi?n nguyên g?c b?ng bi?n phái sinh: Dùng eturns thay v? close cho tính toán tıõng quan.
+  2. Bõm tính ph?n ?ng nhanh (Reactivity Injection): Gi?m th?i gian quan sát n?i b? t? 60 ngày xu?ng 20 ngày cho phép tín hi?u ph?n ?ng m?nh hõn v?i bi?n ğ?ng g?n nh?t.
+  3. Làm mı?t siêu dài h?n bên ngoài (Decay Outer Wrapper): Áp d?ng m?t l?p Decay l?n (	s_decay_linear(..., 80)) bao tr?n tín hi?u ng?n h?n c?t l?i ğ? tri?t tiêu v?ng quay danh m?c (Turnover) và nâng Sharpe/Fitness.
+

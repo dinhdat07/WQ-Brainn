@@ -347,3 +347,16 @@ Both alphas have been submitted for out-of-sample testing.
 *   **22_8_AssetTurn_RevIntra**: `ts_decay_linear(group_zscore((sales / assets) * rank(-(close - open) / open), subindustry), 5)` -> **SUCCESS** (Sharpe 2.0, Fit 1.15, TO 0.3543). Fantastic model! Asset turnover times Intraday Reversion creates strong, high fitness alpha.
 *   **22_9_FCFPrice_Rev3d**: `ts_decay_linear(group_zscore(((income + depreciation - capex) / (sharesout * close)) * rank(-ts_delta(close, 3)), subindustry), 5)` -> **FAILED** (API Error: unknown variable "depreciation")
 *   **22_10_GrossMargin_RevIntra**: `ts_decay_linear(group_zscore(((sales - cogs) / sales) * rank(-(close - open) / open), subindustry), 5)` -> **FAILED** (Sharpe 1.39, Fit 0.64, TO 0.4046). Fitness too low.
+
+## 5. Orthogonal Composition (Phase 11)
+- **Cõ s? Mutation**: Tr?c giao hóa tín hi?u ð? lách qua rào c?n Self-Correlation 0.70.
+- **Bi?n th? (Variant)**: 	s_decay_linear(Mean_Reversion + 3 * Fundamental_Momentum, 10)
+- **K?t qu?**: C?c k? thành công. B?ng cách l?y tín hi?u Analyst Revisions (	s_delta(est_fcf, 60)) tr?c giao hoàn toàn v?i Price Reversion (-(close-open)) và ð?t tr?ng s? 3x cho fundamental, chúng ta ð?t Sharpe Spectacular 2.55, Turnover < 20%, trong khi kéo ðý?c correlation xu?ng 0.62.
+
+## 6. L?i Ð?t Phá - Core Mutation (Phase 12)
+- **Cõ s? Mutation**: B? qua các Golden Wrapper bên ngoài (v? chúng làm m?t ði s? bi?n thiên), mà thay ð?i tr?c ti?p cái l?i t?o tín hi?u.
+- **Bi?n th? (Variant)**: 
+  - Ð?i close thành eturns trong hàm 	s_corr.
+  - Rút ng?n window t? 60 ngày xu?ng 20 ngày cho c? 	s_corr và IV Skew (implied_volatility_put_20 - implied_volatility_call_20).
+- **K?t qu?**: C?c k? thành công. S? thay ð?i l?i này (Core Mutation) ð? tãng t?c ð? ph?n ?ng v?i d?ng ti?n options và lo?i b? ðý?c xu hý?ng giá chu k? dài h?n. Alpha 3qpd8ee6 ch?t v?i Sharpe 2.52, Turnover 11.77%, và Uniqueness hoàn h?o (Correlation ch? 0.37).
+

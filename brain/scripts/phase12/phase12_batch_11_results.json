@@ -1,0 +1,26 @@
+{
+    "Phase12_Batch11_V1_Returns": {
+        "id": "3EfkKUfB45899bRmAp3UwKt",
+        "status": "DONE",
+        "sharpe": 2.26,
+        "fitness": 3.28,
+        "turnover": 0.0818,
+        "alpha_id": "omN2xM9b"
+    },
+    "Phase12_Batch11_V2_FastIV": {
+        "id": "230M8HbHz52dbkZKxBLVMbR",
+        "status": "DONE",
+        "sharpe": 1.9,
+        "fitness": 2.24,
+        "turnover": 0.1012,
+        "alpha_id": "xANMJOGJ"
+    },
+    "Phase12_Batch11_V3_RankNorm": {
+        "id": "36gJNPegl4oS9G913gYS7GH0",
+        "status": "DONE",
+        "sharpe": 1.24,
+        "fitness": 1.04,
+        "turnover": 0.0496,
+        "alpha_id": "RRmXGWZe"
+    }
+}

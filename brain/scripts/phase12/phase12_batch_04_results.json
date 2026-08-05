@@ -1,0 +1,30 @@
+{
+    "Phase12_VRP_GoldenWrap_MKT": {
+        "id": "3x1giddGu5kfaKfXQ0tgrpP",
+        "status": "DONE",
+        "sharpe": 0.18,
+        "fitness": 0.04,
+        "turnover": 0.1575,
+        "alpha_id": "9qpo3QKx"
+    },
+    "Phase12_VRP_GoldenWrap_SEC": {
+        "id": "4oiidiHj4Xd8EaSs8xJo9b",
+        "status": "DONE",
+        "sharpe": 0.23,
+        "fitness": 0.06,
+        "turnover": 0.1509,
+        "alpha_id": "j26LJLko"
+    },
+    "Phase12_Skew_Pure_MKT": {
+        "id": "tV6NP3vW53Jc5S15H7UqdOz",
+        "status": "DONE",
+        "sharpe": -1.8,
+        "fitness": -0.92,
+        "turnover": 0.265,
+        "alpha_id": "A1G65Mld"
+    },
+    "Phase12_A41_IV_MKT": {
+        "id": "3VcJe6fNb52Ebok185Mm7TIV",
+        "status": "simulating"
+    }
+}

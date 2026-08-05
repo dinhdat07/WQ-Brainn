@@ -1,0 +1,18 @@
+{
+    "Phase12_Batch09_A6_IVSkew": {
+        "id": "1bcfPd7z55jPbEDt5Hj5iYT",
+        "status": "ERROR"
+    },
+    "Phase12_Batch09_A41_IVTerm": {
+        "id": "3mM5MJcPe4EybksMEtbq73F",
+        "status": "DONE",
+        "sharpe": -0.57,
+        "fitness": -0.42,
+        "turnover": 0.0446,
+        "alpha_id": "JjGlAnZW"
+    },
+    "Phase12_Batch09_A54_VRP": {
+        "id": "3QRcvD99j4Nxa11Beicg6nV",
+        "status": "simulating"
+    }
+}

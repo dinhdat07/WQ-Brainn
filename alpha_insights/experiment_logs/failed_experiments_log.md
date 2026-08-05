@@ -54,3 +54,13 @@ Cuốn nhật ký này ghi lại những giả thuyết đã thử nghiệm như
 ## 8. The Principal Component Trap (Bẫy Thành Phần Chính)
 - **Vấn đề**: Alpha (tín hiệu dự báo) trong một tập vũ trụ cụ thể là hữu hạn. Bộ ba `sales/assets` + `Options Skew` + `Reversion` đã hấp thụ tối đa phương sai dự báo (predictive variance) tồn tại trong dữ liệu truyền thống.
 - **Bài học (Insight)**: Việc cố gắng "vắt" thêm Sharpe > 2.50 từ những tập dữ liệu này mà mong muốn nó không tương quan với mô hình cũ là bất khả thi về mặt toán học. Tín hiệu quá mạnh sẽ lấn át mọi sự tùy chỉnh (decays, truncation, f-scores) ở bước cuối, khiến thành phần chính (Principal Component) của lợi nhuận mô hình mới bị chi phối hoàn toàn bởi mô hình cũ.
+
+## 9. Sentiment Momentum (Phase 11)
+- **V?n �?**: Vi?c k?t h?p d? li?u �? nh?y (Sentiment) nh� 
+ews_sentiment v?i c?u tr�c Momentum (	s_delta, 	s_corr) t?o ra k?t qu? �m (Sharpe -0.06). 
+- **B�i h?c (Insight)**: Sentiment data r?t nhi?u v� d? b? �?o chi?u ng?n h?n, n?u kh�ng c� b? l?c m?nh ho?c kh�ng d�ng Neutralize c?n th?n, n� s? c?n ng�?c l?i PnL.
+
+## 10. B?y The Golden Wrapper (Phase 12)
+- **V?n �?**: Trong Batch 10 c?a Phase 12, ch�ng t�i c? g?ng c�?ng h�a m?t m� h?nh c� Sharpe 1.71 (Microstructure Price-Volume + IV Skew) b?ng c�ch b?c n� trong m?t l?p 	s_zscore ho?c group_rank b�n trong h�m decay 80 ng�y. K?t qu?: Sharpe r?t th?m h?a xu?ng -0.08.
+- **B�i h?c (Insight)**: �p d?ng c�c ph�p bi?n �?i phi tuy?n t�nh (non-linear transformation) n?ng �� l�n m?t t�n hi?u v?n �? ��?c l�m m�?t (smoothed) s? b? g?y ho�n to�n ph�n ph?i c?a t�n hi?u d? b�o, l�m n� m?t �i ph��ng h�?ng (directional predictive power).
+

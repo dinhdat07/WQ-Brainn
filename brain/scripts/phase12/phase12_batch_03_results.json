@@ -1,0 +1,42 @@
+{
+    "Phase12_IV_Skew_Div_MKT": {
+        "id": "2BJTUC6pZ4ys8Upy4XD3Qi2",
+        "status": "DONE",
+        "sharpe": -0.58,
+        "fitness": -0.13,
+        "turnover": 0.4627,
+        "alpha_id": "9qpo2Grd"
+    },
+    "Phase12_IV_Term_Ret_MKT": {
+        "id": "iEpbac7s5g08A5f4y2dDaA",
+        "status": "DONE",
+        "sharpe": -0.03,
+        "fitness": -0.0,
+        "turnover": 0.3643,
+        "alpha_id": "78zO23Av"
+    },
+    "Phase12_IV_Ret_Corr_MKT": {
+        "id": "12YTLe62Y5baadLrcSVZZC8",
+        "status": "DONE",
+        "sharpe": 0.55,
+        "fitness": 0.15,
+        "turnover": 0.2817,
+        "alpha_id": "RRmXv9eg"
+    },
+    "Phase12_VRP_Intraday_MKT": {
+        "id": "2DayfxaSU4DZcwBkaHtzLTg",
+        "status": "DONE",
+        "sharpe": -0.75,
+        "fitness": -0.2,
+        "turnover": 0.5963,
+        "alpha_id": "JjGl2kAn"
+    },
+    "Phase12_IV_Rank_MKT": {
+        "id": "3ZeEI21mx4NpcscoTxYL57I",
+        "status": "DONE",
+        "sharpe": -0.02,
+        "fitness": -0.0,
+        "turnover": 0.1525,
+        "alpha_id": "88pA2ZWq"
+    }
+}

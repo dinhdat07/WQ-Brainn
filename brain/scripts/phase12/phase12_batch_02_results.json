@@ -1,0 +1,30 @@
+{
+    "Phase12_VRP_Rank60_MARKET": {
+        "id": "4nfJSxaqj4HAar6OzLSD8IN",
+        "status": "DONE",
+        "sharpe": 0.83,
+        "fitness": 0.45,
+        "turnover": 0.108,
+        "alpha_id": "omN2ZLJ5"
+    },
+    "Phase12_VRP_Rank60_SECTOR": {
+        "id": "3VTfr33lY4uX8wxZEtaxyCc",
+        "status": "DONE",
+        "sharpe": 0.84,
+        "fitness": 0.46,
+        "turnover": 0.1082,
+        "alpha_id": "d5ZqvWdE"
+    },
+    "Phase12_IV_Skew_Div_MKT": {
+        "id": "8PGj53Xa4zZ9Jz13unKDE7G",
+        "status": "ERROR"
+    },
+    "Phase12_IV_Term_Ret_MKT": {
+        "id": "2X3USDgJA4Jgaa3k6f1X4Qv",
+        "status": "ERROR"
+    },
+    "Phase12_IV_Ret_Corr_MKT": {
+        "id": "gWfL01b04SpaXX4dYnoG0i",
+        "status": "ERROR"
+    }
+}

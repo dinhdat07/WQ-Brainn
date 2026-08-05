@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Phase12_VRP_Rev60",
+        "regular": "ts_decay_linear(group_zscore(-ts_delta(ts_backfill(implied_volatility_mean_60 / parkinson_volatility_60, 60), 5), subindustry), 10)",
+        "settings": {
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY"
+        },
+        "progress_url": "https://api.worldquantbrain.com/simulations/2WbTJvcJ64Cj8Bdy1B1lD8b",
+        "id": "zqNa0zZX",
+        "metrics": {
+            "sharpe": -0.5,
+            "fitness": -0.12,
+            "turnover": 0.3637,
+            "margin": -0.000115
+        }
+    },
+    {
+        "name": "Phase12_VRP_Rank60",
+        "regular": "ts_decay_linear(group_rank(ts_backfill(implied_volatility_mean_60 / parkinson_volatility_60, 60), subindustry), 10)",
+        "settings": {
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY"
+        },
+        "progress_url": "https://api.worldquantbrain.com/simulations/2NlnPRdYO4AE9Bief1iICmx",
+        "id": "MPGwZK7a",
+        "metrics": {
+            "sharpe": 1.22,
+            "fitness": 0.79,
+            "turnover": 0.0995,
+            "margin": 0.001061
+        }
+    },
+    {
+        "name": "Phase12_TermStruct_20_120",
+        "regular": "ts_decay_linear(group_zscore(ts_backfill(implied_volatility_mean_20, 60) / ts_backfill(implied_volatility_mean_120, 60), subindustry), 10)",
+        "settings": {
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY"
+        },
+        "progress_url": "https://api.worldquantbrain.com/simulations/28PuDfanD4F6cE32Cu0VAv",
+        "id": "leWx9vL8",
+        "metrics": {
+            "sharpe": -0.42,
+            "fitness": -0.13,
+            "turnover": 0.1917,
+            "margin": -0.000207
+        }
+    },
+    {
+        "name": "Phase12_TermStruct_10_60",
+        "regular": "ts_decay_linear(group_zscore(ts_backfill(implied_volatility_mean_10, 60) / ts_backfill(implied_volatility_mean_60, 60), subindustry), 10)",
+        "settings": {
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY"
+        },
+        "progress_url": "https://api.worldquantbrain.com/simulations/4uW1TR4yC52K98Hr6H3YUSF",
+        "id": "E5G3Ldl0",
+        "metrics": {
+            "sharpe": -0.49,
+            "fitness": -0.15,
+            "turnover": 0.2222,
+            "margin": -0.000188
+        }
+    },
+    {
+        "name": "Phase12_Skew_Rev_60",
+        "regular": "ts_decay_linear(group_zscore(-(ts_backfill(implied_volatility_call_60 - implied_volatility_put_60, 60)), subindustry), 10)",
+        "settings": {
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY"
+        },
+        "progress_url": "https://api.worldquantbrain.com/simulations/22Uk2m8fi4HC8zV3z2qq6gg",
+        "id": "wpa6WKnx",
+        "metrics": {
+            "sharpe": -2.3,
+            "fitness": -1.62,
+            "turnover": 0.2411,
+            "margin": -0.000998
+        }
+    },
+    {
+        "name": "Phase12_Skew_Acc_60",
+        "regular": "ts_decay_linear(group_zscore(-ts_delta(ts_backfill(implied_volatility_call_60 - implied_volatility_put_60, 60), 3), subindustry), 10)",
+        "settings": {
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY"
+        },
+        "progress_url": "https://api.worldquantbrain.com/simulations/apbiJ2NU4Adbe9r0yq4DrU",
+        "id": "XgoqMmvX",
+        "metrics": {
+            "sharpe": 0.4,
+            "fitness": 0.06,
+            "turnover": 0.6688,
+            "margin": 4.5e-05
+        }
+    }
+]

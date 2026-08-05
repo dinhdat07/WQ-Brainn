@@ -1,0 +1,34 @@
+{
+    "Phase12_Skew_Neg_MKT_D40": {
+        "id": "ihKNig6K4Ma92t2ZKOKAEe",
+        "status": "DONE",
+        "sharpe": 1.98,
+        "fitness": 1.68,
+        "turnover": 0.1094,
+        "alpha_id": "vRN0bEmz"
+    },
+    "Phase12_Skew_Neg_Zscore_D40": {
+        "id": "4zer9Wfl04vX9SOhKYao1xh",
+        "status": "DONE",
+        "sharpe": -0.12,
+        "fitness": -0.02,
+        "turnover": 0.1697,
+        "alpha_id": "KPGepoMj"
+    },
+    "Phase12_Skew_Neg_GoldenWrap_SEC": {
+        "id": "4ynA8r9Dw4uAbTdDfj9agU2",
+        "status": "DONE",
+        "sharpe": -0.2,
+        "fitness": -0.05,
+        "turnover": 0.094,
+        "alpha_id": "rK2kMQZE"
+    },
+    "Phase12_Skew_VRP_Neg_D40": {
+        "id": "1Po2gZ8xB5b8aWJk85RkQ5S",
+        "status": "DONE",
+        "sharpe": 1.93,
+        "fitness": 1.6,
+        "turnover": 0.1108,
+        "alpha_id": "vRN0X8o3"
+    }
+}

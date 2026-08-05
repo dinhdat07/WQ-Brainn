@@ -1,0 +1,26 @@
+{
+    "Phase12_Batch10_V1_ZScore_Wrapper": {
+        "id": "2XyVK2fbH4jXcKK15jXLv72W",
+        "status": "DONE",
+        "sharpe": -0.08,
+        "fitness": -0.01,
+        "turnover": 0.0611,
+        "alpha_id": "QPGe86Lp"
+    },
+    "Phase12_Batch10_V2_Rank_Wrapper": {
+        "id": "43QKQI6nP4RFcBIVa4qf15x",
+        "status": "DONE",
+        "sharpe": 0.69,
+        "fitness": 0.28,
+        "turnover": 0.0456,
+        "alpha_id": "vRN0Q6Av"
+    },
+    "Phase12_Batch10_V3_Double_ZScore": {
+        "id": "2Mmrw74Qc4sVaVvVlWnYGy5",
+        "status": "DONE",
+        "sharpe": -0.05,
+        "fitness": -0.01,
+        "turnover": 0.1031,
+        "alpha_id": "omN2dZon"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "Phase12_Skew_VRP_Add_D80": {
+        "id": "1eZGyBcNr5eI9CL1kYRRzJ9",
+        "status": "DONE",
+        "sharpe": 0.24,
+        "fitness": 0.13,
+        "turnover": 0.0332,
+        "alpha_id": "78zORo91"
+    },
+    "Phase12_Skew_Ret_Add_D80": {
+        "id": "1G5jxcbjM4rdb5j1g8xOnhyR",
+        "status": "DONE",
+        "sharpe": 1.15,
+        "fitness": 1.08,
+        "turnover": 0.0627,
+        "alpha_id": "58pRdjE5"
+    },
+    "Phase12_Skew_A41_Add_D80": {
+        "id": "21inRQ96s4Peav2UTduE4Pt",
+        "status": "WARNING"
+    }
+}
