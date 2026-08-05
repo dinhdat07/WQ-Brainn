@@ -1,0 +1,59 @@
+[
+    {
+        "name": "Sent_Slope_20",
+        "id": "yOhMxdpU4Aq9wN1gwrrjucF",
+        "formula": "ts_decay_linear(ts_regression(snt_social_value, ts_step(1), 20, rettype = 2), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Sent_Price_Mom",
+        "id": "2cAB8uabU4ny9ip1dAdGsNew",
+        "formula": "group_rank(snt_social_value, subindustry) * group_rank(ts_mean(returns, 120), subindustry)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Sent_Breakout",
+        "id": "8Utfn7o84mGalvhAlJaE2Q",
+        "formula": "ts_decay_linear(snt_social_value - ts_mean(snt_social_value, 20), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    }
+]

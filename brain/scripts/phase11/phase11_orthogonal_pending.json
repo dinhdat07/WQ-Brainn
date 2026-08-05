@@ -1,0 +1,78 @@
+[
+    {
+        "name": "Orthogonal_FCF_MR",
+        "id": "WQ1ym65X4LDbVoFgVbX5aj",
+        "formula": "ts_decay_linear(group_zscore(-(close - open) / open, subindustry) + 3 * group_rank(ts_delta(est_fcf, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Orthogonal_Sales_MR",
+        "id": "VPJrVUb54ua36123keFcnt",
+        "formula": "ts_decay_linear(group_zscore(-(close - open) / open, subindustry) + 3 * group_rank(ts_delta(est_sales, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Orthogonal_EPS_MR",
+        "id": "3xgNNs6Oz5dFc8Zy24ddyIh",
+        "formula": "ts_decay_linear(group_zscore(-(close - open) / open, subindustry) + 3 * group_rank(ts_delta(est_eps, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Orthogonal_Combo_MR",
+        "id": "3OaO1e81H4A69ltO8JXrX4o",
+        "formula": "ts_decay_linear(group_zscore(-(close - open) / open, subindustry) + 2 * group_rank(ts_delta(est_fcf, 60), subindustry) + 2 * group_rank(ts_delta(est_sales, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    }
+]

@@ -1,0 +1,212 @@
+[
+    {
+        "name": "VPush_Vol5",
+        "id": "1rtZon6rF5cuc1bpHJguwkD",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 5)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1rtZon6rF5cuc1bpHJguwkD",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 5)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+            "status": "COMPLETE",
+            "alpha": "58pW9NE6"
+        }
+    },
+    {
+        "name": "VPush_Decay6",
+        "id": "1kBFGKblf50Z8Bt1bpXMTWAa",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 6)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1kBFGKblf50Z8Bt1bpXMTWAa",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 6)",
+            "status": "COMPLETE",
+            "alpha": "zqNpjPpd"
+        }
+    },
+    {
+        "name": "VPush_Decay3",
+        "id": "1hfxBW4rR4Cea7g1ePcmSZgo",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 3)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1hfxBW4rR4Cea7g1ePcmSZgo",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 3)",
+            "status": "COMPLETE",
+            "alpha": "RRmWYp9n"
+        }
+    },
+    {
+        "name": "VPush_BF10",
+        "id": "4Dx3A139t5dsbuUrbgCar9D",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 10)), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "4Dx3A139t5dsbuUrbgCar9D",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 10)), 5)",
+            "status": "COMPLETE",
+            "alpha": "3qpLxXeO"
+        }
+    },
+    {
+        "name": "VPush_Vol15",
+        "id": "1bH7D1CJ4BKaip17QyBKFqO",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 15)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1bH7D1CJ4BKaip17QyBKFqO",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 15)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+            "status": "COMPLETE",
+            "alpha": "xANgQ2qm"
+        }
+    }
+]

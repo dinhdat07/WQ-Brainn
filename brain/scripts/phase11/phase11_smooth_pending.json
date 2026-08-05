@@ -1,0 +1,212 @@
+[
+    {
+        "name": "V_Mean10",
+        "id": "3Z3xXxdPj4MXc88DZtvp8Zn",
+        "formula": "ts_mean(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3Z3xXxdPj4MXc88DZtvp8Zn",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_mean(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 10)",
+            "status": "COMPLETE",
+            "alpha": "ZYEGlp3j"
+        }
+    },
+    {
+        "name": "V_Mean20",
+        "id": "1VNZfR9AI52E9HpoVg93I5h",
+        "formula": "ts_mean(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 20)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1VNZfR9AI52E9HpoVg93I5h",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_mean(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 20)",
+            "status": "COMPLETE",
+            "alpha": "j26mwej9"
+        }
+    },
+    {
+        "name": "V_Decay20",
+        "id": "3eY7dy7eB4Rka91RP6lRtfv",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 20)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3eY7dy7eB4Rka91RP6lRtfv",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 10)) * rank(ts_backfill(snt_social_value, 30)), 20)",
+            "status": "COMPLETE",
+            "alpha": "zqNpoL1G"
+        }
+    },
+    {
+        "name": "V_SmoothRet3",
+        "id": "2ENljX3s24Vrc8p17YWO6dQT",
+        "formula": "ts_decay_linear(rank(ts_mean(-returns / ts_std_dev(returns, 10), 3)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "2ENljX3s24Vrc8p17YWO6dQT",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ts_mean(-returns / ts_std_dev(returns, 10), 3)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+            "status": "COMPLETE",
+            "alpha": "1YpEmr1z"
+        }
+    },
+    {
+        "name": "V_SmoothRet5_Decay10",
+        "id": "47zb5r7HY52Q93aeJop12Wm",
+        "formula": "ts_decay_linear(rank(ts_mean(-returns / ts_std_dev(returns, 10), 5)) * rank(ts_backfill(snt_social_value, 30)), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "47zb5r7HY52Q93aeJop12Wm",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ts_mean(-returns / ts_std_dev(returns, 10), 5)) * rank(ts_backfill(snt_social_value, 30)), 10)",
+            "status": "COMPLETE",
+            "alpha": "pwNO1AkX"
+        }
+    }
+]

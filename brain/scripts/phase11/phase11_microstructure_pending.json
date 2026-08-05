@@ -1,0 +1,290 @@
+[
+    {
+        "name": "Micro_A41_HL_VWAP",
+        "id": "2rhJwX2Sl4zmcnk1hRcrLQIA",
+        "formula": "ts_decay_linear(rank((high * low)^0.5 - vwap), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "2rhJwX2Sl4zmcnk1hRcrLQIA",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank((high * low)^0.5 - vwap), 10)",
+            "status": "WARNING",
+            "message": "Incompatible unit for input of \"power\" at index 0, expected \"Unit[]\", found \"Unit[CSPrice:2]\"; Incompatible unit for input of \"subtract\" at index 1, expected \"Unit[]\", found \"Unit[CSPrice:1]\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 0,
+                "end": 50,
+                "type": "UNITS",
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            },
+            "alpha": "kqPlLAqO"
+        }
+    },
+    {
+        "name": "Micro_A101_IntradayMom",
+        "id": "288iAddm94SzbIG8YWyeYDX",
+        "formula": "ts_decay_linear(rank(-1 * (close - open) / ((high - low) + 0.001)), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "288iAddm94SzbIG8YWyeYDX",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-1 * (close - open) / ((high - low) + 0.001)), 10)",
+            "status": "WARNING",
+            "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 0,
+                "end": 71,
+                "type": "UNITS",
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            },
+            "alpha": "78z9aWz5"
+        }
+    },
+    {
+        "name": "Micro_A42_VWAP_Close",
+        "id": "2HKaya6C34A4cFW174KJFqul",
+        "formula": "ts_decay_linear(rank(vwap - close), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "2HKaya6C34A4cFW174KJFqul",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(vwap - close), 10)",
+            "status": "COMPLETE",
+            "alpha": "pwNOVJng"
+        }
+    },
+    {
+        "name": "Micro_A12_Price_Volume",
+        "id": "2uDuPFc4x4FFa2JBJAda6Mi",
+        "formula": "ts_decay_linear(rank(sign(delta(volume, 1)) * -1 * delta(close, 1)), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "2uDuPFc4x4FFa2JBJAda6Mi",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Attempted to use inaccessible or unknown operator \"delta\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 26,
+                "end": 42,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "Micro_A53_CLV",
+        "id": "1jcNiYeVi4HRazGtOI2AcoD",
+        "formula": "ts_decay_linear(rank(-1 * ((close - low) - (high - close)) / ((high - low) + 0.001)), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1jcNiYeVi4HRazGtOI2AcoD",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-1 * ((close - low) - (high - close)) / ((high - low) + 0.001)), 10)",
+            "status": "WARNING",
+            "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 0,
+                "end": 89,
+                "type": "UNITS",
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            },
+            "alpha": "RRmW2dGg"
+        }
+    },
+    {
+        "name": "Micro_A60_Volume_CLV",
+        "id": "1XTEXM9HS4Hn9o319jjvY8pZ",
+        "formula": "ts_decay_linear(rank(-1 * (((close - low) - (high - close)) / ((high - low) + 0.001)) * volume), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1XTEXM9HS4Hn9o319jjvY8pZ",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-1 * (((close - low) - (high - close)) / ((high - low) + 0.001)) * volume), 10)",
+            "status": "WARNING",
+            "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 0,
+                "end": 100,
+                "type": "UNITS",
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            },
+            "alpha": "9qp0aXoV"
+        }
+    }
+]

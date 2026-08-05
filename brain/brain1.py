@@ -66,7 +66,7 @@ def _is_done(status_code: int, body: Dict[str, Any]) -> bool:
     """检查仿真是否完成"""
 
     status = str(body.get("status") or body.get("state") or "").upper()
-    if status in {"DONE", "COMPLETED", "FINISHED"}:
+    if status in {"DONE", "COMPLETED", "FINISHED", "ERROR", "FAILED", "COMPLETE", "WARNING"}:
         return True
     if status_code == 200 and ("alpha" in body or "result" in body):
         return True

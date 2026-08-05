@@ -1,0 +1,59 @@
+[
+    {
+        "name": "BullTrap_Decay10_Subindustry",
+        "id": "YhYOL3pu4tQ9rX3VUypQrm",
+        "formula": "ts_decay_linear(group_rank(slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "BullTrap_Decay5_Sector",
+        "id": "4qJ9pX45d4V39gBcKqhg17A",
+        "formula": "ts_decay_linear(group_rank(slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), sector), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Sentiment_Corporate_Assets",
+        "id": "1GmAAd7v456M9j11dos2rVUQ",
+        "formula": "ts_decay_linear(group_rank(ts_backfill(corporate_action_sentiment, 30) * rank(sales / assets), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    }
+]

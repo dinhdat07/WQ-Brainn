@@ -1,0 +1,204 @@
+[
+    {
+        "name": "HS_MeanRev_SocialVol",
+        "id": "3Y2EZH38x4BhbEIRmTjqKga",
+        "formula": "ts_decay_linear(rank(-returns) * rank(ts_backfill(snt_social_volume, 30) / ts_mean(ts_backfill(snt_social_volume, 30), 20)), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3Y2EZH38x4BhbEIRmTjqKga",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns) * rank(ts_backfill(snt_social_volume, 30) / ts_mean(ts_backfill(snt_social_volume, 30), 20)), 5)",
+            "status": "COMPLETE",
+            "alpha": "j26ml9ro"
+        }
+    },
+    {
+        "name": "HS_Sent_Price_Div",
+        "id": "4Ew5Fc5VN4KN9Y0U4if0JVv",
+        "formula": "ts_decay_linear(rank(ts_backfill(snt_social_value, 30) - ts_mean(ts_backfill(snt_social_value, 30), 20)) * rank(-returns), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SECTOR",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "4Ew5Fc5VN4KN9Y0U4if0JVv",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SECTOR",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ts_backfill(snt_social_value, 30) - ts_mean(ts_backfill(snt_social_value, 30), 20)) * rank(-returns), 5)",
+            "status": "COMPLETE",
+            "alpha": "kqPlk05K"
+        }
+    },
+    {
+        "name": "HS_Overnight_News",
+        "id": "18TsmAgqd59v9TE18IOWDF8G",
+        "formula": "ts_decay_linear(rank(-1 * (open - ts_delay(close, 1))) * rank(ts_backfill(snt_news_value, 30)), 4)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "MARKET",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "18TsmAgqd59v9TE18IOWDF8G",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Attempted to use unknown variable \"snt_news_value\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 74,
+                "end": 88,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "HS_VolAdj_Social",
+        "id": "2pJO6lggh4jsbxT172wM2GwE",
+        "formula": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 20)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "2pJO6lggh4jsbxT172wM2GwE",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns / ts_std_dev(returns, 20)) * rank(ts_backfill(snt_social_value, 30)), 5)",
+            "status": "COMPLETE",
+            "alpha": "omNOwo7m"
+        }
+    },
+    {
+        "name": "HS_Aggressive_MR",
+        "id": "3QERlXeB04OuaICzoDtPmv8",
+        "formula": "ts_decay_linear(rank(-returns) * rank(-ts_delta(close, 3)), 3)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SECTOR",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3QERlXeB04OuaICzoDtPmv8",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SECTOR",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(-returns) * rank(-ts_delta(close, 3)), 3)",
+            "status": "COMPLETE",
+            "alpha": "N1b9WJoe"
+        }
+    }
+]

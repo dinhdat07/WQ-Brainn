@@ -1,0 +1,78 @@
+[
+    {
+        "name": "Fund_ROA_Mom",
+        "id": "1B880sgeI56Cbu311T5YgHNJ",
+        "formula": "rank(net_income / assets) * rank(ts_step(120))",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Fund_Quality_Mom",
+        "id": "43Z7SIehz4U3cIjumYdUX2k",
+        "formula": "rank(operating_income / assets) * rank(ts_mean(returns, 252))",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Fund_Value_EY",
+        "id": "3DBKNH3OD55Y8FN1cxSIF7wo",
+        "formula": "rank(net_income / market_cap)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Fund_Growth_Sales",
+        "id": "17Jj8jdjg4NnbarYksto6YL",
+        "formula": "rank(sales / ts_delay(sales, 252))",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    }
+]

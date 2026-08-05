@@ -1,0 +1,687 @@
+[
+    {
+        "name": "BullTrap_Decay10_Subindustry",
+        "id": "svCaP1Ce4DAaVeyihDnCVv",
+        "formula": "slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); ts_decay_linear(group_rank(winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "svCaP1Ce4DAaVeyihDnCVv",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); ts_decay_linear(group_rank(winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), subindustry), 10)",
+            "status": "COMPLETE",
+            "alpha": "1YpE5Zmm"
+        }
+    },
+    {
+        "name": "BullTrap_Decay5_Sector",
+        "id": "2OLcd97p44Qhcy7GJwwhcGN",
+        "formula": "slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); ts_decay_linear(group_rank(winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), sector), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "2OLcd97p44Qhcy7GJwwhcGN",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); ts_decay_linear(group_rank(winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), sector), 5)",
+            "status": "COMPLETE",
+            "alpha": "vRNgV6bd"
+        }
+    },
+    {
+        "name": "BullTrap_NoGroup_Decay20",
+        "id": "4xXmbKbLh4VJ8wJ1ez8CXlHz",
+        "formula": "slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); ts_decay_linear(winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), 20)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "4xXmbKbLh4VJ8wJ1ez8CXlHz",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "slope = ts_regression(ts_backfill(news_pct_1min, 60), ts_step(1), 5, rettype = 2); ts_decay_linear(winsorize(-ts_backfill(news_max_up_ret, 60) * abs(slope), std = 4), 20)",
+            "status": "COMPLETE",
+            "alpha": "1YpE5MqK"
+        }
+    },
+    {
+        "name": "Sentiment_Composite_OpInc",
+        "id": "9bAMZ33D4ZHbCnKAyH18mi",
+        "formula": "ts_decay_linear(group_rank(ts_backfill(composite_sentiment_score_2, 30) * rank(operating_income / equity), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "9bAMZ33D4ZHbCnKAyH18mi",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 27,
+                "end": 71,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "Sentiment_Earnings_OpInc",
+        "id": "1xSLdhaM54jgcvQ15zWCyv4X",
+        "formula": "ts_decay_linear(group_rank(ts_backfill(earnings_evaluation_sentiment, 30) * rank(operating_income / equity), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1xSLdhaM54jgcvQ15zWCyv4X",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 27,
+                "end": 73,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "Sentiment_Corporate_Assets",
+        "id": "4qiFeu4KK4rLaZBR8164t1H",
+        "formula": "ts_decay_linear(group_rank(ts_backfill(corporate_action_sentiment, 30) * rank(sales / assets), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "4qiFeu4KK4rLaZBR8164t1H",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 27,
+                "end": 70,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "Sentiment_Trend_Composite",
+        "id": "1wy5ZrdBL4JDcBL5f2saGLM",
+        "formula": "ts_decay_linear(ts_regression(ts_backfill(composite_sentiment_score_2, 60), ts_step(1), 20, rettype = 2), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1wy5ZrdBL4JDcBL5f2saGLM",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 30,
+                "end": 74,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "Social_Vol_Sent_Spike",
+        "id": "mHJDA2ua5jcawZvbDb7iop",
+        "formula": "ts_decay_linear(group_rank(ts_backfill(snt_social_volume, 30) * ts_backfill(snt_social_value, 30), sector), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "mHJDA2ua5jcawZvbDb7iop",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(group_rank(ts_backfill(snt_social_volume, 30) * ts_backfill(snt_social_value, 30), sector), 5)",
+            "status": "COMPLETE",
+            "alpha": "Xgo65Q35"
+        }
+    },
+    {
+        "name": "Social_Sent_Ret_Mismatch",
+        "id": "3NX9vx8yl4xYatu1aDTcUHE3",
+        "formula": "ts_decay_linear(rank(ts_backfill(snt_social_value, 30)) * rank(-returns), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3NX9vx8yl4xYatu1aDTcUHE3",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ts_backfill(snt_social_value, 30)) * rank(-returns), 10)",
+            "status": "COMPLETE",
+            "alpha": "e73RoglJ"
+        }
+    },
+    {
+        "name": "Social_Buzz_MeanRev",
+        "id": "1JolKHf3F4J48H7GHGxrzjt",
+        "formula": "trade_when(ts_backfill(scl12_buzz, 30) > 0.8, -1, trade_when(ts_backfill(scl12_buzz, 30) < -0.8, 1, 0))",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 5,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1JolKHf3F4J48H7GHGxrzjt",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 5,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "trade_when(ts_backfill(scl12_buzz, 30) > 0.8, -1, trade_when(ts_backfill(scl12_buzz, 30) < -0.8, 1, 0))",
+            "status": "COMPLETE",
+            "alpha": "KPGajL7p"
+        }
+    },
+    {
+        "name": "Social_Sent_Trend",
+        "id": "3Obsdx83o52b8KdVOyqOwvQ",
+        "formula": "ts_decay_linear(ts_delta(ts_backfill(snt_social_value, 30), 10), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SECTOR",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3Obsdx83o52b8KdVOyqOwvQ",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SECTOR",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(ts_delta(ts_backfill(snt_social_value, 30), 10), 5)",
+            "status": "COMPLETE",
+            "alpha": "Xgo6qWWx"
+        }
+    },
+    {
+        "name": "Social_Buzz_Vol_Div",
+        "id": "44EDOwgVs5eo8EzXoa31UaJ",
+        "formula": "ts_decay_linear(rank(ts_backfill(snt_buzz, 30)) - rank(ts_std_dev(returns, 20)), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "44EDOwgVs5eo8EzXoa31UaJ",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "SUBINDUSTRY",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ts_backfill(snt_buzz, 30)) - rank(ts_std_dev(returns, 20)), 10)",
+            "status": "COMPLETE",
+            "alpha": "e73RAN9E"
+        }
+    },
+    {
+        "name": "Peer_Rel_EBIT_Margin",
+        "id": "1GkYIxevl4M4a2DFroDfSOQ",
+        "formula": "ts_decay_linear(rank(ebit / sales) - group_mean(rank(ebit / sales), 50, subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1GkYIxevl4M4a2DFroDfSOQ",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ebit / sales) - group_mean(rank(ebit / sales), 50, subindustry), 10)",
+            "status": "COMPLETE",
+            "alpha": "wpagMX9p"
+        }
+    },
+    {
+        "name": "Peer_Rel_FScore_Mom",
+        "id": "4iE5GZeXW5jSa4T6dVz1wAh",
+        "formula": "ts_decay_linear(rank(ts_mean(ts_backfill(fscore_momentum, 30), 20)) - group_mean(rank(ts_mean(ts_backfill(fscore_momentum, 30), 20)), 50, sector), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "4iE5GZeXW5jSa4T6dVz1wAh",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(rank(ts_mean(ts_backfill(fscore_momentum, 30), 20)) - group_mean(rank(ts_mean(ts_backfill(fscore_momentum, 30), 20)), 50, sector), 10)",
+            "status": "COMPLETE",
+            "alpha": "vRNg3lav"
+        }
+    },
+    {
+        "name": "Peer_Rel_EPS_Est_Trend",
+        "id": "1XjdKp7B94hKat9UsVkHKeK",
+        "formula": "trend = ts_regression(ts_backfill(anl4_fs_basic_splt_v4_nd_eps_estimate, 60), ts_step(1), 20, rettype = 2); ts_decay_linear(trend - group_mean(trend, 50, subindustry), 5)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "1XjdKp7B94hKat9UsVkHKeK",
+            "type": "REGULAR",
+            "status": "ERROR",
+            "message": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 22,
+                "end": 76,
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            }
+        }
+    },
+    {
+        "name": "Peer_Rel_Quality_Combo",
+        "id": "x4iUP7dR4E2bldjDjTaAZa",
+        "formula": "ts_decay_linear(group_rank(operating_income / (equity + 0.001), subindustry) * group_rank(-debt / (equity + 0.001), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "x4iUP7dR4E2bldjDjTaAZa",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "ts_decay_linear(group_rank(operating_income / (equity + 0.001), subindustry) * group_rank(-debt / (equity + 0.001), subindustry), 10)",
+            "status": "COMPLETE",
+            "alpha": "zqNpX6kd"
+        }
+    },
+    {
+        "name": "Peer_Rel_Value",
+        "id": "3jBiJ3eRf4DC9GtAL7zO1gl",
+        "formula": "val = operating_income / ((sharesout * close) + debt); ts_decay_linear(rank(val) - group_mean(rank(val), 50, subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "NONE",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        },
+        "sim_result": {
+            "id": "3jBiJ3eRf4DC9GtAL7zO1gl",
+            "type": "REGULAR",
+            "settings": {
+                "instrumentType": "EQUITY",
+                "region": "USA",
+                "universe": "TOP3000",
+                "delay": 1,
+                "decay": 0,
+                "neutralization": "NONE",
+                "truncation": 0.08,
+                "pasteurization": "ON",
+                "unitHandling": "VERIFY",
+                "nanHandling": "ON",
+                "maxTrade": "OFF",
+                "maxPosition": "OFF",
+                "language": "FASTEXPR",
+                "visualization": false
+            },
+            "regular": "val = operating_income / ((sharesout * close) + debt); ts_decay_linear(rank(val) - group_mean(rank(val), 50, subindustry), 10)",
+            "status": "WARNING",
+            "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1,CSShare:1]\", found \"Unit[]\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>",
+            "location": {
+                "line": 1,
+                "start": 0,
+                "end": 54,
+                "type": "UNITS",
+                "property": "regular"
+            },
+            "links": {
+                "linkToCommonErrorMessages": "https://support.worldquantbrain.com/hc/en-us/articles/18423410021783--BRAIN-TIPS-Troubleshooting-common-error-messages"
+            },
+            "alpha": "gJ8p77Y0"
+        }
+    }
+]

@@ -1,0 +1,97 @@
+[
+    {
+        "name": "Analyst_Sales_Rev60",
+        "id": "1dIs8Z1Hm4OI9CBeXpXYCnz",
+        "formula": "ts_decay_linear(group_rank(ts_delta(est_sales, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Analyst_EPS_Rev60",
+        "id": "1WlwL72bh521bLqJCpbZYk",
+        "formula": "ts_decay_linear(group_rank(ts_delta(est_eps, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Analyst_EBITDA_Rev60",
+        "id": "3NHrUl68r4Tx91EFbkmzxB3",
+        "formula": "ts_decay_linear(group_rank(ts_delta(est_ebitda, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Analyst_FCF_Rev60",
+        "id": "43c2DN7tY4Dza0T1b6LD4vT2",
+        "formula": "ts_decay_linear(group_rank(ts_delta(est_fcf, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    },
+    {
+        "name": "Analyst_Composite_Rev",
+        "id": "1W50PL1ch52vcfIAlGzSLEK",
+        "formula": "ts_decay_linear(group_rank(ts_delta(est_sales, 60), subindustry) + group_rank(ts_delta(est_eps, 60), subindustry), 10)",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": "TOP3000",
+            "delay": 1,
+            "decay": 0,
+            "neutralization": "SUBINDUSTRY",
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": false
+        }
+    }
+]
