@@ -74,3 +74,8 @@ ts_decay_linear(ts_zscore(ts_decay_linear( [CORE_SIGNAL] , X), Y), Z)
 
 ### 🛡️ Batch 37 - Phase 10 (Correlation Breaker - Good Tier)
 *   **2rpzj59P**: Market Neutral Triad (	s_decay_linear(group_rank(sales/assets, market) + group_rank(implied_volatility_call_270 - implied_volatility_put_270, market) + group_rank(-ts_delta(close, 3), market), 25)). **Settings:** Neutralization = MARKET. **Sharpe 1.71 | Fit 1.90 | TO 0.0762 | Status: SUBMITTED SUCCESSFULLY**. Changing Neutralization to MARKET successfully decoupled the signals from the Subindustry-neutralized principal component, allowing this to pass self-correlation constraints at the cost of peak Sharpe.
+
+
+### 11. Options Term-Structure Resonance
+- **Definition:** The empirical phenomenon where options market signals (implied volatility skew) must be synchronized with price/volume lookback windows matching the exact expiration horizon (10-day, 20-day, 60-day).
+- **Inversion Characteristic:** 10-day options skew reflects retail panic hedging and produces a negative correlation (mean-reversion), whereas 20-day options skew reflects institutional positioning and produces a positive correlation (trend continuation).

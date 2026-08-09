@@ -1,0 +1,295 @@
+{
+    "bf_event_sent_ebitda_ev_intra_60d": {
+        "name": "bf_event_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(mean_event_sentiment_score, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "ZsG0n3TX4NI9lfQP3ySB7N",
+        "sim_url": "https://api.worldquantbrain.com/simulations/ZsG0n3TX4NI9lfQP3ySB7N",
+        "alpha_id": "A1Ga5qoW",
+        "metrics": {
+            "pnl": 1056394,
+            "bookSize": 20000000,
+            "longCount": 997,
+            "shortCount": 1011,
+            "turnover": 0.3024,
+            "returns": 0.0213,
+            "drawdown": 0.1939,
+            "margin": 0.000141,
+            "sharpe": 0.34,
+            "fitness": 0.09,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.34
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.09
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.3024
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.3024
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": 0.15,
+                    "value": -0.33
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "bf_event_sent_ebitda_ev_intra_80d": {
+        "name": "bf_event_sent_ebitda_ev_intra_80d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(mean_event_sentiment_score, 90), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 80)",
+        "status": "WARNING",
+        "id": "10e7rleBA4vWagYUWxGQWQD",
+        "sim_url": "https://api.worldquantbrain.com/simulations/10e7rleBA4vWagYUWxGQWQD",
+        "alpha_id": "2rpZxQNx",
+        "metrics": {
+            "pnl": 1026522,
+            "bookSize": 20000000,
+            "longCount": 999,
+            "shortCount": 1011,
+            "turnover": 0.2911,
+            "returns": 0.0207,
+            "drawdown": 0.2077,
+            "margin": 0.000143,
+            "sharpe": 0.32,
+            "fitness": 0.09,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.32
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.09
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.2911
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.2911
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": 0.14,
+                    "value": -0.34
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "bf_event_sent_ebitda_ev_pcr270_60d": {
+        "name": "bf_event_sent_ebitda_ev_pcr270_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(mean_event_sentiment_score, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * group_zscore(pcr_oi_270 / ts_delay(pcr_oi_270, 20), subindustry), 60)",
+        "status": "COMPLETE",
+        "id": "kMcPZqM4oa91wjLMWN13s",
+        "sim_url": "https://api.worldquantbrain.com/simulations/kMcPZqM4oa91wjLMWN13s",
+        "alpha_id": "78zXr0gZ",
+        "metrics": {
+            "pnl": 659050,
+            "bookSize": 20000000,
+            "longCount": 879,
+            "shortCount": 870,
+            "turnover": 0.2513,
+            "returns": 0.0133,
+            "drawdown": 0.1488,
+            "margin": 0.000106,
+            "sharpe": 0.19,
+            "fitness": 0.04,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.19
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.04
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.2513
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.2513
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.08,
+                    "value": 1.04
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "bf_corp_action_sent_ebitda_ev_intra_60d": {
+        "name": "bf_corp_action_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(corporate_action_sentiment, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "error",
+        "error": "rate_limited"
+    },
+    "bf_corp_action_sent_ebitda_ev_intra_80d": {
+        "name": "bf_corp_action_sent_ebitda_ev_intra_80d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(corporate_action_sentiment, 90), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 80)",
+        "status": "ERROR",
+        "id": "3OpN3x9504ugcAk57xM0t3S",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3OpN3x9504ugcAk57xM0t3S",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_earnings_eval_sent_ebitda_ev_intra_60d": {
+        "name": "bf_earnings_eval_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(earnings_evaluation_sentiment, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "2QeOusetr59C9t0je2QUwPR",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2QeOusetr59C9t0je2QUwPR",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_earnings_eval_sent_ebitda_ev_intra_80d": {
+        "name": "bf_earnings_eval_sent_ebitda_ev_intra_80d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(earnings_evaluation_sentiment, 90), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 80)",
+        "status": "ERROR",
+        "id": "2w5cmB9Fl50XcrzqD8Mnn7c",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2w5cmB9Fl50XcrzqD8Mnn7c",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_editorial_sent_ebitda_ev_intra_60d": {
+        "name": "bf_editorial_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(editorial_commentary_sentiment_2, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "1UvwVd45p4ggbjN2kxLtlfi",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1UvwVd45p4ggbjN2kxLtlfi",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_editorial_sent_assets_sales_intra_60d": {
+        "name": "bf_editorial_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(editorial_commentary_sentiment_2, 60), subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "3jXrVh1Ni4NTagjHvSqN3yC",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3jXrVh1Ni4NTagjHvSqN3yC",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_equity_sent_ebitda_ev_intra_60d": {
+        "name": "bf_equity_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(equity_sentiment_score, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "NODyx2ah4WxaT2FF3GLl2P",
+        "sim_url": "https://api.worldquantbrain.com/simulations/NODyx2ah4WxaT2FF3GLl2P",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_equity_sent_assets_sales_intra_60d": {
+        "name": "bf_equity_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(equity_sentiment_score, 60), subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "2Cif3g6bI4xybnvKuAHsor0",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2Cif3g6bI4xybnvKuAHsor0",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "bf_news_impact_ebitda_ev_intra_60d": {
+        "name": "bf_news_impact_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(news_impact_projection_score, 60), subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "lyysca3M4v4cvLc67tzaDi",
+        "sim_url": "https://api.worldquantbrain.com/simulations/lyysca3M4v4cvLc67tzaDi",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    }
+}

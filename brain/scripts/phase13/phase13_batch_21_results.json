@@ -1,0 +1,277 @@
+{
+    "k55_stoch_vol_corr_assets_sales_60d": {
+        "name": "k55_stoch_vol_corr_assets_sales_60d",
+        "code": "-ts_decay_linear(ts_corr(group_rank((close - ts_min(low, 12)) / (ts_max(high, 12) - ts_min(low, 12) + 0.001)), group_rank(volume), 10) * group_zscore(assets / sales, subindustry), 60)",
+        "status": "ERROR",
+        "id": "1cQy9c6aJ5eXaBG1dqIzUGVp",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1cQy9c6aJ5eXaBG1dqIzUGVp",
+        "error": "Attempted to use inaccessible or unknown operator \"ts_min\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k55_stoch_vol_corr_assets_sales_80d": {
+        "name": "k55_stoch_vol_corr_assets_sales_80d",
+        "code": "-ts_decay_linear(ts_corr(group_rank((close - ts_min(low, 20)) / (ts_max(high, 20) - ts_min(low, 20) + 0.001)), group_rank(volume), 20) * group_zscore(assets / sales, subindustry), 80)",
+        "status": "ERROR",
+        "id": "QUHIkflF5ir8L0d8HfCNLh",
+        "sim_url": "https://api.worldquantbrain.com/simulations/QUHIkflF5ir8L0d8HfCNLh",
+        "error": "Attempted to use inaccessible or unknown operator \"ts_min\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k55_stoch_vol_corr_pcr270_60d": {
+        "name": "k55_stoch_vol_corr_pcr270_60d",
+        "code": "-ts_decay_linear(ts_corr(group_rank((close - ts_min(low, 12)) / (ts_max(high, 12) - ts_min(low, 12) + 0.001)), group_rank(volume), 10) * group_zscore(pcr_oi_270 / ts_delay(pcr_oi_270, 20), subindustry), 60)",
+        "status": "ERROR",
+        "id": "35UD917S44Eaae6kwt9YopI",
+        "sim_url": "https://api.worldquantbrain.com/simulations/35UD917S44Eaae6kwt9YopI",
+        "error": "Attempted to use inaccessible or unknown operator \"ts_min\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k40_high_vol_corr_assets_sales_60d": {
+        "name": "k40_high_vol_corr_assets_sales_60d",
+        "code": "-ts_decay_linear(group_rank(ts_std_dev(high, 10)) * ts_corr(high, volume, 10) * group_zscore(assets / sales, subindustry), 60)",
+        "status": "ERROR",
+        "id": "3q5l4S4fz546blt1cV5GQMej",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3q5l4S4fz546blt1cV5GQMej",
+        "error": "Invalid number of inputs : 1, should be exactly 2 input(s). <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k40_high_vol_corr_assets_sales_80d": {
+        "name": "k40_high_vol_corr_assets_sales_80d",
+        "code": "-ts_decay_linear(group_rank(ts_std_dev(high, 20)) * ts_corr(high, volume, 20) * group_zscore(assets / sales, subindustry), 80)",
+        "status": "ERROR",
+        "id": "3exbFnffx5epa21lGBKAper",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3exbFnffx5epa21lGBKAper",
+        "error": "Invalid number of inputs : 1, should be exactly 2 input(s). <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k60_clv_volume_assets_sales_60d": {
+        "name": "k60_clv_volume_assets_sales_60d",
+        "code": "-ts_decay_linear(group_rank(((close - low) - (high - close)) / (high - low + 0.001) * volume) * group_zscore(assets / sales, subindustry), 60)",
+        "status": "ERROR",
+        "id": "LC6DCa9C4Fra35Z2FdZFCr",
+        "sim_url": "https://api.worldquantbrain.com/simulations/LC6DCa9C4Fra35Z2FdZFCr",
+        "error": "Invalid number of inputs : 1, should be exactly 2 input(s). <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k60_clv_volume_assets_sales_80d": {
+        "name": "k60_clv_volume_assets_sales_80d",
+        "code": "-ts_decay_linear(group_rank(((close - low) - (high - close)) / (high - low + 0.001) * volume) * group_zscore(assets / sales, subindustry), 80)",
+        "status": "ERROR",
+        "id": "2oY057b8C4UvcyWGBoh6oKv",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2oY057b8C4UvcyWGBoh6oKv",
+        "error": "Invalid number of inputs : 1, should be exactly 2 input(s). <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "k58_vwap_vol_corr_assets_sales_60d": {
+        "name": "k58_vwap_vol_corr_assets_sales_60d",
+        "code": "-ts_decay_linear(ts_corr(group_neutralize(vwap, subindustry), volume, 10) * group_zscore(assets / sales, subindustry), 60)",
+        "status": "COMPLETE",
+        "id": "3RyskY3bf4G5bcoIgbCQOIV",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3RyskY3bf4G5bcoIgbCQOIV",
+        "alpha_id": "mL5zl6Y5",
+        "metrics": {
+            "pnl": 210946,
+            "bookSize": 20000000,
+            "longCount": 1434,
+            "shortCount": 1404,
+            "turnover": 0.1132,
+            "returns": 0.0043,
+            "drawdown": 0.0965,
+            "margin": 7.5e-05,
+            "sharpe": 0.09,
+            "fitness": 0.02,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.09
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.02
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.1132
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.1132
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.04,
+                    "value": 0.37
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "k58_vwap_vol_corr_assets_sales_80d": {
+        "name": "k58_vwap_vol_corr_assets_sales_80d",
+        "code": "-ts_decay_linear(ts_corr(group_neutralize(vwap, subindustry), volume, 20) * group_zscore(assets / sales, subindustry), 80)",
+        "status": "COMPLETE",
+        "id": "2z9ggf7OK4Jfa8PjBZ75nVa",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2z9ggf7OK4Jfa8PjBZ75nVa",
+        "alpha_id": "KPG82L1N",
+        "metrics": {
+            "pnl": 104880,
+            "bookSize": 20000000,
+            "longCount": 1424,
+            "shortCount": 1414,
+            "turnover": 0.0777,
+            "returns": 0.0021,
+            "drawdown": 0.0967,
+            "margin": 5.5e-05,
+            "sharpe": 0.04,
+            "fitness": 0.01,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.04
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.01
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0777
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0777
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.02,
+                    "value": 0.3
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "k43_vol_accel_reversion_assets_sales_60d": {
+        "name": "k43_vol_accel_reversion_assets_sales_60d",
+        "code": "ts_decay_linear(ts_rank(volume / adv20, 20) * ts_rank(-ts_delta(close, 7), 8) * group_zscore(assets / sales, subindustry), 60)",
+        "status": "COMPLETE",
+        "id": "1vmECN5EJ4VPahXKuofAvrp",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1vmECN5EJ4VPahXKuofAvrp",
+        "alpha_id": "WjAXxGMN",
+        "metrics": {
+            "pnl": -1537236,
+            "bookSize": 20000000,
+            "longCount": 1048,
+            "shortCount": 1792,
+            "turnover": 0.0453,
+            "returns": -0.0311,
+            "drawdown": 0.2635,
+            "margin": -0.001372,
+            "sharpe": -0.57,
+            "fitness": -0.28,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.57
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.28
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0453
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0453
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.25,
+                    "value": -0.14
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "k43_vol_accel_reversion_assets_sales_80d": {
+        "name": "k43_vol_accel_reversion_assets_sales_80d",
+        "code": "ts_decay_linear(ts_rank(volume / adv20, 20) * ts_rank(-ts_delta(close, 7), 8) * group_zscore(assets / sales, subindustry), 80)",
+        "status": "error",
+        "error": "rate_limited"
+    }
+}

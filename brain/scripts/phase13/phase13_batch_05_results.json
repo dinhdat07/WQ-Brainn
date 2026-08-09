@@ -1,0 +1,30 @@
+{
+    "Phase13_F4_IV_Skew_Pos": {
+        "id": "1RmED631y51xa5VIbotdoPZ",
+        "status": "COMPLETE",
+        "alpha_id": "0mp9POMq"
+    },
+    "Phase13_F4_IV_Skew_Neg": {
+        "id": "kcsnR4b24hocftc9we8i4f",
+        "status": "COMPLETE",
+        "alpha_id": "XgoPaGg0"
+    },
+    "Phase13_F5_IV_MeanSkew_Pos": {
+        "id": "3UTwNocaL4TZ8yRx92WCfDF",
+        "status": "COMPLETE",
+        "alpha_id": "d5ZgapMg"
+    },
+    "Phase13_F5_IV_MeanSkew_Neg": {
+        "id": "12MOBFaID52faRJkkew7l7X",
+        "status": "COMPLETE",
+        "alpha_id": "mL5JaeZ2"
+    },
+    "Phase13_F1_W1": {
+        "id": "iiydL4j24Po8yLPBo9YWXB",
+        "status": "simulating"
+    },
+    "Phase13_F1_W2": {
+        "id": "Yol308ka4qs9xa9qIfDj8H",
+        "status": "simulating"
+    }
+}

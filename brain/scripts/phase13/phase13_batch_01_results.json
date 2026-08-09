@@ -1,0 +1,46 @@
+{
+    "Phase13_F1_ShortSqueeze_Pos": {
+        "id": "hKjWM8td4VKbNG6OKmTYtM",
+        "status": "ERROR"
+    },
+    "Phase13_F1_ShortSqueeze_Neg": {
+        "id": "2JOvIS2k84Bi8zS14WaVjjoq",
+        "status": "ERROR"
+    },
+    "Phase13_F2_IdioRisk_Reversion": {
+        "id": "4tvRz08tZ4zl9ErafOJtrmF",
+        "status": "COMPLETE",
+        "alpha_id": "zqNQY35G",
+        "metrics": {
+            "sharpe": 0.2,
+            "fitness": 0.05,
+            "turnover": 0.546,
+            "margin": 0.000143,
+            "returns": 0.039
+        }
+    },
+    "Phase13_F3_FundVol_Arb_Pos": {
+        "id": "1VqigweVf4sTalBHttwhAhV",
+        "status": "COMPLETE",
+        "alpha_id": "xAN9Y27J",
+        "metrics": {
+            "sharpe": 0.91,
+            "fitness": 0.58,
+            "turnover": 0.1423,
+            "margin": 0.000824,
+            "returns": 0.0586
+        }
+    },
+    "Phase13_F3_FundVol_Arb_Neg": {
+        "id": "XzUle3hu54nbPY13NteRveD",
+        "status": "COMPLETE",
+        "alpha_id": "0mp9RGKG",
+        "metrics": {
+            "sharpe": -0.91,
+            "fitness": -0.58,
+            "turnover": 0.1423,
+            "margin": -0.000824,
+            "returns": -0.0586
+        }
+    }
+}

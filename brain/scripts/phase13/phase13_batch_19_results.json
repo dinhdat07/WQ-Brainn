@@ -1,0 +1,96 @@
+{
+    "target_prem_asset_turn_intra_60d": {
+        "name": "target_prem_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore((anl4_target_price_mean - close) / close, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "7N9nB2xr5igas25s9mUATi",
+        "sim_url": "https://api.worldquantbrain.com/simulations/7N9nB2xr5igas25s9mUATi",
+        "error": "Attempted to use unknown variable \"anl4_target_price_mean\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "target_prem_asset_turn_vwap_60d": {
+        "name": "target_prem_asset_turn_vwap_60d",
+        "code": "ts_decay_linear(group_zscore((anl4_target_price_mean - close) / close, subindustry) * group_zscore(sales / assets, subindustry) * ((close - vwap) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "3LqRmL4Jo4NK9p51gGVOvpr3",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3LqRmL4Jo4NK9p51gGVOvpr3",
+        "error": "Attempted to use unknown variable \"anl4_target_price_mean\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "target_prem_gross_profit_intra_60d": {
+        "name": "target_prem_gross_profit_intra_60d",
+        "code": "ts_decay_linear(group_zscore((anl4_target_price_mean - close) / close, subindustry) * group_zscore(gross_profit / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "4dYjIBewH4OZ98x8g9X2dDZ",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4dYjIBewH4OZ98x8g9X2dDZ",
+        "error": "Attempted to use unknown variable \"anl4_target_price_mean\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "pcr90_gross_profit_pv_60d": {
+        "name": "pcr90_gross_profit_pv_60d",
+        "code": "ts_decay_linear(group_zscore(put_call_volume_ratio_90 / ts_delay(put_call_volume_ratio_90, 20), subindustry) * group_zscore(gross_profit / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "1pBdOJfW154WbeN17C0yEpCZ",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1pBdOJfW154WbeN17C0yEpCZ",
+        "error": "Attempted to use unknown variable \"put_call_volume_ratio_90\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "pcr60_working_cap_intra_60d": {
+        "name": "pcr60_working_cap_intra_60d",
+        "code": "ts_decay_linear(group_zscore(put_call_volume_ratio_60 / ts_delay(put_call_volume_ratio_60, 20), subindustry) * group_zscore(working_capital / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "1XIGKs3Nq5bE9c9R7r0qL6h",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1XIGKs3Nq5bE9c9R7r0qL6h",
+        "error": "Attempted to use unknown variable \"put_call_volume_ratio_60\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "pcr90_fcf_yield_intra_60d": {
+        "name": "pcr90_fcf_yield_intra_60d",
+        "code": "ts_decay_linear(group_zscore(put_call_volume_ratio_90 / ts_delay(put_call_volume_ratio_90, 20), subindustry) * group_zscore(fcf / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "3dEKezym591930Y5J5ZXGF",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3dEKezym591930Y5J5ZXGF",
+        "error": "Attempted to use unknown variable \"put_call_volume_ratio_90\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "dispersion_accruals_gap_60d": {
+        "name": "dispersion_accruals_gap_60d",
+        "code": "ts_decay_linear(group_zscore(-((anl4_fs_detail_estimates_basic_af_v4_nd_eps_high - anl4_fs_detail_estimates_basic_af_v4_nd_eps_low) / (abs(anl4_fs_detail_estimates_basic_af_v4_nd_eps_mean) + 0.01)), subindustry) * group_zscore((operating_cash_flow - net_income) / assets, subindustry) * ((open - ts_delay(close, 1)) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "28yTQw3Tn4iabMwzmec3iAc",
+        "sim_url": "https://api.worldquantbrain.com/simulations/28yTQw3Tn4iabMwzmec3iAc",
+        "error": "Attempted to use unknown variable \"net_income\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "dispersion_asset_turn_intra_60d": {
+        "name": "dispersion_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(-((anl4_fs_detail_estimates_basic_af_v4_nd_eps_high - anl4_fs_detail_estimates_basic_af_v4_nd_eps_low) / (abs(anl4_fs_detail_estimates_basic_af_v4_nd_eps_mean) + 0.01)), subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "simulating",
+        "id": "4gV1rDc7p4GX9nveeTbDDX6",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4gV1rDc7p4GX9nveeTbDDX6"
+    },
+    "sentiment_asset_turn_intra_60d": {
+        "name": "sentiment_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(snt_social_value_fast_d1, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "simulating",
+        "id": "1kwRNscBD5eVaAD13zGJHw0J",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1kwRNscBD5eVaAD13zGJHw0J"
+    },
+    "sentiment_gross_profit_intra_60d": {
+        "name": "sentiment_gross_profit_intra_60d",
+        "code": "ts_decay_linear(group_zscore(snt_social_value_fast_d1, subindustry) * group_zscore(gross_profit / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "1hOyl42AZ4Z28yF19E9bx8NA",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1hOyl42AZ4Z28yF19E9bx8NA",
+        "error": "Invalid data field gross_profit. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "sentiment_pcr90_asset_turn_60d": {
+        "name": "sentiment_pcr90_asset_turn_60d",
+        "code": "ts_decay_linear(group_zscore(snt_social_value_fast_d1, subindustry) * group_zscore(put_call_volume_ratio_90 / ts_delay(put_call_volume_ratio_90, 20), subindustry) * group_zscore(sales / assets, subindustry), 60)",
+        "status": "ERROR",
+        "id": "46FBD2Q757o9q7bQn9ORb1",
+        "sim_url": "https://api.worldquantbrain.com/simulations/46FBD2Q757o9q7bQn9ORb1",
+        "error": "Attempted to use unknown variable \"put_call_volume_ratio_90\". <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "sentiment_cf_yield_intra_60d": {
+        "name": "sentiment_cf_yield_intra_60d",
+        "code": "ts_decay_linear(group_zscore(snt_social_value_fast_d1, subindustry) * group_zscore(operating_cash_flow / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "3cWqAf27K4Zc9iK1c111KEib",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3cWqAf27K4Zc9iK1c111KEib",
+        "error": "Invalid data field operating_cash_flow. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    }
+}

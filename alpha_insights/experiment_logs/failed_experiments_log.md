@@ -64,3 +64,25 @@ ews_sentiment v?i c?u trúc Momentum (	s_delta, 	s_corr) t?o ra k?t qu? âm (Sharp
 - **V?n ð?**: Trong Batch 10 c?a Phase 12, chúng tôi c? g?ng cý?ng hóa m?t mô h?nh có Sharpe 1.71 (Microstructure Price-Volume + IV Skew) b?ng cách b?c nó trong m?t l?p 	s_zscore ho?c group_rank bên trong hàm decay 80 ngày. K?t qu?: Sharpe r?t th?m h?a xu?ng -0.08.
 - **Bài h?c (Insight)**: Áp d?ng các phép bi?n ð?i phi tuy?n tính (non-linear transformation) n?ng ðè lên m?t tín hi?u v?n ð? ðý?c làm mý?t (smoothed) s? b? g?y hoàn toàn phân ph?i c?a tín hi?u d? báo, làm nó m?t ði phýõng hý?ng (directional predictive power).
 
+
+### Phase 12-13 Self-Correlation and Operator Failures
+- **Model 3qpd8ee6 (Kakushadze IV Skew):** Achieved a SPECTACULAR Sharpe of 2.45 using the multiplier 	s_corr(returns, volume, 20). However, when checked against previously submitted models, it had a 0.99 self-correlation. This means the underlying concept was successfully orthogonal to *WorldQuant*, but identical to a model *we* already submitted. Lesson: The structure is the holy grail, but we must swap out the core component (IV skew) for something fundamentally different.
+- **Operator 	s_returns:** Attempted to use 	s_returns as an alternative to 	s_delta or price ratios in Phase 13 Batch 11. The simulator threw an error because 	s_returns is not a valid operator in the current FASTEXPR DSL. Must manually compute returns using (close / ts_delay(close, d)) - 1 or 	s_delta(close, d).
+
+
+## Phase 13 Failures: Volatility Risk Premium & Asymmetric Horizon Mismatch
+1. **Asymmetric Horizon Mismatch (10d Skew with 20d Correlation)**:
+   - Attempt: Pairing implied_volatility_put_10 with 	s_corr(..., 20).
+   - Result: Negative Sharpe (-2.61).
+   - Reason: Signal mismatch; the options market prices gamma risk over the specific maturity tenor. Mixing a 10-day expiration skew with a 20-day price trend leads to signal cancellation.
+2. **Pure Volatility Risk Premium (VRP = Call IV - Realized Volatility)**:
+   - Formula: 	s_decay_linear(ts_corr(...) * group_zscore(implied_volatility_call_20 - historical_volatility_20, subindustry), 80)
+   - Result: Sharpe 0.85, Fitness 0.52 (Below 1.25 threshold).
+   - Reason: The variance risk premium is predominantly an equity index effect rather than an idiosyncratic single-stock alpha.
+
+
+### Rejection Case Study: xAN9pgYn (Self-Correlation vs Active 3qpd8ee6)
+- **Alpha ID:** xAN9pgYn
+- **Formula:** -(ts_decay_linear(ts_corr((close / ts_delay(close, 1)) - 1, volume, 10) * group_zscore(ts_backfill(implied_volatility_put_10 - implied_volatility_call_10, 20), subindustry), 80))
+- **Reason for Rejection:** Self-Correlation 0.8038 > 0.70 vs actively submitted Phase 12 model 3qpd8ee6 (-(ts_decay_linear(ts_corr(returns, volume, 20) * group_zscore(ts_backfill(implied_volatility_put_20 - implied_volatility_call_20, 20), subindustry), 80))).
+- **Key Takeaway:** Any simple lookback mutation (e.g. 10d vs 20d) of the same underlying core interaction (	s_corr(returns, volume) * group_zscore(IV_skew)) carries >0.80 collinearity with 3qpd8ee6. To generate truly independent, spectacular alphas, we must explore entirely orthogonal factor domains and completely different non-options / fundamental / alternative datasets.

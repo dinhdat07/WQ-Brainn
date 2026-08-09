@@ -1,0 +1,650 @@
+{
+    "iv_slope_180_30_asset_turn_intra_60d": {
+        "name": "iv_slope_180_30_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(implied_volatility_mean_180 - implied_volatility_mean_30, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "2GIuoudGu5fsbwOHuu7hx4x",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2GIuoudGu5fsbwOHuu7hx4x",
+        "alpha_id": "9qp6k5Y1",
+        "metrics": {
+            "pnl": -1531827,
+            "bookSize": 20000000,
+            "longCount": 1312,
+            "shortCount": 1355,
+            "turnover": 0.4625,
+            "returns": -0.031,
+            "drawdown": 0.299,
+            "margin": -0.000134,
+            "sharpe": -0.49,
+            "fitness": -0.13,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.49
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.13
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.4625
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.4625
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.195941
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.21,
+                    "value": 0.26
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "iv_slope_180_30_asset_turn_corr_60d": {
+        "name": "iv_slope_180_30_asset_turn_corr_60d",
+        "code": "ts_decay_linear(group_zscore(implied_volatility_mean_180 - implied_volatility_mean_30, subindustry) * group_zscore(sales / assets, subindustry) * ts_corr(returns, volume, 20), 60)",
+        "status": "COMPLETE",
+        "id": "1ac4zGbXN4Y3ctVrmrBHXTD",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1ac4zGbXN4Y3ctVrmrBHXTD",
+        "alpha_id": "ZYElNd6j",
+        "metrics": {
+            "pnl": -2847930,
+            "bookSize": 20000000,
+            "longCount": 1301,
+            "shortCount": 1366,
+            "turnover": 0.2033,
+            "returns": -0.0576,
+            "drawdown": 0.425,
+            "margin": -0.000566,
+            "sharpe": -0.78,
+            "fitness": -0.42,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.78
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.42
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.2033
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.2033
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.183134
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.34,
+                    "value": -0.31
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "iv_slope_360_30_asset_turn_intra_80d": {
+        "name": "iv_slope_360_30_asset_turn_intra_80d",
+        "code": "ts_decay_linear(group_zscore(implied_volatility_mean_360 - implied_volatility_mean_30, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 80)",
+        "status": "WARNING",
+        "id": "689R884w5fqckC1dRUcFeSG",
+        "sim_url": "https://api.worldquantbrain.com/simulations/689R884w5fqckC1dRUcFeSG",
+        "alpha_id": "pwNz3bXb",
+        "metrics": {
+            "pnl": -1290201,
+            "bookSize": 20000000,
+            "longCount": 1307,
+            "shortCount": 1360,
+            "turnover": 0.4634,
+            "returns": -0.0261,
+            "drawdown": 0.2846,
+            "margin": -0.000113,
+            "sharpe": -0.41,
+            "fitness": -0.1,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.41
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.1
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.4634
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.4634
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.180258
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.18,
+                    "value": 0.27
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "pcr_oi_90_trend_asset_turn_intra_60d": {
+        "name": "pcr_oi_90_trend_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(pcr_oi_90 / ts_delay(pcr_oi_90, 20), subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "error",
+        "error": "rate_limited"
+    },
+    "pcr_oi_180_trend_asset_turn_intra_60d": {
+        "name": "pcr_oi_180_trend_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(pcr_oi_180 / ts_delay(pcr_oi_180, 20), subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "4u5h1Wbdt4rgavI1278IkZTk",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4u5h1Wbdt4rgavI1278IkZTk",
+        "alpha_id": "88p62m6W",
+        "metrics": {
+            "pnl": 530149,
+            "bookSize": 20000000,
+            "longCount": 1335,
+            "shortCount": 1356,
+            "turnover": 0.3171,
+            "returns": 0.0107,
+            "drawdown": 0.0585,
+            "margin": 6.8e-05,
+            "sharpe": 0.24,
+            "fitness": 0.04,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.24
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.04
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.3171
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.3171
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.1,
+                    "value": 0.1
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "pcr_oi_60_trend_asset_turn_intra_60d": {
+        "name": "pcr_oi_60_trend_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(pcr_oi_60 / ts_delay(pcr_oi_60, 20), subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "error",
+        "error": "rate_limited"
+    },
+    "iv_skew_180_asset_turn_intra_60d": {
+        "name": "iv_skew_180_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(implied_volatility_mean_skew_180, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "1PkRnN6wE4IabrZ1bBPS5PJw",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1PkRnN6wE4IabrZ1bBPS5PJw",
+        "alpha_id": "npNzXpea",
+        "metrics": {
+            "pnl": -118176,
+            "bookSize": 20000000,
+            "longCount": 1280,
+            "shortCount": 1227,
+            "turnover": 0.6452,
+            "returns": -0.0024,
+            "drawdown": 0.1619,
+            "margin": -7e-06,
+            "sharpe": -0.04,
+            "fitness": -0.0,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.04
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.0
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.6452
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.6452
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.166667
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.02,
+                    "value": 0.6
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "iv_skew_270_asset_turn_intra_60d": {
+        "name": "iv_skew_270_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(implied_volatility_mean_skew_270, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "4mGXEY1CL4p89g7fAuIrWkd",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4mGXEY1CL4p89g7fAuIrWkd",
+        "alpha_id": "RRmavQ9j",
+        "metrics": {
+            "pnl": -300819,
+            "bookSize": 20000000,
+            "longCount": 1271,
+            "shortCount": 1237,
+            "turnover": 0.6483,
+            "returns": -0.0061,
+            "drawdown": 0.1416,
+            "margin": -1.9e-05,
+            "sharpe": -0.1,
+            "fitness": -0.01,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.1
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.01
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.6483
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.6483
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.166667
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.04,
+                    "value": 0.7
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "iv_skew_360_asset_turn_intra_60d": {
+        "name": "iv_skew_360_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(implied_volatility_mean_skew_360, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "error",
+        "error": "rate_limited"
+    },
+    "parkinson_vrp_30_asset_turn_intra_60d": {
+        "name": "parkinson_vrp_30_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(parkinson_volatility_30 - implied_volatility_mean_30, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "23xTsl3Gc4EwaSE1GNGDaK6",
+        "sim_url": "https://api.worldquantbrain.com/simulations/23xTsl3Gc4EwaSE1GNGDaK6",
+        "alpha_id": "XgolO6vX",
+        "metrics": {
+            "pnl": -441276,
+            "bookSize": 20000000,
+            "longCount": 1319,
+            "shortCount": 1348,
+            "turnover": 0.487,
+            "returns": -0.0089,
+            "drawdown": 0.2222,
+            "margin": -3.7e-05,
+            "sharpe": -0.13,
+            "fitness": -0.02,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.13
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.02
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.487
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.487
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.172653
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.06,
+                    "value": 0.19
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "parkinson_vrp_60_asset_turn_intra_60d": {
+        "name": "parkinson_vrp_60_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(parkinson_volatility_60 - implied_volatility_mean_60, subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "3OvIjpgrM4kb9UKZwk77ZN",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3OvIjpgrM4kb9UKZwk77ZN",
+        "alpha_id": "LLGX2Jmv",
+        "metrics": {
+            "pnl": 963633,
+            "bookSize": 20000000,
+            "longCount": 1329,
+            "shortCount": 1337,
+            "turnover": 0.4981,
+            "returns": 0.0195,
+            "drawdown": 0.1574,
+            "margin": 7.8e-05,
+            "sharpe": 0.28,
+            "fitness": 0.06,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.28
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.06
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.4981
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.4981
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "FAIL",
+                    "date": "2022-01-25",
+                    "limit": 0.1,
+                    "value": 0.12872
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.12,
+                    "value": 0.35
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "analyst_rec_asset_turn_intra_60d": {
+        "name": "analyst_rec_asset_turn_intra_60d",
+        "code": "ts_decay_linear(group_zscore(-ts_backfill(anl4_fs_detail_rec_v4_nd_estimate, 60), subindustry) * group_zscore(sales / assets, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "error",
+        "error": "rate_limited"
+    }
+}

@@ -1,0 +1,297 @@
+{
+    "corp_action_sent_assets_sales_intra_60d": {
+        "name": "corp_action_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(corporate_action_sentiment, subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "3DyqZPg5u4mqbUvK0vn7I2a",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3DyqZPg5u4mqbUvK0vn7I2a",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "earnings_eval_sent_assets_sales_intra_60d": {
+        "name": "earnings_eval_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(earnings_evaluation_sentiment, subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "1wH6Ct9vu4jgcDcD8s0EGKH",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1wH6Ct9vu4jgcDcD8s0EGKH",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "news_impact_proj_assets_sales_intra_60d": {
+        "name": "news_impact_proj_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(news_impact_projection_score, subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "3zoMWn3yG4gibCk9FWU6iLp",
+        "sim_url": "https://api.worldquantbrain.com/simulations/3zoMWn3yG4gibCk9FWU6iLp",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "mean_event_sent_assets_sales_intra_60d": {
+        "name": "mean_event_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(mean_event_sentiment_score, subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "4BhliqBD5aWaKa4Bt5z3RW",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4BhliqBD5aWaKa4Bt5z3RW",
+        "alpha_id": "9qp623rq",
+        "metrics": {
+            "pnl": -18017,
+            "bookSize": 20000000,
+            "longCount": 929,
+            "shortCount": 962,
+            "turnover": 1.1836,
+            "returns": -0.0004,
+            "drawdown": 0.1949,
+            "margin": -1e-06,
+            "sharpe": -0.01,
+            "fitness": -0.0,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.01
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.0
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 1.1836
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "FAIL",
+                    "limit": 0.7,
+                    "value": 1.1836
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": -0.0,
+                    "value": -0.21
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "equity_sent_assets_sales_intra_60d": {
+        "name": "equity_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(equity_sentiment_score, subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "bqCOHeIq4Q6abShBziZVpI",
+        "sim_url": "https://api.worldquantbrain.com/simulations/bqCOHeIq4Q6abShBziZVpI",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "editorial_sent_assets_sales_intra_60d": {
+        "name": "editorial_sent_assets_sales_intra_60d",
+        "code": "ts_decay_linear(group_zscore(editorial_commentary_sentiment_2, subindustry) * group_zscore(assets / sales, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "4ARU3I18r4ymaFR1dXHRN8rY",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4ARU3I18r4ymaFR1dXHRN8rY",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "corp_action_sent_ebitda_ev_intra_60d": {
+        "name": "corp_action_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(corporate_action_sentiment, subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "1kX7xobsK5dTaqtp5gNl92K",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1kX7xobsK5dTaqtp5gNl92K",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "earnings_eval_sent_ebitda_ev_intra_60d": {
+        "name": "earnings_eval_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(earnings_evaluation_sentiment, subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "ERROR",
+        "id": "4kuWqRgkL4K8atQYogfDWec",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4kuWqRgkL4K8atQYogfDWec",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "mean_event_sent_ebitda_ev_intra_60d": {
+        "name": "mean_event_sent_ebitda_ev_intra_60d",
+        "code": "ts_decay_linear(group_zscore(mean_event_sentiment_score, subindustry) * group_zscore(ebitda / enterprise_value, subindustry) * ((close - open) / (high - low + 0.001)), 60)",
+        "status": "WARNING",
+        "id": "4t5kOeaya54xbWiw0pOmTSJ",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4t5kOeaya54xbWiw0pOmTSJ",
+        "alpha_id": "leWzYL6e",
+        "metrics": {
+            "pnl": 4352161,
+            "bookSize": 20000000,
+            "longCount": 677,
+            "shortCount": 673,
+            "turnover": 1.1961,
+            "returns": 0.088,
+            "drawdown": 0.1222,
+            "margin": 0.000147,
+            "sharpe": 1.12,
+            "fitness": 0.3,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 1.12
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.3
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 1.1961
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "FAIL",
+                    "limit": 0.7,
+                    "value": 1.1961
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": 0.48,
+                    "value": 0.27
+                },
+                {
+                    "name": "UNITS",
+                    "result": "WARNING",
+                    "message": "Incompatible unit for input of \"add\" at index 1, expected \"Unit[CSPrice:1]\", found \"Unit[]\""
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "corp_action_sent_corr_ret_vol_80d": {
+        "name": "corp_action_sent_corr_ret_vol_80d",
+        "code": "-ts_decay_linear(group_zscore(corporate_action_sentiment, subindustry) * ts_corr(returns, volume, 20), 80)",
+        "status": "ERROR",
+        "id": "4waO3qtH59M9Z41f9ySt2MP",
+        "sim_url": "https://api.worldquantbrain.com/simulations/4waO3qtH59M9Z41f9ySt2MP",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "earnings_eval_sent_corr_ret_vol_80d": {
+        "name": "earnings_eval_sent_corr_ret_vol_80d",
+        "code": "-ts_decay_linear(group_zscore(earnings_evaluation_sentiment, subindustry) * ts_corr(returns, volume, 20), 80)",
+        "status": "ERROR",
+        "id": "195oxG7VR5aob5Z16lWEzqb",
+        "sim_url": "https://api.worldquantbrain.com/simulations/195oxG7VR5aob5Z16lWEzqb",
+        "error": "Operator group_zscore does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "mean_event_sent_corr_ret_vol_80d": {
+        "name": "mean_event_sent_corr_ret_vol_80d",
+        "code": "-ts_decay_linear(group_zscore(mean_event_sentiment_score, subindustry) * ts_corr(returns, volume, 20), 80)",
+        "status": "COMPLETE",
+        "id": "Xyvzn8Lh57lcES2mvGlm9i",
+        "sim_url": "https://api.worldquantbrain.com/simulations/Xyvzn8Lh57lcES2mvGlm9i",
+        "alpha_id": "d5Z765Z2",
+        "metrics": {
+            "pnl": -428407,
+            "bookSize": 20000000,
+            "longCount": 1042,
+            "shortCount": 953,
+            "turnover": 0.9928,
+            "returns": -0.0087,
+            "drawdown": 0.1258,
+            "margin": -1.7e-05,
+            "sharpe": -0.2,
+            "fitness": -0.02,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.2
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.02
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.9928
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "FAIL",
+                    "limit": 0.7,
+                    "value": 0.9928
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": -0.09,
+                    "value": -0.13
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

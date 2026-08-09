@@ -360,3 +360,17 @@ Both alphas have been submitted for out-of-sample testing.
   - Rút ng?n window t? 60 ngày xu?ng 20 ngày cho c? 	s_corr và IV Skew (implied_volatility_put_20 - implied_volatility_call_20).
 - **K?t qu?**: C?c k? thành công. S? thay ð?i l?i này (Core Mutation) ð? tãng t?c ð? ph?n ?ng v?i d?ng ti?n options và lo?i b? ðý?c xu hý?ng giá chu k? dài h?n. Alpha 3qpd8ee6 ch?t v?i Sharpe 2.52, Turnover 11.77%, và Uniqueness hoàn h?o (Correlation ch? 0.37).
 
+
+
+## Phase 13: Options Term-Structure Resonance & Short-Horizon Inversion
+
+### 1. Key Breakthroughs & Successful Mutations
+- **Alpha ID:** xAN9pgYn
+- **Formula:** -(ts_decay_linear(ts_corr((close / ts_delay(close, 1)) - 1, volume, 10) * group_zscore(ts_backfill(implied_volatility_put_10 - implied_volatility_call_10, 20), subindustry), 80))
+- **Sharpe:** **2.32** | **Fitness:** **2.31** | **Turnover:** **15.13%** | **Sub-universe Sharpe:** **1.33**
+- **Core Innovation:** Discovered that matching 10-day price-volume correlation with 10-day options expiration skew causes a complete sign-reversal from 20-day horizons. When inverted, this model captures short-term retail panic overpricing with zero self-correlation breaches against the submitted portfolio (Max Corr: 0.6072).
+
+### 2. Term Structure Mapping
+- 10-Day Term: Strongest mean-reverting alpha (Sharpe 2.32, Fit 2.31 when inverted).
+- 20-Day Term: Strongest trend-continuation alpha (Sharpe 2.52, Fit 3.31 in 3qpd8ee6).
+- 60-Day Term: High Sharpe (+2.69 inverted) but sub-universe Sharpe fails due to broad macro clustering.

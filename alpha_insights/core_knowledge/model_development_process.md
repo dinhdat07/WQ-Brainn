@@ -77,3 +77,9 @@ Phase 7 chá»©ng minh sá»©c máº¡nh cá»§a Options Data. Thay vÃ¬ sá»­ dá»¥ng giÃ¡ 
   2. Bõm tính ph?n ?ng nhanh (Reactivity Injection): Gi?m th?i gian quan sát n?i b? t? 60 ngày xu?ng 20 ngày cho phép tín hi?u ph?n ?ng m?nh hõn v?i bi?n ð?ng g?n nh?t.
   3. Làm mý?t siêu dài h?n bên ngoài (Decay Outer Wrapper): Áp d?ng m?t l?p Decay l?n (	s_decay_linear(..., 80)) bao tr?n tín hi?u ng?n h?n c?t l?i ð? tri?t tiêu v?ng quay danh m?c (Turnover) và nâng Sharpe/Fitness.
 
+
+## Phase 12-13: Orthogonality via Regime Multipliers
+The most significant breakthrough in achieving high Sharpe while maintaining high orthogonality is the **Regime Multiplier Pattern**.
+- **The Problem:** Slow, steady fundamental factors (like Forward Yield) perform consistently (Sharpe ~1.1) but rarely reach SPECTACULAR levels (>2.0) on their own because they lack precise timing.
+- **The Solution:** Multiply the steady factor by a short-term, directional momentum oscillator. For example, 	s_corr(returns, volume, 20) swings between -1 and 1. When multiplied by a directional oscillator like IV Skew (or Analyst Revisions), it creates a regime-conditional signal that acts as a laser-focused timing mechanism.
+- **Key Insight:** 	s_decay_linear(ts_corr(returns, volume, 20) * group_zscore(OSCILLATOR, subindustry), 80) is the proven gold standard structure for generating orthogonal 2.0+ Sharpe models. To avoid self-correlation, you must rotate the OSCILLATOR component (e.g., use sentiment, alternative data, or macro shifts) rather than just tweaking the parameters.

@@ -1,0 +1,472 @@
+{
+    "news_5min_reversion_80d": {
+        "name": "news_5min_reversion_80d",
+        "code": "-ts_decay_linear(group_zscore(ts_backfill(five_minute_price_change_percent, 10), subindustry), 80)",
+        "status": "ERROR",
+        "id": "9JEM39eO5bS9kG7JaxL89A",
+        "sim_url": "https://api.worldquantbrain.com/simulations/9JEM39eO5bS9kG7JaxL89A",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "news_high_dev_reversion_40d": {
+        "name": "news_high_dev_reversion_40d",
+        "code": "-ts_decay_linear(group_zscore(ts_backfill(high_price_deviation_std_1555, 10), subindustry), 40)",
+        "status": "ERROR",
+        "id": "2VomZV2R05iQ8DjFJKkE7RK",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2VomZV2R05iQ8DjFJKkE7RK",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "news_vol_ratio_momentum_60d": {
+        "name": "news_vol_ratio_momentum_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(current_to_average_volume_ratio_2, 5), subindustry) * ts_corr(returns, volume, 20), 60)",
+        "status": "ERROR",
+        "id": "tCC1fbwH4DubMaSb9w4Gwa",
+        "sim_url": "https://api.worldquantbrain.com/simulations/tCC1fbwH4DubMaSb9w4Gwa",
+        "error": "Operator ts_backfill does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "news_vwap_dev_reversion": {
+        "name": "news_vwap_dev_reversion",
+        "code": "-ts_decay_linear(group_zscore(ts_backfill((close - end_of_day_vwap_3) / close, 10), subindustry), 40)",
+        "status": "ERROR",
+        "id": "44qaMv3Fl4zb8xLiH1Ag6r3",
+        "sim_url": "https://api.worldquantbrain.com/simulations/44qaMv3Fl4zb8xLiH1Ag6r3",
+        "error": "Operator subtract does not support event inputs. <linkToCommonErrorMessages>Learn more</linkToCommonErrorMessages>"
+    },
+    "guidance_fcf_yield_80d": {
+        "name": "guidance_fcf_yield_80d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(anl4_fs_guidances_advanced_af_nd_fcf_maxguidance, 60) / close, subindustry), 80)",
+        "status": "COMPLETE",
+        "id": "2pd0BZbwh56Vb7cIMxy59M9",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2pd0BZbwh56Vb7cIMxy59M9",
+        "alpha_id": "58p6zka5",
+        "metrics": {
+            "pnl": 2071749,
+            "bookSize": 20000000,
+            "longCount": 2009,
+            "shortCount": 1055,
+            "turnover": 0.0157,
+            "returns": 0.0419,
+            "drawdown": 0.439,
+            "margin": 0.005319,
+            "sharpe": 0.35,
+            "fitness": 0.2,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.35
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.2
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0157
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0157
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.15,
+                    "value": 0.24
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "guidance_ebit_yield_80d": {
+        "name": "guidance_ebit_yield_80d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(anl4_fs_guidances_advanced_af_nd_ebit_minguidance, 60) / close, subindustry), 80)",
+        "status": "COMPLETE",
+        "id": "24tGEpdGK4S0aqDgG849TL9",
+        "sim_url": "https://api.worldquantbrain.com/simulations/24tGEpdGK4S0aqDgG849TL9",
+        "alpha_id": "A1GaN7mw",
+        "metrics": {
+            "pnl": 1753722,
+            "bookSize": 20000000,
+            "longCount": 1959,
+            "shortCount": 1112,
+            "turnover": 0.0156,
+            "returns": 0.0354,
+            "drawdown": 0.4662,
+            "margin": 0.004553,
+            "sharpe": 0.3,
+            "fitness": 0.16,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.3
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.16
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0156
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0156
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.13,
+                    "value": 0.13
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "sales_est_revision_momentum_60d": {
+        "name": "sales_est_revision_momentum_60d",
+        "code": "ts_decay_linear(group_zscore(ts_delta(ts_backfill(anl4_fs_detail_estimates_basic_qf_v4_nd_sales_median, 20), 20) / close, subindustry), 60)",
+        "status": "COMPLETE",
+        "id": "1VXedMFq4zz8CnA24j5Tkm",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1VXedMFq4zz8CnA24j5Tkm",
+        "alpha_id": "9qp6jXn1",
+        "metrics": {
+            "pnl": 93276,
+            "bookSize": 20000000,
+            "longCount": 1243,
+            "shortCount": 1599,
+            "turnover": 0.0694,
+            "returns": 0.0019,
+            "drawdown": 0.1484,
+            "margin": 5.4e-05,
+            "sharpe": 0.04,
+            "fitness": 0.0,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.04
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.0
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0694
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0694
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": 0.02,
+                    "value": -0.39
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "guidance_fcf_ebit_combo": {
+        "name": "guidance_fcf_ebit_combo",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(anl4_fs_guidances_advanced_af_nd_fcf_maxguidance + anl4_fs_guidances_advanced_af_nd_ebit_minguidance, 60) / close, subindustry), 80)",
+        "status": "error",
+        "error": "rate_limited"
+    },
+    "sbp_expense_drag_80d": {
+        "name": "sbp_expense_drag_80d",
+        "code": "-ts_decay_linear(group_zscore(ts_backfill(allocated_sbp_expense_total, 250) / close, subindustry), 80)",
+        "status": "COMPLETE",
+        "id": "1oG0wl8ux4Vp8Lu15SumY0Uy",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1oG0wl8ux4Vp8Lu15SumY0Uy",
+        "alpha_id": "pwNzRaeq",
+        "metrics": {
+            "pnl": -2199225,
+            "bookSize": 20000000,
+            "longCount": 1752,
+            "shortCount": 815,
+            "turnover": 0.0107,
+            "returns": -0.0444,
+            "drawdown": 0.3314,
+            "margin": -0.008343,
+            "sharpe": -0.54,
+            "fitness": -0.32,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.54
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.32
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0107
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0107
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": -0.23,
+                    "value": -0.51
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "share_dilution_drag_60d": {
+        "name": "share_dilution_drag_60d",
+        "code": "-ts_decay_linear(group_zscore(ts_delta(ts_backfill(common_stock_shares_outstanding_count, 60), 60), subindustry), 60)",
+        "status": "COMPLETE",
+        "id": "1vYfka5nD50qbK7vfe2WB1l",
+        "sim_url": "https://api.worldquantbrain.com/simulations/1vYfka5nD50qbK7vfe2WB1l",
+        "alpha_id": "gJ8Pba3v",
+        "metrics": {
+            "pnl": 1360575,
+            "bookSize": 20000000,
+            "longCount": 974,
+            "shortCount": 738,
+            "turnover": 0.0561,
+            "returns": 0.0275,
+            "drawdown": 0.1016,
+            "margin": 0.000981,
+            "sharpe": 0.41,
+            "fitness": 0.19,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.41
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.19
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0561
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0561
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.18,
+                    "value": 0.3
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "option_award_dilution_drag": {
+        "name": "option_award_dilution_drag",
+        "code": "-ts_decay_linear(group_zscore(ts_backfill(option_award_outstanding_count, 120) / ts_backfill(common_stock_shares_outstanding_count, 120), subindustry), 80)",
+        "status": "COMPLETE",
+        "id": "2RI2nJ9FH4ukaK4yIhwbHJF",
+        "sim_url": "https://api.worldquantbrain.com/simulations/2RI2nJ9FH4ukaK4yIhwbHJF",
+        "alpha_id": "KPG8N5b8",
+        "metrics": {
+            "pnl": 606562,
+            "bookSize": 20000000,
+            "longCount": 1536,
+            "shortCount": 761,
+            "turnover": 0.0092,
+            "returns": 0.0123,
+            "drawdown": 0.2114,
+            "margin": 0.002662,
+            "sharpe": 0.21,
+            "fitness": 0.07,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.21
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.07
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "FAIL",
+                    "limit": 0.01,
+                    "value": 0.0092
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0092
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.09,
+                    "value": 0.18
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "debt_repayment_strength_60d": {
+        "name": "debt_repayment_strength_60d",
+        "code": "ts_decay_linear(group_zscore(ts_backfill(debt_repayments_total_2, 120) / close, subindustry), 60)",
+        "status": "error",
+        "error": "rate_limited"
+    }
+}

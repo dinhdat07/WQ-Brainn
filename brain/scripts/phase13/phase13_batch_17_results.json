@@ -1,0 +1,410 @@
+{
+    "P13_F49_VRP_Call_PVCorr_Pos": {
+        "id": "ItWaLgz853jaW01bIOU6IBh",
+        "status": "COMPLETE",
+        "alpha_id": "78z0RQYx",
+        "metrics": {
+            "pnl": 2294816,
+            "bookSize": 20000000,
+            "longCount": 1445,
+            "shortCount": 1419,
+            "turnover": 0.0816,
+            "returns": 0.0464,
+            "drawdown": 0.0937,
+            "margin": 0.001137,
+            "sharpe": 0.85,
+            "fitness": 0.52,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.85
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.52
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0816
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0816
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.37,
+                    "value": 1.1
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "P13_F50_VRP_Put_PVCorr_Pos": {
+        "id": "1Yl1kf70151lbIhsfnn3XWK",
+        "status": "COMPLETE",
+        "alpha_id": "omNA0Yok",
+        "metrics": {
+            "pnl": -1158220,
+            "bookSize": 20000000,
+            "longCount": 1428,
+            "shortCount": 1437,
+            "turnover": 0.0815,
+            "returns": -0.0234,
+            "drawdown": 0.2352,
+            "margin": -0.000574,
+            "sharpe": -0.42,
+            "fitness": -0.18,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.42
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.18
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0815
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0815
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": -0.18,
+                    "value": 0.58
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "P13_F50_VRP_Put_PVCorr_Neg": {
+        "id": "463f9p7E05jycLd18WVjGhQ",
+        "status": "COMPLETE",
+        "alpha_id": "pwNoe7a3",
+        "metrics": {
+            "pnl": 1158220,
+            "bookSize": 20000000,
+            "longCount": 1437,
+            "shortCount": 1428,
+            "turnover": 0.0815,
+            "returns": 0.0234,
+            "drawdown": 0.1516,
+            "margin": 0.000574,
+            "sharpe": 0.42,
+            "fitness": 0.18,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.42
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.18
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0815
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0815
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": 0.18,
+                    "value": -0.58
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "P13_F51_VRP_Total_PVCorr_Pos": {
+        "id": "LTTtO45g4hX9eMU32F4540",
+        "status": "COMPLETE",
+        "alpha_id": "d5ZgrKXK",
+        "metrics": {
+            "pnl": 419993,
+            "bookSize": 20000000,
+            "longCount": 1429,
+            "shortCount": 1423,
+            "turnover": 0.0803,
+            "returns": 0.0085,
+            "drawdown": 0.1457,
+            "margin": 0.000212,
+            "sharpe": 0.16,
+            "fitness": 0.04,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.16
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.04
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.0803
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.0803
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "PASS",
+                    "limit": 0.07,
+                    "value": 0.8
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "P13_F52_Pure_VRP_Call_Rev": {
+        "id": "2Fovugie5kbaSL5KOAcftX",
+        "status": "COMPLETE",
+        "alpha_id": "blQV1zJM",
+        "metrics": {
+            "pnl": -419198,
+            "bookSize": 20000000,
+            "longCount": 1479,
+            "shortCount": 1385,
+            "turnover": 0.1244,
+            "returns": -0.0085,
+            "drawdown": 0.2132,
+            "margin": -0.000136,
+            "sharpe": -0.13,
+            "fitness": -0.03,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": -0.13
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": -0.03
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.1244
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.1244
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": -0.06,
+                    "value": -0.07
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "P13_F53_Pure_VRP_Put_Rev": {
+        "id": "2QRS1K3YH52AcDN6XAWRCep",
+        "status": "COMPLETE",
+        "alpha_id": "pwNoeGvb",
+        "metrics": {
+            "pnl": 1908732,
+            "bookSize": 20000000,
+            "longCount": 1512,
+            "shortCount": 1352,
+            "turnover": 0.122,
+            "returns": 0.0386,
+            "drawdown": 0.1817,
+            "margin": 0.000633,
+            "sharpe": 0.57,
+            "fitness": 0.32,
+            "startDate": "2019-01-01",
+            "checks": [
+                {
+                    "name": "LOW_SHARPE",
+                    "result": "FAIL",
+                    "limit": 1.25,
+                    "value": 0.57
+                },
+                {
+                    "name": "LOW_FITNESS",
+                    "result": "FAIL",
+                    "limit": 1.0,
+                    "value": 0.32
+                },
+                {
+                    "name": "LOW_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.01,
+                    "value": 0.122
+                },
+                {
+                    "name": "HIGH_TURNOVER",
+                    "result": "PASS",
+                    "limit": 0.7,
+                    "value": 0.122
+                },
+                {
+                    "name": "CONCENTRATED_WEIGHT",
+                    "result": "PASS"
+                },
+                {
+                    "name": "LOW_SUB_UNIVERSE_SHARPE",
+                    "result": "FAIL",
+                    "limit": 0.25,
+                    "value": 0.23
+                },
+                {
+                    "name": "SELF_CORRELATION",
+                    "result": "PENDING"
+                },
+                {
+                    "name": "MATCHES_COMPETITION",
+                    "result": "PASS",
+                    "competitions": [
+                        {
+                            "id": "challenge",
+                            "name": "Challenge"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
