@@ -1,0 +1,189 @@
+import sys
+import json
+import time
+import requests
+import numpy as np
+import concurrent.futures
+
+sys.path.append(r"E:\CODING\MMO\wq-brain\WQ-Brainn\brain")
+from brain1 import sign_in
+
+def get_daily_pnl_returns(session, alpha_id):
+    url = f"https://api.worldquantbrain.com/alphas/{alpha_id}/recordsets/pnl"
+    resp = session.get(url)
+    if resp.status_code != 200 or not resp.text.strip():
+        return {}
+    try:
+        data = resp.json()
+    except Exception:
+        return {}
+    records = sorted(data.get("records", []), key=lambda r: r[0])
+    daily_diffs = {}
+    for i in range(1, len(records)):
+        dt = records[i][0]
+        daily_diffs[dt] = float(records[i][1]) - float(records[i-1][1])
+    return daily_diffs
+
+def load_active_alphas(session):
+    print("Loading active OS alphas...")
+    os_resp = session.get("https://api.worldquantbrain.com/users/self/alphas?stage=OS&limit=50")
+    if os_resp.status_code != 200:
+        return {}
+    active_alphas = os_resp.json().get("results", [])
+    active_rets = {}
+    for a in active_alphas:
+        aid = a["id"]
+        r = get_daily_pnl_returns(session, aid)
+        if len(r) > 100:
+            active_rets[aid] = r
+    print(f"Loaded returns for {len(active_rets)} active alphas.")
+    return active_rets
+
+def simulate_and_evaluate(session, name, code, active_rets, decay=10, neut="SUBINDUSTRY", universe="TOP3000"):
+    print(f"\n=======================================================")
+    print(f"[{name}] Starting Simulation...")
+    print(f"Code: {code}")
+    
+    payload = {
+        "type": "REGULAR",
+        "settings": {
+            "instrumentType": "EQUITY",
+            "region": "USA",
+            "universe": universe,
+            "delay": 1,
+            "decay": decay,
+            "neutralization": neut,
+            "truncation": 0.08,
+            "pasteurization": "ON",
+            "unitHandling": "VERIFY",
+            "nanHandling": "ON",
+            "language": "FASTEXPR",
+            "visualization": False,
+        },
+        "regular": code
+    }
+    
+    resp = session.post("https://api.worldquantbrain.com/simulations", json=payload)
+    if resp.status_code != 201:
+        print(f"[{name}] Failed to start simulation: {resp.status_code} - {resp.text}")
+        return None
+        
+    sim_id = resp.headers["Location"].rstrip("/").split("/")[-1]
+    
+    alpha_id = None
+    for attempt in range(40):
+        time.sleep(4)
+        s_resp = session.get(f"https://api.worldquantbrain.com/simulations/{sim_id}")
+        if s_resp.status_code == 200:
+            st = s_resp.json().get("status")
+            if st == "COMPLETE":
+                alpha_id = s_resp.json().get("alpha")
+                break
+            elif st in ["ERROR", "FAIL", "CANCELLED"]:
+                print(f"[{name}] Simulation {st}: {s_resp.json().get('message')}")
+                return None
+                
+    if not alpha_id:
+        print(f"[{name}] Simulation timed out.")
+        return None
+        
+    time.sleep(2)
+    a_resp = session.get(f"https://api.worldquantbrain.com/alphas/{alpha_id}")
+    if a_resp.status_code != 200:
+        return None
+        
+    a_data = a_resp.json()
+    is_data = a_data.get("is", {})
+    sharpe = is_data.get("sharpe", 0)
+    fitness = is_data.get("fitness", 0)
+    turnover = is_data.get("turnover", 0)
+    margin = is_data.get("margin", 0)
+    sub_sharpe = is_data.get("subUniverseSharpe", 0)
+    checks = is_data.get("checks", [])
+    failed_checks = [c["name"] for c in checks if c.get("result") == "FAIL"]
+    
+    t_ret = get_daily_pnl_returns(session, alpha_id)
+    max_c = 0.0
+    max_id = None
+    corrs = {}
+    if len(t_ret) > 100:
+        for aid, a_ret in active_rets.items():
+            common = sorted(set(t_ret.keys()).intersection(set(a_ret.keys())))
+            if len(common) > 100:
+                v1 = [t_ret[d] for d in common]
+                v2 = [a_ret[d] for d in common]
+                c = float(np.corrcoef(v1, v2)[0, 1])
+                corrs[aid] = c
+                if abs(c) > abs(max_c):
+                    max_c = c
+                    max_id = aid
+                    
+    print(f"[{alpha_id}] Sharpe: {sharpe:.2f} | Fitness: {fitness:.2f} | TO: {turnover*100:.1f}%")
+    print(f"Max Correlation: {max_c:+.4f} (vs {max_id})")
+    print(f"Failed Checks: {failed_checks}")
+    
+    return {
+        "name": name,
+        "alpha_id": alpha_id,
+        "code": code,
+        "sharpe": sharpe,
+        "fitness": fitness,
+        "turnover": turnover,
+        "margin": margin,
+        "max_corr": max_c,
+        "max_corr_id": max_id,
+        "failed_checks": failed_checks,
+        "all_corrs": corrs
+    }
+
+def main():
+    sys.stdout.reconfigure(encoding='utf-8')
+    session, _ = sign_in(r"E:\CODING\MMO\wq-brain\WQ-Brainn\brain\brain_credentials.txt")
+    active_rets = load_active_alphas(session)
+    
+    experiments = [
+        # Framework 1: Credit Stress & Liquidity Trap
+        # Note: 'debt' and 'working_capital' fields will need to be confirmed available or mapped to 'debt_st', 'operating_income', etc.
+        {
+            "name": "F1_Credit_Stress",
+            "code": "ts_decay_linear(group_rank(-ts_delta(ts_backfill(debt, 60), 90) / (assets + 1), subindustry) + group_rank(ts_delta(ts_backfill(working_capital, 60), 90) / (assets + 1), subindustry), 10)",
+            "decay": 10,
+            "neut": "SUBINDUSTRY"
+        },
+        # Framework 2: Institutional Order Flow Imbalance
+        {
+            "name": "F2_Order_Flow_Imbalance",
+            "code": "ts_decay_linear(group_rank((vwap - close) / close, subindustry) * group_rank(volume / adv20, subindustry), 5)",
+            "decay": 5,
+            "neut": "SUBINDUSTRY"
+        },
+        # Framework 3: Analyst Contrarian Reversal
+        {
+            "name": "F3_Analyst_Contrarian",
+            "code": "ts_decay_linear(trade_when(ts_backfill(anl4_buy, 20) / (ts_backfill(anl4_total_rec, 20) + 1) > 0.8, -ts_delta(close, 5), trade_when(ts_backfill(anl4_under, 20) / (ts_backfill(anl4_total_rec, 20) + 1) > 0.5, ts_delta(close, 5), 0)), 10)",
+            "decay": 10,
+            "neut": "SUBINDUSTRY"
+        }
+    ]
+    
+    results = []
+    for exp in experiments:
+        res = simulate_and_evaluate(
+            session, 
+            exp["name"], 
+            exp["code"], 
+            active_rets, 
+            exp.get("decay", 10), 
+            exp.get("neut", "SUBINDUSTRY")
+        )
+        if res:
+            results.append(res)
+        time.sleep(3)
+        
+    print("\n=======================================================")
+    print("PHASE 14 INITIAL EXPERIMENT RESULTS:")
+    for r in results:
+        print(f"[{r['alpha_id']}] {r['name']} | Sh={r['sharpe']:.2f} | Fit={r['fitness']:.2f} | Corr={r['max_corr']:.4f} | Fails={r['failed_checks']}")
+
+if __name__ == "__main__":
+    main()
