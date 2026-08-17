@@ -374,3 +374,19 @@ Both alphas have been submitted for out-of-sample testing.
 - 10-Day Term: Strongest mean-reverting alpha (Sharpe 2.32, Fit 2.31 when inverted).
 - 20-Day Term: Strongest trend-continuation alpha (Sharpe 2.52, Fit 3.31 in 3qpd8ee6).
 - 60-Day Term: High Sharpe (+2.69 inverted) but sub-universe Sharpe fails due to broad macro clustering.
+
+
+## Phase 18 & 19: Social Sentiment, Analyst Revisions & Sub-universe Bias
+
+### 1. The Core Paradox: High IS Sharpe vs. High Correlation
+- Trong Phase 17, 18 và 19, chúng ta ghi nhận hiện tượng: **Các mô hình có Sharpe trên tập IS (In-Sample) cao nhất lại thường thất bại ở bài kiểm tra tương quan (Self-Correlation > 0.7)**. 
+- Ngược lại, những mô hình yếu hơn một chút về mặt thống kê (như `O0GLmjQR` của Phase 19) lại pass và được nộp thành công.
+- **Nguyên nhân**: Các mô hình tối ưu nhất thường cùng hội tụ về một cấu trúc tín hiệu tối ưu của thị trường (Ví dụ Multiplicative Sentiment x Fundamental Momentum). Khi chúng ta ép Sharpe lên cực cao (> 1.8), chúng ta vô tình ép nó cùng trùng khớp với các Alpha mạnh mẽ mà chúng ta đã từng tìm ra trước đây. 
+- **Bài học**: Để tìm ra Alpha Pass Correlation, sự độc đáo của nguồn dữ liệu (Orthogonality) quan trọng hơn việc cố gắng ép Sharpe lên mức quá cao. Đôi khi cần hy sinh một phần IS Performance để lấy sự khác biệt.
+
+### 2. Bẫy Toán Học TOP200 (The Sub-universe Bias) & Additive Neutralization
+- **Vấn đề**: Ở Phase 19, các mô hình đạt Sharpe rất cao trên TOP3000 (Ví dụ 1.84) nhưng lại thất bại thảm hại trên TOP200 (Sharpe 0.74, dưới ngưỡng 0.8).
+- **Phát hiện**: Việc sử dụng `group_zscore` (chia cho độ lệch chuẩn thị trường) làm triệt tiêu tín hiệu của nhóm Mega Caps (TOP200) bởi vì Mid/Small Caps có biến động (Std) quá lớn, ép giá trị z-score của Mega Caps về 0.
+- **Biến thể thành công (Additive Group Neutralize)**: 
+  `ts_decay_linear(group_neutralize(Signal_A, market) + group_neutralize(Signal_B, market), 10)`
+  Bằng cách cộng dồn (`+`) và dùng `group_neutralize` (chỉ trừ đi Trung bình, không chia Std), tín hiệu của TOP200 được giữ nguyên vẹn. Giúp Sub-universe Sharpe tăng vọt lên **1.09** mà vẫn giữ được Sharpe tổng là **1.78**.

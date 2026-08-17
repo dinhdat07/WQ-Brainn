@@ -86,3 +86,14 @@ ews_sentiment v?i c?u trúc Momentum (	s_delta, 	s_corr) t?o ra k?t qu? âm (Sharp
 - **Formula:** -(ts_decay_linear(ts_corr((close / ts_delay(close, 1)) - 1, volume, 10) * group_zscore(ts_backfill(implied_volatility_put_10 - implied_volatility_call_10, 20), subindustry), 80))
 - **Reason for Rejection:** Self-Correlation 0.8038 > 0.70 vs actively submitted Phase 12 model 3qpd8ee6 (-(ts_decay_linear(ts_corr(returns, volume, 20) * group_zscore(ts_backfill(implied_volatility_put_20 - implied_volatility_call_20, 20), subindustry), 80))).
 - **Key Takeaway:** Any simple lookback mutation (e.g. 10d vs 20d) of the same underlying core interaction (	s_corr(returns, volume) * group_zscore(IV_skew)) carries >0.80 collinearity with 3qpd8ee6. To generate truly independent, spectacular alphas, we must explore entirely orthogonal factor domains and completely different non-options / fundamental / alternative datasets.
+
+
+## Phase 18 & 19 Failures: The Over-Optimization & Sub-universe Trap
+1. **The Sub-universe Z-Score Trap**:
+   - Attempt: `group_zscore(Fundamental * Sentiment, market)`
+   - Result: TOP3000 Sharpe 1.84 but TRUE SUB-UNIVERSE SHARPE (TOP200) failed at 0.74.
+   - Reason: Standard deviation scaling across the entire market squashes the signal weights of Mega Caps (TOP200) because Small Caps introduce massive variance into the standard deviation.
+2. **The "Best is Not Always Submittable" Paradox**:
+   - Attempt: Submitting highly optimized models like `P0GR1Wdw` (Sharpe 1.78, Sub-universe 1.09).
+   - Result: Failed Self-Correlation (> 0.89) against existing portfolio.
+   - Reason: Highly optimized models using variants of similar factors (Sentiment + Analyst) correlate heavily with previously submitted sentiment/momentum models. A weaker in-sample model (`O0GLmjQR`) with a less optimized but more orthogonal structure successfully passed the constraints instead.
