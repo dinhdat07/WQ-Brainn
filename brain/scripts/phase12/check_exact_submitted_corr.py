@@ -1,83 +1,99 @@
-import os
-import sys
+import requests
+import json
 import time
-import pandas as pd
-import numpy as np
 
-sys.path.append(r"E:\CODING\MMO\wq-brain\WQ-Brainn\brain")
-from brain1 import sign_in
+# 1. API details
+API_BASE = "https://api.worldquantbrain.com"
 
-SUBMITTED_ALPHAS = [
-    "88pomANl", "6Xpn9V2L", "Jjv1g3xO", "d5RaEvVj", 
-    "bldOZEjr", "RR1bxvea", "e7x3P7gO", "le3WZmdl", "ZYKo6R78"
-]
+# 2. Get credentials
+with open("e:/CODING/MMO/wq-brain/wq-alpha-research/credential.txt") as f:
+    creds = json.load(f)
 
-def fetch_pnl_series(session, alpha_id):
-    url = f"https://api.worldquantbrain.com/alphas/{alpha_id}/recordsets/pnl"
-    for _ in range(3):
-        try:
-            resp = session.get(url, timeout=15)
-            if resp.status_code == 200:
-                data = resp.json()
-                records = data.get("records", [])
-                if records:
-                    df = pd.DataFrame(records, columns=["date", "pnl"])
-                    df["date"] = pd.to_datetime(df["date"])
-                    df = df.sort_values("date").set_index("date")
-                    return df["pnl"]
-        except Exception as e:
-            pass
-        time.sleep(1)
-    return None
+# 3. Setup session
+session = requests.Session()
+session.auth = requests.auth.HTTPBasicAuth(creds[0], creds[1])
 
-def check_candidate_vs_portfolio(candidate_id):
-    session, _ = sign_in(r"E:\CODING\MMO\wq-brain\WQ-Brainn\brain\brain_credentials.txt")
-    print(f"\n================ CHECKING CANDIDATE: {candidate_id} ================")
-    cand_s = fetch_pnl_series(session, candidate_id)
-    if cand_s is None:
-        print(f"Failed to fetch PnL for candidate {candidate_id}")
-        return
-        
-    pnl_dict = {candidate_id: cand_s}
-    for sub_id in SUBMITTED_ALPHAS:
-        s = fetch_pnl_series(session, sub_id)
-        if s is not None:
-            pnl_dict[sub_id] = s
-        else:
-            print(f"Warning: Could not load PnL for submitted alpha {sub_id}")
-            
-    df_pnl = pd.DataFrame(pnl_dict).dropna()
-    
-    # 1. Check cumulative PnL correlation
-    pnl_corr = df_pnl.corr()[candidate_id]
-    
-    # 2. Check daily returns correlation
-    df_ret = df_pnl.diff().dropna()
-    ret_corr = df_ret.corr()[candidate_id]
-    
-    print(f"\nResults against {len(SUBMITTED_ALPHAS)} Submitted Alphas:")
-    print(f"{'Submitted ID':<12} | {'PnL Corr':<10} | {'Daily Ret Corr':<15} | {'Status'}")
-    print("-" * 55)
-    
-    max_pnl_corr = -1.0
-    worst_pnl_id = ""
-    for sub_id in SUBMITTED_ALPHAS:
-        if sub_id in pnl_corr:
-            pc = pnl_corr[sub_id]
-            rc = ret_corr[sub_id]
-            status = "[FAIL (>= 0.70)]" if rc >= 0.70 else "[PASS (< 0.70)]"
-            print(f"{sub_id:<12} | {pc:9.4f}  | {rc:14.4f}  | {status}")
-            if pc > max_pnl_corr:
-                max_pnl_corr = pc
-                worst_pnl_id = sub_id
+print("Authenticating...")
+resp = session.post(f"{API_BASE}/authentication")
+if resp.status_code not in [200, 201]:
+    print(f"Auth failed: {resp.status_code}")
+    exit(1)
+
+# The new alpha ID we want to submit
+# We will use O07wR2Qq (Decay 30)
+TARGET_ALPHA = "O07wR2Qq"
+
+# 4. Fetch previously submitted alphas to get their IDs
+print("Fetching previously submitted alphas...")
+submitted_alphas = []
+limit = 100
+offset = 0
+while True:
+    url = f"{API_BASE}/users/self/alphas?limit={limit}&offset={offset}"
+    res = session.get(url)
+    if res.status_code != 200:
+        print(f"Error fetching alphas: {res.status_code} {res.text}")
+        break
+    data = res.json()
+    results = data.get("results", [])
+    if not results:
+        break
+    for a in results:
+        # Check if it was submitted
+        if a.get('submit', False) or a.get('status') == 'SUBMITTED' or a.get('is', {}).get('checks', []):
+            alpha_id = a.get('id')
+            # DON'T add the target alpha itself if it somehow got in there
+            if alpha_id != TARGET_ALPHA:
+                submitted_alphas.append(alpha_id)
                 
-    print("-" * 55)
-    print(f"Worst match: {worst_pnl_id} (PnL Corr: {max_pnl_corr:.4f}, Ret Corr: {ret_corr.get(worst_pnl_id, 0):.4f})")
-    if ret_corr.max() < 0.70:
-        print(f"SUCCESS! {candidate_id} PASSES ALL SELF-CORRELATION TESTS (< 0.70)!")
-    else:
-        print(f"REJECTED! {candidate_id} FAILS self-correlation constraint vs {worst_pnl_id}.")
+    if len(results) < limit:
+        break
+    offset += limit
 
-if __name__ == "__main__":
-    cid = sys.argv[1] if len(sys.argv) > 1 else "RRm3ZdRg"
-    check_candidate_vs_portfolio(cid)
+print(f"Found {len(submitted_alphas)} submitted alphas to check correlation against.")
+if len(submitted_alphas) == 0:
+    print("No submitted alphas found. Correlation is trivially 0.")
+    exit(0)
+
+# 5. Check correlation for the target alpha against ALL submitted alphas
+print(f"Starting correlation check for target alpha {TARGET_ALPHA}...")
+
+# We can query /alphas/{TARGET_ALPHA}/correlations
+# It takes a list of alphas to compare with. We might need to chunk if the list is too long.
+CHUNK_SIZE = 50
+max_corr = 0.0
+
+for i in range(0, len(submitted_alphas), CHUNK_SIZE):
+    chunk = submitted_alphas[i:i+CHUNK_SIZE]
+    alphas_str = ",".join(chunk)
+    corr_url = f"{API_BASE}/alphas/{TARGET_ALPHA}/correlations?alphas={alphas_str}"
+    
+    retry_count = 0
+    while retry_count < 3:
+        corr_res = session.get(corr_url)
+        if corr_res.status_code == 200:
+            corr_data = corr_res.json()
+            for record in corr_data.get("records", []):
+                val = record.get("value", 0.0)
+                if val > max_corr:
+                    max_corr = val
+            break
+        elif corr_res.status_code == 429:
+            print("429 limit, sleeping...")
+            time.sleep(10)
+            retry_count += 1
+        elif corr_res.status_code == 401:
+            session.post(f"{API_BASE}/authentication")
+            retry_count += 1
+        else:
+            print(f"Error getting correlation: {corr_res.status_code} {corr_res.text}")
+            break
+    print(f"Processed chunk {i//CHUNK_SIZE + 1} / {(len(submitted_alphas)-1)//CHUNK_SIZE + 1}, current max corr: {max_corr}")
+
+print("\n--- CORRELATION RESULT ---")
+print(f"Target Alpha: {TARGET_ALPHA}")
+print(f"Maximum Correlation with ANY previously submitted alpha: {max_corr}")
+if max_corr > 0.7:
+    print("FAILED: Correlation is above 0.70")
+else:
+    print("PASSED: Correlation is below 0.70. READY FOR SUBMISSION!")
